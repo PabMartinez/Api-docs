@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'Freightol'
+copyright = '2021, Freightol'
+author = 'Freightol'
 
 release = '0.1'
 version = '0.1.0'
