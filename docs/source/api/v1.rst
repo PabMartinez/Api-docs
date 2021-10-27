@@ -27,8 +27,8 @@ Example response
                 "iataCode": "BCN",
                 "iso": "ES",
                 "geoloc": {
-                "lat": 41.3006,
-                "lng": 2.07976
+                   "lat": 41.3006,
+                   "lng": 2.07976
                 }
             }
         ]
@@ -37,35 +37,35 @@ Parameters
 ~~~~~~~~~~
 
 
-    =============  =======  =======================================
-    Name            Type    Description
-    =============  =======  =======================================
-    nameCityIata   String   Name of city or IATA airport code.
-    =============  =======  =======================================
+    =============  =======  ===========  =========================================
+    Name            Type     Constraint             Description
+    =============  =======  ===========  =========================================
+    nameCityIata   String    Mandatory   Name of city or IATA airport code.
+    =============  =======  ===========  =========================================
 
 Response
 ~~~~~~~~
 
-    =============  =======  =======================================
+    =============  =======  ======================================================
     Name            Type    Description
-    =============  =======  =======================================
+    =============  =======  ======================================================
     name            String   Name of the airport. 
     city            String   Airport city.
     state           String   Airport state. 
     country         String   Airport country.
     iataCode        String   Airport IATA code. 
     iso             String   Country ISO code.
-    geoloc          Model    Airport geolocation  .
-    =============  =======  =======================================
+    geoloc          Model    Airport geolocation.
+    =============  =======  ======================================================
 
     * Geoloc model:
 
-    =============  =======  =======================================
+    =============  =======  ======================================================
     Name            Type    Description
-    =============  =======  =======================================
+    =============  =======  ======================================================
     lat             Double   Airport latitude, precision is (3, 6).
     lng             Double   Airport longitude, precision is (3, 6).
-    =============  =======  =======================================
+    =============  =======  ======================================================
 
 
 
@@ -122,28 +122,83 @@ Example response
 Parameters
 ~~~~~~~~~~
 
+    =============  =======  ===========  =========================================
+    Name            Type     Constraint             Description
+    =============  =======  ===========  =========================================
+    countryCode    String    Mandatory   Country ISO 3166-1 alfa-2 code.
+    loc            String    Mandatory   Name of city or postal code.
+    =============  =======  ===========  =========================================
+
+Response
+~~~~~~~~
+
+    =============  =======  ======================================================
+    Name            Type    Description
+    =============  =======  ======================================================
+    latitude        Double   Latitude, precision is (3, 6).
+    longitude       Double   longitude precision is (3, 6).
+    country         String   Country name.
+    countryCode     String   Country ISO 3166-1 alfa-2 code.
+    city            String   City name.
+    region          Model    Region name.
+    regionCode      Model    Region code.
+    postalCode      Model    Postal code.
+    =============  =======  ======================================================
+
+
+
+Maritime Port
+----------------
+
+Receives the name of the city, and returns a list of ports.
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/maritime/ports?CityName=barcelona
+
+Example response
+~~~~~~~~~~~~~~~~
+
+    .. sourcecode:: json
+
+        [
+            {
+                "unLocCode": "ESBCN",
+                "country": "ES",
+                "city": "Barcelona",
+                "rkstCode": "ESBCN"
+            },
+            {
+                "unLocCode": "VEBLA",
+                "country": "VE",
+                "city": "Barcelona",
+                "rkstCode": "VEBCA"
+            }
+            ]
+
+Parameters
+~~~~~~~~~~
+
     =============  =======  =======================================
     Name            Type    Description
     =============  =======  =======================================
-    countryCode    String   Country ISO code.
-    loc            String   Name of city or postal code.
+    CityName       String    Mandatory   Name of city or IATA airport code.
     =============  =======  =======================================
 
 Response
 ~~~~~~~~
 
-    =============  =======  =======================================
+    =============  =======  ======================================================
     Name            Type    Description
-    =============  =======  =======================================
-    latitude        Double   Latitude, precision is (3, 6).
-    longitude       Double   longitude precision is (3, 6).
-    country         String   Country name.
-    countryCode     String   Country ISO code.
-    city            String   City name.
-    region          Model    Region name.
-    regionCode      Model    Region code.
-    postalCode      Model    Postal code.
-    =============  =======  =======================================
+    =============  =======  ======================================================
+    unLocCode      String   UN/LOCODE 
+    country        String   Country ISO 3166-1 alfa-2 code.
+    city           String   City name.
+    rkstCode       String   Code used internally in Maersk network
+    =============  =======  ======================================================
 
 
 
