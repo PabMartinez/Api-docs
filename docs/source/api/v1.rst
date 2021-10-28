@@ -215,7 +215,7 @@ Example request
         https://api.freightol.com/v1/rates/boxes
         
     .. sourcecode:: json
-
+    
     {
     "origin": {
     "postalCode": "24008",
@@ -251,6 +251,7 @@ Example request
             }
         ]
     }
+    
 
 Example response
 ~~~~~~~~~~~~~~~~
@@ -346,6 +347,7 @@ Example response
     ]
 }
 
+
 Parameters
 ~~~~~~~~~~
 
@@ -385,17 +387,18 @@ Parameters
     lng             Double   Airport longitude, precision is (3, 6).
     =============  =======  ======================================================
     
+    
      * Container:
-    =============  =======  =======================================
-    Name            Type    Description
-    =============  =======  =======================================
-    Quantity        Int      Mandatory Quantity
-    Length          Double   Mandatory Lenght of the cargo
-    Width           Double   Mandatory Width of the cargo
-    Height          Double   Mandatory Height of the cargo
-    Weight          Double   Mandatory Weight of the cargo
-    MeasurementUnit String   Mandatory Measurement unit
-    =============  =======  =======================================
+    =============   =======  =======================================
+    Name             Type    Description
+    =============   =======  =======================================
+    Quantity         Int      Mandatory Quantity
+    Length           Double   Mandatory Lenght of the cargo
+    Width            Double   Mandatory Width of the cargo
+    Height           Double   Mandatory Height of the cargo
+    Weight           Double   Mandatory Weight of the cargo
+    MeasurementUnit  String   Mandatory Measurement unit
+    =============   =======  =======================================
         
 Response
 ~~~~~~~~
