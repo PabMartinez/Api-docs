@@ -202,6 +202,323 @@ Response
 
 
 
+Box Rating
+----------------
+
+Receives data of the Shipment and returns the different quotes for Boxes.
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/rates/boxes
+        
+    .. sourcecode:: json
+
+    {
+    "origin": {
+    "postalCode": "24008",
+    "country": "ES",
+    "city": "León",
+    "state": "CYL",
+    "street": "c/ Corrida,
+    "coords": {"lat": 39.40,"lng":43.40}
+    },
+    "destination": {
+    "postalCode": "33001",
+    "country": "ES",
+    "city": "Ovieod",
+    "state": "AST",
+    "street": "c/ Quevedo",
+    "coords": {"lat": 32.40,"lng":39.40}
+    },
+    "pickUpDate": "2021-10-28T16:54:30.094Z",
+    "goodsDescription": "string",
+    "goodsValue": 100,
+    "insurance": true,
+    "customs": true,
+    "currency": "EUR",
+    "dangerousCargo": true,
+    "boxes": [
+            {
+            "quantity": 1,
+            "length": 10,
+            "width": 10,
+            "height": 10,
+            "weight": 10,
+            "measurementUnit": "CmKg"
+            }
+        ]
+    }
+
+Example response
+~~~~~~~~~~~~~~~~
+
+  .. sourcecode:: json
+  
+  {
+    "quoteId": "d929fedc-83e7-4a81-b274-938af067e662",
+    "origin": {
+        "postalCode": "24008",
+        "country": "ES",
+        "city": "Leon",
+        "state": "CYL",
+        "street": null,
+        "coords": {
+            "lat": null,
+            "lng": null
+        }
+    },
+    "destination": {
+        "postalCode": "33001",
+        "country": "ES",
+        "city": "Ovieod",
+        "state": "AST",
+        "street": null,
+        "coords": {
+            "lat": null,
+            "lng": null
+        }
+    },
+    "pickUpDate": "2021-10-28T14:54:30.094",
+    "rates": [
+        {
+            "id": "cacc83d3-de42-4148-ba8b-e52b5bdbd2cf",
+            "agency": "UPS",
+            "service": "UPS Standard",
+            "pickUpDate": "2021-10-28T17:30:00",
+            "deliveryDate": "2021-10-29T21:30:00",
+            "transitDays": 2,
+            "expirationDate": "2021-10-27T22:00:00",
+            "price": 2003,
+            "extraInfo": [
+                "Services listed as guaranteed are backed by a money-back guarantee for transportation charges only. See Terms and Conditions in the Service Guide for details. Certain commodities and high value shipments may require additional transit time for customs clearance.",
+                "Your invoice may vary from the displayed reference rates",
+                "Horario de corte: 29/10/2021 23:30:00"
+            ]
+        },
+        {
+            "id": "ab0fa27b-f207-4c39-adca-d8d34afc757c",
+            "agency": "UPS",
+            "service": "UPS Express Saver",
+            "pickUpDate": "2021-10-28T17:30:00",
+            "deliveryDate": "2021-10-29T21:30:00",
+            "transitDays": 2,
+            "expirationDate": "2021-10-27T22:00:00",
+            "price": 4139,
+            "extraInfo": [
+                "Services listed as guaranteed are backed by a money-back guarantee for transportation charges only. See Terms and Conditions in the Service Guide for details. Certain commodities and high value shipments may require additional transit time for customs clearance.",
+                "Your invoice may vary from the displayed reference rates",
+                "Horario de corte: 29/10/2021 23:30:00"
+            ]
+        },
+        {
+            "id": "2f59fcba-d195-4d72-9436-5830fdc163b6",
+            "agency": "UPS",
+            "service": "UPS Worldwide Express",
+            "pickUpDate": "2021-10-28T17:30:00",
+            "deliveryDate": "2021-10-29T08:30:00",
+            "transitDays": 1,
+            "expirationDate": "2021-10-27T22:00:00",
+            "price": 4630,
+            "extraInfo": [
+                "Services listed as guaranteed are backed by a money-back guarantee for transportation charges only. See Terms and Conditions in the Service Guide for details. Certain commodities and high value shipments may require additional transit time for customs clearance.",
+                "Your invoice may vary from the displayed reference rates",
+                "Horario de corte: 29/10/2021 10:30:00"
+            ]
+        },
+        {
+            "id": "f2a96a96-730d-471c-b0cb-f627d944f448",
+            "agency": "UPS",
+            "service": "UPS Worldwide Express Plus",
+            "pickUpDate": "2021-10-28T17:30:00",
+            "deliveryDate": "2021-10-29T07:00:00",
+            "transitDays": 1,
+            "expirationDate": "2021-10-27T22:00:00",
+            "price": 10257,
+            "extraInfo": [
+                "Services listed as guaranteed are backed by a money-back guarantee for transportation charges only. See Terms and Conditions in the Service Guide for details. Certain commodities and high value shipments may require additional transit time for customs clearance.",
+                "Your invoice may vary from the displayed reference rates",
+                "Horario de corte: 29/10/2021 09:00:00"
+            ]
+        }
+    ]
+}
+
+Parameters
+~~~~~~~~~~
+
+    =============    =======  =======================================
+    Name              Type    Description
+    =============    =======  =======================================
+    Origin           Location   Mandatory   Object containing the origin info.
+    Destination      Location   Mandatory   Object containing the destination info.
+    Boxes            List<Containers> Mandatory  List of containers for the shipment.
+    PickUpDate       DateTime   Mandatory Pickup date
+    GoodsDescription String     Mandatory Goods description
+    GoodsValue       Long       Mandatory Goods value(last 2 digits are decimals)
+    Insurance        Boolean    Mandatory Has insurance
+    Customs          Boolean    Mandatory Has customs
+    Currency         String     Mandatory Currency(Ex:EUR)
+    DangerousCargo   Boolean    Mandatory Is dangerous cargo
+    =============    =======  =======================================
+
+     * Location:
+    =============  =======  =======================================
+    Name            Type    Description
+    =============  =======  =======================================
+    PostalCode     String    Mandatory PostalCode of the shipment
+    Country        String    Mandatory Country of the shipment
+    City           String    Mandatory City of the shipment
+    State          String    Mandatory State of the shipment
+    Street         String    Optional Street of the shipment
+    coords         Coord     Optional  Geolocation data
+    =============  =======  =======================================
+    
+     * Coord model:
+
+    =============  =======  ======================================================
+    Name            Type    Description
+    =============  =======  ======================================================
+    lat             Double   Airport latitude, precision is (3, 6).
+    lng             Double   Airport longitude, precision is (3, 6).
+    =============  =======  ======================================================
+    
+     * Container:
+    =============  =======  =======================================
+    Name            Type    Description
+    =============  =======  =======================================
+    Quantity        Int      Mandatory Quantity
+    Length          Double   Mandatory Lenght of the cargo
+    Width           Double   Mandatory Width of the cargo
+    Height          Double   Mandatory Height of the cargo
+    Weight          Double   Mandatory Weight of the cargo
+    MeasurementUnit String   Mandatory Measurement unit
+    =============  =======  =======================================
+        
+Response
+~~~~~~~~
+
+    =============  =======  ======================================================
+    Name            Type    Description
+    =============  =======  ======================================================
+    QuoteId        Guid       Id of the quote
+    Origin         Location   Object containing the origin info.
+    Destination    Location   Object containing the destination info.
+    PickUpDate     DateTime   Pickup date
+    Rates          List<Rate> List containing the rates
+    =============  =======  ======================================================
+
+  * Rate:
+    =============    =========    =======================================
+    Name              Type        Description
+    =============    =========    =======================================
+    Id               Int           Quantity
+    Agency           Double        Agency
+    Service          Double        Service
+    PickUpDate       Double        Pickup date
+    DeliveryDate     Double        Delivery date
+    TransitDays      String        Transit days
+    ExpirationDate   DateTime      Expiration date
+    Price            Long          Price(Considering 2 last digits as decimals).      
+    ExtraInfo        List<String>  List of extra info
+    =============    ===========   =======================================
+     
+Box Shipping
+----------------
+
+Receives the name of the city, and returns a list of ports.
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/shipping/boxes
+        
+    .. sourcecode:: json
+
+       {
+        "id": "cacc83d3-de42-4148-ba8b-e52b5bdbd2cf",
+        "origin": {
+        "contactPerson": "DO NOT COLLECT",
+        "companyName": "DO NOT COLLECT",
+        "contactMail": "javier.martinez@freightol.com",
+        "address": "DO NOT COLLECT",
+        "phonePrefix": "676226090",
+        "phone": "34"
+        },
+        "destination": {
+        "contactPerson": "DO NOT COLLECT",
+        "companyName": "DO NOT COLLECT",
+        "contactMail": "javier.martinez@freightol.com",
+        "address": "DO NOT COLLECT",
+        "phonePrefix": "676226090",
+        "phone": "34"
+        },
+        "pickupTimeFrom": "10:10",
+        "pickupTimeTo": "20:20",
+        "pickupDescription": null,
+        "deliveryDescription": null,
+        "incotermCode": null
+        }
+
+Example response
+~~~~~~~~~~~~~~~~
+
+    .. sourcecode:: json
+
+        {
+        "shipmentId": "263baeab-b3df-4400-52e4-08d999fb141c",
+        "shipmentCode": "FR0033FD",
+        "trackingCode": "1Z59Y1R56816301289",
+        "externalTrackingUrl": "dummy",
+        "bookingCode": "1Z59Y1R56816301289"
+        }
+
+Parameters
+~~~~~~~~~~
+
+   =============         =======   =======================================
+    Name                  Type      Description
+    =============        =======   =======================================
+    Id                   Guid       Mandatory  Id of selected the quote
+    Origin               Address   Mandatory  Object containing the origin info.
+    Destination          Address   Mandatory  Object containing the destination info.
+    PickupTimeFrom       String     Mandatory  PickUp start time, timeSpan as string (hh:mm or hh:mm:ss) 
+    PickupTimeTo         String     Mandatory  PickUp end time, timeSpan as string (hh:mm or hh:mm:ss)
+    PickupDescription    String     Optional   Desription for the pickup
+    DeliveryDescription  String     Optional   Desription for the delivery
+    IncotermCode         String     Optional   Inconterm code, requires a valid code
+    =============        =======   =======================================
+
+     * Address:
+    =============  =======  =======================================
+    Name            Type    Description
+    =============  =======  =======================================
+    ContactPerson  String   Contact person
+    CompanyName    String   Company name
+    ContactMail    String   Contact mail
+    Address        String   Address
+    PhonePrefix    String   Phone prefix (without "+")
+    Phone          String   Phone
+    =============  =======  =======================================
+    
+
+Response
+~~~~~~~~
+
+    =============        ======   ======================================================
+    Name                 Type     Description
+    =============        ======   ======================================================
+    ShipmentId           Guid      Guid of the processed shipment
+    ShipmentCode         String    Code of the processed shipment
+    TrackingCode         String    Tracking code
+    ExternalTrackingUrl  Url       External tracking url
+    BookingCode          String    Booking code
+    =============        =======  ======================================================
+
 .. autosummary::
    :toctree: generated
 
