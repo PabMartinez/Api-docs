@@ -202,6 +202,2350 @@ Response
 
 
 
+Box Rating
+----------------
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/rating/boxes
+        
+    .. sourcecode:: json
+
+      {
+        "origin": {
+        "postalCode": "24008",
+        "country": "ES",
+        "city": "León",
+        "state": "CYL",
+        "street": null,
+        "coords": null
+        },
+        "destination": {
+        "postalCode": "33001",
+        "country": "ES",
+        "city": "Ovieod",
+        "state": "AST",
+        "street": null,
+        "coords": null
+        },
+        "pickUpDate": "2021-10-28T16:54:30.094Z",
+        "goodsDescription": "string",
+        "goodsValue": 100,
+        "insurance": true,
+        "customs": true,
+        "currency": "EUR",
+        "dangerousCargo": true,
+        "boxes": [
+            {
+            "quantity": 1,
+            "length": 10,
+            "width": 10,
+            "height": 10,
+            "weight": 10,
+            "measurementUnit": "CmKg"
+            }
+        ]
+    }
+
+Example response
+~~~~~~~~~~~~~~~~
+   
+   
+   .. sourcecode:: json
+
+      {
+	    "quoteId": "d929fedc-83e7-4a81-b274-938af067e662",
+	    "origin": {
+		"postalCode": "24008",
+		"country": "ES",
+		"city": "Leon",
+		"state": "CYL",
+		"street": null,
+		"coords": {
+		    "lat": null,
+		    "lng": null
+		}
+	    },
+	    "destination": {
+		"postalCode": "33001",
+		"country": "ES",
+		"city": "Ovieod",
+		"state": "AST",
+		"street": null,
+		"coords": {
+		    "lat": null,
+		    "lng": null
+		}
+	    },
+	    "pickUpDate": "2021-10-28T14:54:30.094",
+	    "rates": [
+		{
+		    "id": "cacc83d3-de42-4148-ba8b-e52b5bdbd2cf",
+		    "agency": "UPS",
+		    "service": "UPS Standard",
+		    "pickUpDate": "2021-10-28T17:30:00",
+		    "deliveryDate": "2021-10-29T21:30:00",
+		    "transitDays": 2,
+		    "expirationDate": "2021-10-27T22:00:00",
+		    "price": 2003,
+		    "extraInfo": [
+			"Services listed as guaranteed are backed by a money-back guarantee for transportation charges only. See Terms and Conditions in the Service Guide for details. Certain commodities and high value shipments may require additional transit time for customs clearance.",
+			"Your invoice may vary from the displayed reference rates",
+			"Horario de corte: 29/10/2021 23:30:00"
+		    ]
+		},
+		{
+		    "id": "ab0fa27b-f207-4c39-adca-d8d34afc757c",
+		    "agency": "UPS",
+		    "service": "UPS Express Saver",
+		    "pickUpDate": "2021-10-28T17:30:00",
+		    "deliveryDate": "2021-10-29T21:30:00",
+		    "transitDays": 2,
+		    "expirationDate": "2021-10-27T22:00:00",
+		    "price": 4139,
+		    "extraInfo": [
+			"Services listed as guaranteed are backed by a money-back guarantee for transportation charges only. See Terms and Conditions in the Service Guide for details. Certain commodities and high value shipments may require additional transit time for customs clearance.",
+			"Your invoice may vary from the displayed reference rates",
+			"Horario de corte: 29/10/2021 23:30:00"
+		    ]
+		},
+		{
+		    "id": "2f59fcba-d195-4d72-9436-5830fdc163b6",
+		    "agency": "UPS",
+		    "service": "UPS Worldwide Express",
+		    "pickUpDate": "2021-10-28T17:30:00",
+		    "deliveryDate": "2021-10-29T08:30:00",
+		    "transitDays": 1,
+		    "expirationDate": "2021-10-27T22:00:00",
+		    "price": 4630,
+		    "extraInfo": [
+			"Services listed as guaranteed are backed by a money-back guarantee for transportation charges only. See Terms and Conditions in the Service Guide for details. Certain commodities and high value shipments may require additional transit time for customs clearance.",
+			"Your invoice may vary from the displayed reference rates",
+			"Horario de corte: 29/10/2021 10:30:00"
+		    ]
+		},
+		{
+		    "id": "f2a96a96-730d-471c-b0cb-f627d944f448",
+		    "agency": "UPS",
+		    "service": "UPS Worldwide Express Plus",
+		    "pickUpDate": "2021-10-28T17:30:00",
+		    "deliveryDate": "2021-10-29T07:00:00",
+		    "transitDays": 1,
+		    "expirationDate": "2021-10-27T22:00:00",
+		    "price": 10257,
+		    "extraInfo": [
+			"Services listed as guaranteed are backed by a money-back guarantee for transportation charges only. See Terms and Conditions in the Service Guide for details. Certain commodities and high value shipments may require additional transit time for customs clearance.",
+			"Your invoice may vary from the displayed reference rates",
+			"Horario de corte: 29/10/2021 09:00:00"
+		    ]
+		}
+	    ]
+	}
+   
+   
+   
+Parameters
+~~~~~~~~~~
+
+
+    ==================   ===================   =============   ===============================================
+     Name                 Type                  Constraint      Description
+    ==================   ===================   =============   ===============================================
+     Origin               Location              Mandatory       Object containing the origin info.
+     Destination          Location              Mandatory       Object containing the destination info.
+     Boxes                List<Containers>      Mandatory       List of containers for the shipment.
+     PickUpDate           DateTime              Mandatory       Pickup date
+     GoodsDescription     String                Mandatory       Goods description
+     GoodsValue           Long                  Mandatory       Goods value(last 2 digits are decimals)
+     Insurance            Boolean               Mandatory       Has insurance
+     Customs              Boolean               Mandatory       Has customs
+     Currency             String                Mandatory       Currency(Ex:EUR)
+     DangerousCargo       Boolean               Mandatory       Is dangerous cargo
+    ==================   ===================   =============   ===============================================
+
+    * Location:
+    =============     ========    =============      =======================================
+     Name              Type        Constraint        Description
+    =============     ========    =============      =======================================
+     PostalCode        String      Mandatory 	      PostalCode of the shipment
+     Country           String      Mandatory 	      Country of the shipment
+     City              String      Mandatory 	      City of the shipment
+     State             String      Mandatory 	      State of the shipment
+     Street            String      Optional 	      Street of the shipment
+     coords            Coord       Optional 	      Geolocation data
+    =============     ========    =============      =======================================
+
+    * Coord model:
+    =============     ========     =============    ======================================================
+     Name              Type         Constraint       Description
+    =============     ========     =============    ======================================================
+     lat               Double       Mandatory        Airport latitude, precision is (3, 6).
+     lng               Double       Mandatory 	     Airport longitude, precision is (3, 6).
+    =============     ========     =============    ======================================================
+
+    * Container:
+    ==================    =========    =============     =======================================
+     Name                  Type         Constraint        Description
+    ==================    =========    =============     =======================================
+     Quantity              Int          Mandatory 	  Quantity
+     Length                Double       Mandatory 	  Lenght of the cargo
+     Width                 Double       Mandatory 	  Width of the cargo
+     Height                Double       Mandatory	  Height of the cargo
+     Weight                Double       Mandatory  	  Weight of the cargo
+     MeasurementUnit       String       Mandatory 	  Measurement unit
+    ==================    =========    =============     =======================================
+    
+    
+    
+Response
+~~~~~~~~
+
+
+    =============     =============    ======================================================
+     Name               Type            Description
+    =============     =============    ======================================================
+     QuoteId           Guid             Id of the quote
+     Origin            Location         Object containing the origin info.
+     Destination       Location         Object containing the destination info.
+     PickUpDate        DateTime         Pickup date
+     Rates             List<Rate>       List containing the rates
+    =============     =============    ======================================================
+
+     * Location:
+    =============     ========    =============      =======================================
+     Name              Type        Constraint        Description
+    =============     ========    =============      =======================================
+     PostalCode        String      Mandatory 	      PostalCode of the shipment
+     Country           String      Mandatory 	      Country of the shipment
+     City              String      Mandatory 	      City of the shipment
+     State             String      Mandatory 	      State of the shipment
+     Street            String      Optional 	      Street of the shipment
+     coords            Coord       Optional 	      Geolocation data
+    =============     ========    =============      =======================================
+    
+
+     * Rate:
+    ===================    ====================    ==========================================================
+     Name                    Type                    Description
+    ===================    ====================    ==========================================================
+     Id                     Int                     Quantity
+     Agency                 Double                  Agency
+     Service                Double                  Service
+     PickUpDate             Double                  Pickup date
+     DeliveryDate           Double                  Delivery date
+     TransitDays            String                  Transit days
+     ExpirationDate         DateTime                Expiration date
+     Price                  Long                    Price(Considering 2 last digits as decimals).      
+     ExtraInfo              List<String>            List of extra info
+    ===================    ====================    ==========================================================
+    
+    
+    
+Box Shipping
+----------------
+
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/shipping/boxes
+        
+    .. sourcecode:: json
+
+       {
+        "id": "cacc83d3-de42-4148-ba8b-e52b5bdbd2cf",
+        "origin": {
+        "contactPerson": "DO NOT COLLECT",
+        "companyName": "DO NOT COLLECT",
+        "contactMail": "test@test.com",
+        "address": "DO NOT COLLECT",
+        "phonePrefix": "676226090",
+        "phone": "34"
+        },
+        "destination": {
+        "contactPerson": "DO NOT COLLECT",
+        "companyName": "DO NOT COLLECT",
+        "contactMail": "test@test.com",
+        "address": "DO NOT COLLECT",
+        "phonePrefix": "676226090",
+        "phone": "34"
+        },
+        "pickupTimeFrom": "10:10",
+        "pickupTimeTo": "20:20",
+        "pickupDescription": null,
+        "deliveryDescription": null,
+        "incotermCode": null
+        }
+
+Example response
+~~~~~~~~~~~~~~~~
+
+    .. sourcecode:: json
+
+        {
+        "shipmentId": "215bcdxe-b3df-4400-52e4-08d999fb141c",
+        "shipmentCode": "FR9999FD",
+        "trackingCode": "1S51S1S56816301289",
+        "externalTrackingUrl": "dummy",
+        "bookingCode": "1S51S1S56816301289"
+        }
+
+Parameters
+~~~~~~~~~~
+
+    =====================   =========   =============    ================================================================
+     Name                     Type       Constraint       Description
+    =====================   =========   =============    ================================================================
+     Id                      Guid        Mandatory        Id of selected the quote
+     Origin                  Address     Mandatory        Object containing the origin info.
+     Destination             Address     Mandatory        Object containing the destination info.
+     PickupTimeFrom          String      Mandatory        PickUp start time, timeSpan as string (hh:mm or hh:mm:ss) 
+     PickupTimeTo            String      Mandatory        PickUp end time, timeSpan as string (hh:mm or hh:mm:ss)
+     PickupDescription       String      Optional         Desription for the pickup
+     DeliveryDescription     String      Optional         Desription for the delivery
+     IncotermCode            String      Optional         Inconterm code, requires a valid code
+    =====================   =========   =============    ================================================================
+
+     * Address:
+    =================    ==========   =============    =======================================
+     Name                 Type         Constraint       Description
+    =================    ==========   =============    =======================================
+     ContactPerson        String       Mandatory        Contact person
+     CompanyName          String       Mandatory        Company name
+     ContactMail          String       Mandatory        Contact mail
+     Address              String       Mandatory        Address
+     PhonePrefix          String       Optional         Phone prefix (without "+")
+     Phone                String       Mandatory        Phone
+    =================    ==========   =============    =======================================
+    
+Response
+~~~~~~~~
+
+    =======================   ==========   ===============================================
+     Name                      Type         Description
+    =======================   ==========   ===============================================
+     ShipmentId                Guid         Guid of the processed shipment
+     ShipmentCode              String       Code of the processed shipment
+     TrackingCode              String       Tracking code
+     ExternalTrackingUrl       Url          External tracking url
+     BookingCode               String       Booking code
+    =======================   ==========   ===============================================
+    
+    
+Pallet Rating
+----------------
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/rating/pallets
+        
+    .. sourcecode:: json
+
+      {
+	    "origin": {
+	    "postalCode": "24008",
+	    "country": "ES",
+	    "city": "León",
+	    "state": "CYL",
+	    "street": null,
+	    "coords": null
+	    },
+	    "destination": {
+	    "postalCode": "33001",
+	    "country": "ES",
+	    "city": "Oviedo",
+	    "state": "AST",
+	    "street": null,
+	    "coords": null
+	    },
+	    "pickUpDate": "2021-10-28T16:54:30.094Z",
+	    "goodsDescription": "string",
+	    "goodsValue": 100,
+	    "insurance": true,
+	    "customs": true,
+	    "currency": "EUR",
+	    "dangerousCargo": true,
+	    "pallets": [
+		{
+		"quantity": 1,
+		"length": 10,
+		"width": 10,
+		"height": 10,
+		"weight": 10,
+		"measurementUnit": "CmKg",
+		"IsStackable": false,
+		"PalletType": 2
+		}
+	    ]
+	}
+
+Example response
+~~~~~~~~~~~~~~~~
+   
+   
+   .. sourcecode:: json
+
+      {
+    "quoteId": "065cbdf0-2bb8-48f0-a1f7-fc5a35c60592",
+    "origin": {
+        "postalCode": "24008",
+        "country": "ES",
+        "city": "Leon",
+        "state": "CYL",
+        "street": null,
+        "coords": {
+            "lat": null,
+            "lng": null
+        }
+    },
+    "destination": {
+        "postalCode": "33001",
+        "country": "ES",
+        "city": "Oviedo",
+        "state": "AST",
+        "street": null,
+        "coords": {
+            "lat": null,
+            "lng": null
+        }
+    },
+    "pickUpDate": "2021-10-28T14:54:30.094",
+    "rates": [
+        {
+            "id": "8d34a39b-d082-403c-931d-af7c42e901eb",
+            "agency": "UPS",
+            "service": "UPS Standard",
+            "pickUpDate": "2021-10-28T17:30:00",
+            "deliveryDate": "2021-10-29T21:30:00",
+            "transitDays": 2,
+            "expirationDate": "2021-10-27T22:00:00",
+            "price": 2003,
+            "extraInfo": [
+                "Services listed as guaranteed are backed by a money-back guarantee for transportation charges only. See Terms and Conditions in the Service Guide for details. Certain commodities and high value shipments may require additional transit time for customs clearance.",
+                "Your invoice may vary from the displayed reference rates",
+                "Horario de corte: 29/10/2021 23:30:00"
+            ]
+        },
+        {
+            "id": "31978773-3a22-44ac-b965-feb41bfc3a20",
+            "agency": "UPS",
+            "service": "UPS Express Saver",
+            "pickUpDate": "2021-10-28T17:30:00",
+            "deliveryDate": "2021-10-29T21:30:00",
+            "transitDays": 2,
+            "expirationDate": "2021-10-27T22:00:00",
+            "price": 4139,
+            "extraInfo": [
+                "Services listed as guaranteed are backed by a money-back guarantee for transportation charges only. See Terms and Conditions in the Service Guide for details. Certain commodities and high value shipments may require additional transit time for customs clearance.",
+                "Your invoice may vary from the displayed reference rates",
+                "Horario de corte: 29/10/2021 23:30:00"
+            ]
+        },
+        {
+            "id": "6ceff759-046f-4acf-9a4b-3c310324e533",
+            "agency": "UPS",
+            "service": "UPS Worldwide Express",
+            "pickUpDate": "2021-10-28T17:30:00",
+            "deliveryDate": "2021-10-29T08:30:00",
+            "transitDays": 1,
+            "expirationDate": "2021-10-27T22:00:00",
+            "price": 4630,
+            "extraInfo": [
+                "Services listed as guaranteed are backed by a money-back guarantee for transportation charges only. See Terms and Conditions in the Service Guide for details. Certain commodities and high value shipments may require additional transit time for customs clearance.",
+                "Your invoice may vary from the displayed reference rates",
+                "Horario de corte: 29/10/2021 10:30:00"
+            ]
+        },
+        {
+            "id": "167624bc-d698-4666-b6ba-12f360753766",
+            "agency": "UPS",
+            "service": "UPS Worldwide Express Plus",
+            "pickUpDate": "2021-10-28T17:30:00",
+            "deliveryDate": "2021-10-29T07:00:00",
+            "transitDays": 1,
+            "expirationDate": "2021-10-27T22:00:00",
+            "price": 10257,
+            "extraInfo": [
+                "Services listed as guaranteed are backed by a money-back guarantee for transportation charges only. See Terms and Conditions in the Service Guide for details. Certain commodities and high value shipments may require additional transit time for customs clearance.",
+                "Your invoice may vary from the displayed reference rates",
+                "Horario de corte: 29/10/2021 09:00:00"
+            ]
+        }
+    ]
+}
+   
+   
+   
+Parameters
+~~~~~~~~~~
+
+
+    ==================   ===================   =============   ===============================================
+     Name                 Type                  Constraint      Description
+    ==================   ===================   =============   ===============================================
+     Origin               Location              Mandatory       Object containing the origin info.
+     Destination          Location              Mandatory       Object containing the destination info.
+     Boxes                List<Containers>      Mandatory       List of containers for the shipment.
+     PickUpDate           DateTime              Mandatory       Pickup date
+     GoodsDescription     String                Mandatory       Goods description
+     GoodsValue           Long                  Mandatory       Goods value(last 2 digits are decimals)
+     Insurance            Boolean               Mandatory       Has insurance
+     Customs              Boolean               Mandatory       Has customs
+     Currency             String                Mandatory       Currency(Ex:EUR)
+     DangerousCargo       Boolean               Mandatory       Is dangerous cargo
+    ==================   ===================   =============   ===============================================
+
+    * Location:
+    =============     ========    =============      =======================================
+     Name              Type        Constraint        Description
+    =============     ========    =============      =======================================
+     PostalCode        String      Mandatory 	      PostalCode of the shipment
+     Country           String      Mandatory 	      Country of the shipment
+     City              String      Mandatory 	      City of the shipment
+     State             String      Mandatory 	      State of the shipment
+     Street            String      Optional 	      Street of the shipment
+     coords            Coord       Optional 	      Geolocation data
+    =============     ========    =============      =======================================
+
+    * Coord model:
+    =============     ========     =============    ======================================================
+     Name              Type         Constraint       Description
+    =============     ========     =============    ======================================================
+     lat               Double       Mandatory        Airport latitude, precision is (3, 6).
+     lng               Double       Mandatory 	     Airport longitude, precision is (3, 6).
+    =============     ========     =============    ======================================================
+
+    * Container:
+    ==================    =============      ==============     ==========================================================
+     Name                  Type               Constraint         Description
+    ==================    =============      ==============     ==========================================================
+     Quantity              Int                Mandatory 	 Quantity
+     Length                Double             Mandatory 	 Lenght of the cargo
+     Width                 Double             Mandatory 	 Width of the cargo
+     Height                Double             Mandatory	         Height of the cargo
+     Weight                Double             Mandatory  	 Weight of the cargo
+     MeasurementUnit       String             Mandatory 	 Measurement unit
+     IsStackable	   Boolean            Mandatory          The pallet is Stackable or not.
+     PalletType		   Int                Mandatory		 Pallet Type(0-Other,1-Euro1,2-Euro2,3-UK)
+    ==================    =============      ==============     ==========================================================
+    
+    
+Response
+~~~~~~~~
+
+
+    =============     =============    ======================================================
+     Name               Type            Description
+    =============     =============    ======================================================
+     QuoteId           Guid             Id of the quote
+     Origin            Location         Object containing the origin info.
+     Destination       Location         Object containing the destination info.
+     PickUpDate        DateTime         Pickup date
+     Rates             List<Rate>       List containing the rates
+    =============     =============    ======================================================
+
+     * Location:
+    =============     ========    =============      =======================================
+     Name              Type        Constraint        Description
+    =============     ========    =============      =======================================
+     PostalCode        String      Mandatory 	      PostalCode of the shipment
+     Country           String      Mandatory 	      Country of the shipment
+     City              String      Mandatory 	      City of the shipment
+     State             String      Mandatory 	      State of the shipment
+     Street            String      Optional 	      Street of the shipment
+     coords            Coord       Optional 	      Geolocation data
+    =============     ========    =============      =======================================
+
+     * Rate:
+    ===================    ====================    ==========================================================
+     Name                    Type                    Description
+    ===================    ====================    ==========================================================
+     Id                     Int                     Quantity
+     Agency                 Double                  Agency
+     Service                Double                  Service
+     PickUpDate             Double                  Pickup date
+     DeliveryDate           Double                  Delivery date
+     TransitDays            String                  Transit days
+     ExpirationDate         DateTime                Expiration date
+     Price                  Long                    Price(Considering 2 last digits as decimals).      
+     ExtraInfo              List<String>            List of extra info
+    ===================    ====================    ==========================================================
+    
+    
+    
+Pallet Shipping
+----------------
+
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/shipping/pallets
+        
+    .. sourcecode:: json
+
+     {
+	"id": "8d34a39b-d082-403c-931d-af7c42e901eb",
+	"origin": {
+	"contactPerson": "DO NOT COLLECT",
+	"companyName": "DO NOT COLLECT",
+	"contactMail": "test@test.com",
+	"address": "DO NOT COLLECT",
+	"phonePrefix": "999999999",
+	"phone": "34"
+	},
+	"destination": {
+	"contactPerson": "DO NOT COLLECT",
+	"companyName": "DO NOT COLLECT",
+	"contactMail": "test@test.com",
+	"address": "DO NOT COLLECT",
+	"phonePrefix": "999999999",
+	"phone": "34"
+	},
+	"pickupTimeFrom": "10:10",
+	"pickupTimeTo": "20:20",
+	"pickupDescription": null,
+	"deliveryDescription": null,
+	"incotermCode": null
+    }
+
+
+
+Example response
+~~~~~~~~~~~~~~~~
+
+    .. sourcecode:: json
+
+        {
+        "shipmentId": "215bcdxe-b3df-4400-52e4-08d999fb141c",
+        "shipmentCode": "FR9999FD",
+        "trackingCode": "1S51S1S56816301289",
+        "externalTrackingUrl": "dummy",
+        "bookingCode": "1S51S1S56816301289"
+        }
+
+Parameters
+~~~~~~~~~~
+
+    =====================   =========   =============    ================================================================
+     Name                     Type       Constraint       Description
+    =====================   =========   =============    ================================================================
+     Id                      Guid        Mandatory        Id of selected the quote
+     Origin                  Address     Mandatory        Object containing the origin info.
+     Destination             Address     Mandatory        Object containing the destination info.
+     PickupTimeFrom          String      Mandatory        PickUp start time, timeSpan as string (hh:mm or hh:mm:ss) 
+     PickupTimeTo            String      Mandatory        PickUp end time, timeSpan as string (hh:mm or hh:mm:ss)
+     PickupDescription       String      Optional         Desription for the pickup
+     DeliveryDescription     String      Optional         Desription for the delivery
+     IncotermCode            String      Optional         Inconterm code, requires a valid code
+    =====================   =========   =============    ================================================================
+
+     * Address:
+    =================    ==========   =============    =======================================
+     Name                 Type         Constraint       Description
+    =================    ==========   =============    =======================================
+     ContactPerson        String       Mandatory        Contact person
+     CompanyName          String       Mandatory        Company name
+     ContactMail          String       Mandatory        Contact mail
+     Address              String       Mandatory        Address
+     PhonePrefix          String       Optional         Phone prefix (without "+")
+     Phone                String       Mandatory        Phone
+    =================    ==========   =============    =======================================
+    
+Response
+~~~~~~~~
+
+    =======================   ==========   ===============================================
+     Name                      Type         Description
+    =======================   ==========   ===============================================
+     ShipmentId                Guid         Guid of the processed shipment
+     ShipmentCode              String       Code of the processed shipment
+     TrackingCode              String       Tracking code
+     ExternalTrackingUrl       Url          External tracking url
+     BookingCode               String       Booking code
+    =======================   ==========   ===============================================
+    
+    
+      
+Pallet Types
+----------------
+
+Retrieves the list of pallet types
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/courier
+  
+  
+Example response
+~~~~~~~~~~~~~~~~
+
+    .. sourcecode:: json
+
+	[
+	    {
+		"type": "Custom",
+		"length": null,
+		"width": null,
+		"height": null,
+		"unit": null
+	    },
+	    {
+		"type": "Euro",
+		"length": 120,
+		"width": 80,
+		"height": 145,
+		"unit": "CM"
+	    },
+	    {
+		"type": "American",
+		"length": 120,
+		"width": 100,
+		"height": null,
+		"unit": "CM"
+	    }
+	]
+
+Parameters
+~~~~~~~~~~   
+    
+Response
+~~~~~~~~
+
+    =======================   ==========   ===============================================
+     Name                      Type         Description
+    =======================   ==========   ===============================================
+     Type		       String       Pallet type
+     Length		       Double       Pallet length
+     Width		       Double       Pallet width
+     Height		       Double       Pallet height
+     Unit		       String       Unit of measurement
+    =======================   ==========   ===============================================
+
+ 
+Containers
+----------------
+
+Retrieves the list of containers
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/maritime
+  
+  
+Example response
+~~~~~~~~~~~~~~~~
+
+    .. sourcecode:: json
+
+	[
+	    {
+		"size": "20",
+		"type": "DRY",
+		"name": "20DRY",
+		"label": "40 Dry Standard",
+		"isReefer": false
+	    },
+	    {
+		"size": "40",
+		"type": "DRY",
+		"name": "40DRY",
+		"label": "40 Dry Standard",
+		"isReefer": false
+	    },
+	    {
+		"size": "40",
+		"type": "HDRY",
+		"name": "40HDRY",
+		"label": "40 Dry High",
+		"isReefer": false
+	    },
+	    {
+		"size": "45",
+		"type": "HDRY",
+		"name": "45HDRY",
+		"label": "45 Dry High",
+		"isReefer": false
+	    },
+	    {
+		"size": "20",
+		"type": "OPENTOP",
+		"name": "20OPENTOP",
+		"label": "20 Open Top Standard",
+		"isReefer": false
+	    },
+	    {
+		"size": "40",
+		"type": "OPENTOP",
+		"name": "40OPENTOP",
+		"label": "40 Open Top Standard",
+		"isReefer": false
+	    },
+	    {
+		"size": "40",
+		"type": "HOPENTOP",
+		"name": "40HOPENTOP",
+		"label": "45 Open Top High",
+		"isReefer": false
+	    },
+	    {
+		"size": "40",
+		"type": "FLATRACK",
+		"name": "40FLATRACK",
+		"label": "40 Flat Rack Standard",
+		"isReefer": false
+	    },
+	    {
+		"size": "40",
+		"type": "HFLATRACK",
+		"name": "40HFLATRACK",
+		"label": "45 Flat Rack High",
+		"isReefer": false
+	    },
+	    {
+		"size": "40",
+		"type": "HNOR",
+		"name": "40HNOR",
+		"label": "40 Non Operating Reefer High",
+		"isReefer": false
+	    },
+	    {
+		"size": "45",
+		"type": "HNOR",
+		"name": "45HNOR",
+		"label": "45 Non Operating Reefer High",
+		"isReefer": false
+	    },
+	    {
+		"size": "20",
+		"type": "RF",
+		"name": "20RF",
+		"label": "20 Reefer Standard",
+		"isReefer": true
+	    },
+	    {
+		"size": "40",
+		"type": "RF",
+		"name": "40RF",
+		"label": "40 Reefer Standard",
+		"isReefer": true
+	    },
+	    {
+		"size": "40",
+		"type": "HRF",
+		"name": "40HRF",
+		"label": "45 Reefer High",
+		"isReefer": false
+	    },
+	    {
+		"size": "45",
+		"type": "RF",
+		"name": "45RF",
+		"label": "45 Reefer Standard",
+		"isReefer": true
+	    },
+	    {
+		"size": "20",
+		"type": "FLATRACK",
+		"name": "20FLATRACK",
+		"label": "20 Flat Rack Standard",
+		"isReefer": false
+	    }
+	]
+
+Parameters
+~~~~~~~~~~   
+    
+Response
+~~~~~~~~
+
+    =======================   ==========   ===============================================
+     Name                      Type         Description
+    =======================   ==========   ===============================================
+     Size		       Double	    Size
+     Type		       String       Type
+     Name		       String       Name
+     Label		       String       Label
+     IsReefer		       Boolean      Is reefer
+    =======================   ==========   ===============================================
+
+
+FCL Sea Rating
+----------------
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/rating/sea/fcl
+        
+    .. sourcecode:: json
+
+      {
+	  "currency": "EUR",
+	  "customs": false,
+	  "dangerousCargo": false,
+	  "goodsDescription": "PRODUCTOS ORIGEN ANIMAL",
+	  "goodsValue": 10,
+	  "pickUpDate": "2021-11-09T00:00:00.000Z",
+	  "insurance": false,
+	  "Containers": [
+	    {
+	      "quantity": 1,
+	      "weight": 1000,
+	      "measurementUnit": 1,
+	      "type": 1,
+	      "isOwnedContainer": false,
+	      "isReeferContainer": false,
+	      "imoNumber": ""
+	    }
+	  ],
+	  "Cargos": [],
+	  "DangerousInfo": null,
+	  "originServiceType": 2,
+	  "destinationServiceType": 2,
+	  "origin": {
+	    "postalCode": "999077",
+	    "country": "HK",
+	    "city": "Hong Kong",
+	    "state": "Sai Kung",
+	    "street": null,
+	    "coords": null
+	    },
+	    "destination": {
+	    "postalCode": "08001",
+	    "country": "ES",
+	    "city": "Barcelona",
+	    "state": "Cataluña",
+	    "street": null,
+	    "coords": null
+	    },
+	  "originUnLocCode": "HKHKG",
+	  "originRkstCode": "HKHKG",
+	  "destinationUnLocCode": "ESBCN",
+	  "destinationRkstCode": "ESBCN"
+	}
+
+Example response
+~~~~~~~~~~~~~~~~
+   
+   
+   .. sourcecode:: json
+
+      {
+	    "quoteId": "cedb8248-ee94-4bfd-ae68-60d05073d460",
+	    "origin": {
+		"postalCode": "999077",
+		"country": "HK",
+		"city": "Hong Kong",
+		"state": "Sai Kung",
+		"street": null,
+		"coords": {
+		    "lat": null,
+		    "lng": null
+		}
+	    },
+	    "destination": {
+		"postalCode": "08001",
+		"country": "ES",
+		"city": "Barcelona",
+		"state": "Cataluña",
+		"street": null,
+		"coords": {
+		    "lat": null,
+		    "lng": null
+		}
+	    },
+	    "pickUpDate": "2021-11-09T00:00:00",
+	    "rates": [
+		{
+		    "sealine": "None",
+		    "scheduleDetails": [
+			{
+			    "routeDetails": [
+				{
+				    "fromLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "HKHKGMO",
+					"unLocCode": "HKHKG",
+					"city": "Hong Kong",
+					"countryCode": "HK",
+					"expectedDate": "2021-11-10T12:00:00"
+				    },
+				    "toLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "CNNANCT",
+					"unLocCode": "CNNSA",
+					"city": "Nansha New Port",
+					"countryCode": "CN",
+					"expectedDate": "2021-11-10T20:00:00"
+				    },
+				    "transport": {
+					"transportMode": "VESSEL",
+					"name": "SAN CHRISTOBAL",
+					"code": "9699191"
+				    }
+				},
+				{
+				    "fromLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "CNNANCT",
+					"unLocCode": "CNNSA",
+					"city": "Nansha New Port",
+					"countryCode": "CN",
+					"expectedDate": "2021-11-16T11:00:00"
+				    },
+				    "toLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "ESBCNBS",
+					"unLocCode": "ESBCN",
+					"city": "Barcelona",
+					"countryCode": "ES",
+					"expectedDate": "2021-12-18T20:00:00"
+				    },
+				    "transport": {
+					"transportMode": "VESSEL",
+					"name": "MSC ARINA",
+					"code": "9839284"
+				    }
+				}
+			    ],
+			    "deadlines": [
+				{
+				    "deadLineKey": "CY",
+				    "type": "Documentation",
+				    "deadLine": "2021-11-08 17:00:00",
+				    "name": "Commercial Cargo Cutoff"
+				},
+				{
+				    "deadLineKey": "SIAMS",
+				    "type": "Documentation",
+				    "deadLine": "2021-11-06 16:00:00",
+				    "name": "Shipping Instructions Deadline for Advance Manifest Cargo"
+				},
+				{
+				    "deadLineKey": "VGM",
+				    "type": "Documentation",
+				    "deadLine": "2021-11-08 11:00:00",
+				    "name": "Commercial Verified Gross Mass Deadline"
+				},
+				{
+				    "deadLineKey": "LCD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-08 11:00:00",
+				    "name": "Loadlist Closure Deadline"
+				},
+				{
+				    "deadLineKey": "CSPD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-08 12:00:00",
+				    "name": "Coprar to Stowage Planners Deadline"
+				},
+				{
+				    "deadLineKey": "FLD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-08 17:00:00",
+				    "name": "Final Loadlist Deadline"
+				},
+				{
+				    "deadLineKey": "SCDD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-08 11:00:00",
+				    "name": "Special Cargo Documentation Deadline"
+				}
+			    ]
+			},
+			{
+			    "routeDetails": [
+				{
+				    "fromLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "HKHKGMO",
+					"unLocCode": "HKHKG",
+					"city": "Hong Kong",
+					"countryCode": "HK",
+					"expectedDate": "2021-11-10T12:00:00"
+				    },
+				    "toLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "CNNANCT",
+					"unLocCode": "CNNSA",
+					"city": "Nansha New Port",
+					"countryCode": "CN",
+					"expectedDate": "2021-11-10T20:00:00"
+				    },
+				    "transport": {
+					"transportMode": "VESSEL",
+					"name": "SAN CHRISTOBAL",
+					"code": "9699191"
+				    }
+				},
+				{
+				    "fromLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "CNNANCT",
+					"unLocCode": "CNNSA",
+					"city": "Nansha New Port",
+					"countryCode": "CN",
+					"expectedDate": "2021-11-16T11:00:00"
+				    },
+				    "toLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "ESBCNBS",
+					"unLocCode": "ESBCN",
+					"city": "Barcelona",
+					"countryCode": "ES",
+					"expectedDate": "2021-12-18T20:00:00"
+				    },
+				    "transport": {
+					"transportMode": "VESSEL",
+					"name": "MSC ARINA",
+					"code": "9839284"
+				    }
+				}
+			    ],
+			    "deadlines": [
+				{
+				    "deadLineKey": "CY",
+				    "type": "Documentation",
+				    "deadLine": "2021-11-16 12:00:00",
+				    "name": "Commercial Cargo Cutoff"
+				},
+				{
+				    "deadLineKey": "SIAMS",
+				    "type": "Documentation",
+				    "deadLine": "2021-11-13 22:00:00",
+				    "name": "Shipping Instructions Deadline for Advance Manifest Cargo"
+				},
+				{
+				    "deadLineKey": "VGM",
+				    "type": "Documentation",
+				    "deadLine": "2021-11-16 10:00:00",
+				    "name": "Commercial Verified Gross Mass Deadline"
+				},
+				{
+				    "deadLineKey": "LCD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-15 16:00:00",
+				    "name": "Loadlist Closure Deadline"
+				},
+				{
+				    "deadLineKey": "CSPD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-15 17:00:00",
+				    "name": "Coprar to Stowage Planners Deadline"
+				},
+				{
+				    "deadLineKey": "FLD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-16 12:00:00",
+				    "name": "Final Loadlist Deadline"
+				},
+				{
+				    "deadLineKey": "SCDD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-15 16:00:00",
+				    "name": "Special Cargo Documentation Deadline"
+				}
+			    ]
+			}
+		    ],
+		    "conditions": [
+			{
+			    "chargeType": 1,
+			    "containerSizeType": "40DRY",
+			    "freeTimeStartEvent": "DISCHARGE",
+			    "freeTimeGrantInDays": 7,
+			    "commodity": "GENERAL CARGO",
+			    "price": 4308
+			},
+			{
+			    "chargeType": 2,
+			    "containerSizeType": "40DRY",
+			    "freeTimeStartEvent": "DISCHARGE",
+			    "freeTimeGrantInDays": 5,
+			    "commodity": "GENERAL CARGO",
+			    "price": 431
+			}
+		    ],
+		    "penalties": [
+			{
+			    "containerSizeType": "40DRY",
+			    "currency": "EUR",
+			    "charges": [
+				{
+				    "penaltyType": 0,
+				    "price": 51692,
+				    "name": "Amendment Fee"
+				},
+				{
+				    "penaltyType": 0,
+				    "price": 51692,
+				    "name": "Cancellation Fee"
+				},
+				{
+				    "penaltyType": 0,
+				    "price": 103383,
+				    "name": "No Show Fee"
+				}
+			    ]
+			}
+		    ],
+		    "surchages": {
+			"surchargePerDocs": [
+			    {
+				"quantity": 1,
+				"basis": "PER_DOC",
+				"type": "Paid at Origin",
+				"chargeCode": "ODF",
+				"chargeDescription": "Documentation Fee Origin",
+				"value": 6087
+			    },
+			    {
+				"quantity": 1,
+				"basis": "PER_DOC",
+				"type": "Paid at Destination",
+				"chargeCode": "DDF",
+				"chargeDescription": "Documentation fee - Destination",
+				"value": 4981
+			    }
+			],
+			"surchargesPerContainer": [
+			    {
+				"containerSizeType": "40DRY",
+				"surcharges": [
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid with Freight",
+					"chargeCode": "PSS",
+					"chargeDescription": "Peak Season Surcharge",
+					"value": 172305
+				    },
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid with Freight",
+					"chargeCode": "EFF",
+					"chargeDescription": "Environmental Fuel Fee",
+					"value": 19643
+				    },
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid at Destination",
+					"chargeCode": "PAI",
+					"chargeDescription": "Port Additionals / Port Dues Import",
+					"value": 5479
+				    },
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid at Origin",
+					"chargeCode": "OHC",
+					"chargeDescription": "Terminal Handling Service - Origin",
+					"value": 33199
+				    },
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid at Origin",
+					"chargeCode": "EXP",
+					"chargeDescription": "Export Service",
+					"value": 664
+				    },
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid at Destination",
+					"chargeCode": "DHC",
+					"chargeDescription": "Terminal Handling Service - Destination",
+					"value": 22914
+				    },
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid with Freight",
+					"chargeCode": "BAS",
+					"chargeDescription": "Basic Ocean Freight",
+					"value": 1033830
+				    }
+				]
+			    }
+			]
+		    },
+		    "id": "a445119b-6fe4-4607-a976-7af8cdd71d5e",
+		    "agency": "Maerks",
+		    "service": "Maersk Spot",
+		    "pickUpDate": "2021-11-10T00:00:00",
+		    "deliveryDate": "2021-12-18T20:00:00",
+		    "transitDays": 39,
+		    "expirationDate": "2021-11-03T13:50:31.2957013",
+		    "price": 1299094,
+		    "extraInfo": null
+		}
+	    ]
+	}
+   
+   
+   
+Parameters
+~~~~~~~~~~
+
+    ==========================   ===================   =============   ===============================================
+     Name                 	  Type                  Constraint      Description
+    ==========================   ===================   =============   ===============================================
+     Origin               	  Location              Mandatory       Object containing the origin info.
+     Destination               	  Location              Mandatory       Object containing the destination info.
+     Containers               	  List<Containers>      Mandatory       List of containers for the shipment.
+     PickUpDate               	  DateTime              Mandatory       Pickup date
+     GoodsDescription             String                Mandatory       Goods description
+     GoodsValue               	  Long                  Mandatory       Goods value(last 2 digits are decimals)
+     Insurance               	  Boolean               Mandatory       Has insurance
+     Customs               	  Boolean               Mandatory       Has customs
+     Currency               	  String                Mandatory       Currency(Ex:EUR)
+     DangerousCargo               Boolean               Mandatory       Is dangerous cargo
+     OriginServiceType		  Int   	        Mandatory       Origin service type
+     DestinationServiceType       Int	                Mandatory       Destination service type
+     OriginUnLocCode       	  String                Mandatory       Origin UnLoc code
+     DestinationUnLocCode         String                Mandatory       Destination UnLoc code   
+     OriginRkstCode       	  String                Mandatory       Origin Rkst code
+     DestinationRkstCode       	  String                Mandatory       Destination Rkst code
+    ==========================   ===================   =============   ===============================================
+
+    * Location:
+    =============     ========    =============      =======================================
+     Name              Type        Constraint        Description
+    =============     ========    =============      =======================================
+     PostalCode        String      Mandatory 	      PostalCode of the shipment
+     Country           String      Mandatory 	      Country of the shipment
+     City              String      Mandatory 	      City of the shipment
+     State             String      Mandatory 	      State of the shipment
+     Street            String      Optional 	      Street of the shipment
+     coords            Coord       Optional 	      Geolocation data
+    =============     ========    =============      =======================================
+
+    * Coord model:
+    =============     ========     =============    ======================================================
+     Name              Type         Constraint       Description
+    =============     ========     =============    ======================================================
+     lat               Double       Mandatory        Airport latitude, precision is (3, 6).
+     lng               Double       Mandatory 	     Airport longitude, precision is (3, 6).
+    =============     ========     =============    ======================================================
+
+    * Container:
+    ======================    =========    =============     =======================================
+     Name                      Type         Constraint        Description
+    ======================    =========    =============     =======================================
+     Quantity                  Int          Mandatory 	      Quantity
+     Weight                    Double       Mandatory  	      Weight of the cargo
+     MeasurementUnit           String       Mandatory 	      Measurement unit
+     Type                      Double       Mandatory 	      Lenght of the cargo
+     IsOwnedContainer          Boolean      Mandatory 	      Is Owned Container
+     IsReeferContainer         Boolean      Mandatory	      Is Reefer Container 
+     ImoNumber                 String	    Optional	      IMO number
+    ======================    =========    =============     =======================================    
+    
+    
+Response
+~~~~~~~~
+
+    =============     =============    ======================================================
+     Name               Type            Description
+    =============     =============    ======================================================
+     QuoteId           Guid             Id of the quote
+     Origin            Location         Object containing the origin info.
+     Destination       Location         Object containing the destination info.
+     PickUpDate        DateTime         Pickup date
+     Rates             List<Rate>       List containing the rates
+    =============     =============    ======================================================
+
+     * Location:
+    =============     ========    =============      =======================================
+     Name              Type        Constraint        Description
+    =============     ========    =============      =======================================
+     PostalCode        String      Mandatory 	      PostalCode of the shipment
+     Country           String      Mandatory 	      Country of the shipment
+     City              String      Mandatory 	      City of the shipment
+     State             String      Mandatory 	      State of the shipment
+     Street            String      Optional 	      Street of the shipment
+     coords            Coord       Optional 	      Geolocation data
+    =============     ========    =============      =======================================
+
+
+     * Rate:
+    ===================    ========================    ==========================================================
+     Name                    Type                        Description
+    ===================    ========================    ==========================================================
+     Id                     Int                         Quantity
+     Sealine 		    String		        Sealine
+     Agency                 Double                      Agency
+     Service                Double                      Service
+     PickUpDate             Double                      Pickup date
+     DeliveryDate           Double                      Delivery date
+     TransitDays            String                      Transit days
+     ExpirationDate         DateTime                    Expiration date
+     Price                  Long                        Price(Considering 2 last digits as decimals).      
+     ExtraInfo              List<String>                List of extra info
+     ScheduleDetails	    List<scheduleDetails>	List of schedule details
+     Conditions	    	    List<Conditions>		List of conditions
+     Penalties	    	    List<Penalties>		List of penalties
+     Surchages	    	    List<Surchages>		List of surchages     
+    ===================    ========================    ==========================================================
+    
+    
+      * ScheduleDetails:
+    ===================    ========================    ==========================================================
+     Name                    Type                        Description
+    ===================    ========================    ==========================================================
+     RouteDetails           List<RouteDetails>          Quantity
+     Deadlines 		    List<Deadlines>	        Sealine  
+    ===================    ========================    ==========================================================
+    
+    
+      * RouteDetails:
+    ===================    ========================    ==========================================================
+     Name                    Type                        Description
+    ===================    ========================    ==========================================================
+     FromLocation           MaritimeLocation		From Location
+     ToLocation 	    MaritimeLocation 		To Location
+     Transport              Transport		        Transport
+    ===================    ========================    ==========================================================
+    
+     * MaritimeLocation:
+    =====================    ========================    ==========================================================
+     Name                     Type                        Description
+    =====================    ========================    ==========================================================
+     RkstCode                 String                      Rkst Code
+     Type 		      String			  Type
+     UnLocCode                String                      UnLoc Code
+     City                     String                      City     
+     CountryCode              String                      Country Code
+     ExpectedDate             String                      Expected Date
+    =====================    ========================    ==========================================================
+    
+     * Transport:
+    ===================    ========================    ==========================================================
+     Name                    Type                        Description
+    ===================    ========================    ==========================================================
+     Name                   String                      Name
+     Code 		    String		        Code
+     TransportMode          String	                Transport Mode     
+    ===================    ========================    ==========================================================
+    
+    
+      * Deadlines:
+    ===================    ========================    ==========================================================
+     Name                    Type                        Description
+    ===================    ========================    ==========================================================
+     DeadLineKey            String                      DeadLine Key
+     Type 		    String		        Type
+     DeadLine               String                      DeadLine
+     Name                   String                      Name
+    ===================    ========================    ==========================================================
+    
+    
+      * Conditions:
+    =======================    ========================    ==========================================================
+     Name                       Type                        Description
+    =======================    ========================    ==========================================================
+     ChargeType                 Int                         Charge type
+     ContainerSizeType 		String			    Container size type
+     FreeTimeStartEvent         String                      Free time start event
+     FreeTimeGrantInDays        Int                         Free time grant in days
+     Commodity			String                      Commodity
+     Price			Long                        Price(Considering 2 last digits as decimals).
+    =======================    ========================    ==========================================================
+    
+    
+      * Penalties:
+    =======================    ========================    ==========================================================
+     Name                       Type                        Description
+    =======================    ========================    ==========================================================
+     ContainerSizeType 		String			    Container size type
+     Currency		        String                      Currency
+     Charges        		List<Charges>               Charges
+    =======================    ========================    ==========================================================
+     
+     * Charges:
+    =======================    ========================    ==========================================================
+     Name                       Type                        Description
+    =======================    ========================    ==========================================================
+     PenaltyType 		Int			    Penalty type
+     Name		        String                      Name
+     Price        		Long			    Price(Considering 2 last digits as decimals).
+    =======================    ========================    ==========================================================
+    
+     * Surchages:
+    =========================    ===============================    ==========================================================
+     Name                         Type                        	     Description
+    =========================    ===============================    ==========================================================
+     SurchargesPerContainer 	  List<SurchargesPerContainer> 	     Surcharges per container
+     SurchargePerDocs             List<SurchargesItem>               Surcharges per document
+    =========================    ===============================    ==========================================================
+    
+    
+     * SurchargesPerContainer:
+    =========================    ===============================    ==========================================================
+     Name                         Type                        	     Description
+    =========================    ===============================    ==========================================================
+     ContainerSizeType 	  	  String		 	     Container size type
+     Surcharges            	  List<SurchargesItem>               Surcharges
+    =========================    ===============================    ==========================================================
+    
+     * SurchargesItem:
+    =========================    ===============================    ==========================================================
+     Name                         Type                        	     Description
+    =========================    ===============================    ==========================================================
+     Quantity 	  	 	  Int		 	     	     Quantity
+     Basis            		  String	                     Basis
+     Type            		  String	                     Type
+     ChargeCode            	  String	                     Charge code
+     ChargeDescription            String	                     Charge description
+     Value            		  Long   		             Value(Considering 2 last digits as decimals).
+    =========================    ===============================    ==========================================================
+    
+    
+FCL Sea Shipping
+-------------------
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/shipping/sea/fcl
+        
+    .. sourcecode:: json
+
+       {
+	"id": "a445119b-6fe4-4607-a976-7af8cdd71d5e",
+	"origin": {
+	"contactPerson": "DO NOT COLLECT",
+	"companyName": "DO NOT COLLECT",
+	"contactMail": "test@test.com",
+	"address": "DO NOT COLLECT",
+	"phonePrefix": "999999999",
+	"phone": "34"
+	},
+	"destination": {
+	"contactPerson": "DO NOT COLLECT",
+	"companyName": "DO NOT COLLECT",
+	"contactMail": "test@test.com",
+	"address": "DO NOT COLLECT",
+	"phonePrefix": "999999999",
+	"phone": "34"
+	},
+	"pickupTimeFrom": "10:10",
+	"pickupTimeTo": "20:20",
+	"pickupDescription": null,
+	"deliveryDescription": null,
+	"incotermCode": null
+	}
+
+Example response
+~~~~~~~~~~~~~~~~
+
+    .. sourcecode:: json
+
+        {
+        "shipmentId": "215bcdxe-b3df-4400-52e4-08d999fb141c",
+        "shipmentCode": "FR9999FD",
+        "trackingCode": "1S51S1S56816301289",
+        "externalTrackingUrl": "dummy",
+        "bookingCode": "1S51S1S56816301289"
+        }
+
+Parameters
+~~~~~~~~~~
+
+    =====================   =========   =============    ================================================================
+     Name                     Type       Constraint       Description
+    =====================   =========   =============    ================================================================
+     Id                      Guid        Mandatory        Id of selected the quote
+     Origin                  Address     Mandatory        Object containing the origin info.
+     Destination             Address     Mandatory        Object containing the destination info.
+     PickupTimeFrom          String      Mandatory        PickUp start time, timeSpan as string (hh:mm or hh:mm:ss) 
+     PickupTimeTo            String      Mandatory        PickUp end time, timeSpan as string (hh:mm or hh:mm:ss)
+     PickupDescription       String      Optional         Desription for the pickup
+     DeliveryDescription     String      Optional         Desription for the delivery
+     IncotermCode            String      Optional         Inconterm code, requires a valid code
+    =====================   =========   =============    ================================================================
+
+     * Address:
+    =================    ==========   =============    =======================================
+     Name                 Type         Constraint       Description
+    =================    ==========   =============    =======================================
+     ContactPerson        String       Mandatory        Contact person
+     CompanyName          String       Mandatory        Company name
+     ContactMail          String       Mandatory        Contact mail
+     Address              String       Mandatory        Address
+     PhonePrefix          String       Optional         Phone prefix (without "+")
+     Phone                String       Mandatory        Phone
+    =================    ==========   =============    =======================================
+    
+Response
+~~~~~~~~
+
+    =======================   ==========   ===============================================
+     Name                      Type         Description
+    =======================   ==========   ===============================================
+     ShipmentId                Guid         Guid of the processed shipment
+     ShipmentCode              String       Code of the processed shipment
+     TrackingCode              String       Tracking code
+     ExternalTrackingUrl       Url          External tracking url
+     BookingCode               String       Booking code
+    =======================   ==========   ===============================================
+ 
+
+
+LCL Sea Rating
+-----------------
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/rating/sea/lcl
+        
+    .. sourcecode:: json
+
+      {
+	  "currency": "EUR",
+	  "customs": false,
+	  "dangerousCargo": false,
+	  "goodsDescription": "PRODUCTOS ORIGEN ANIMAL",
+	  "goodsValue": 10,
+	  "pickUpDate": "2021-11-09T00:00:00.000Z",
+	  "insurance": false,
+	  "Containers": [],
+	  "Cargos": [
+	      {
+	      "quantity": 1,
+	      "weight": 1000,
+	      "measurementUnit": 1,
+	      "CBM": 10
+	    }
+	  ],
+	  "DangerousInfo": null,
+	  "originServiceType": 2,
+	  "destinationServiceType": 2,
+	  "origin": {
+	    "postalCode": "999077",
+	    "country": "HK",
+	    "city": "Hong Kong",
+	    "state": "Sai Kung",
+	    "street": null,
+	    "coords": null
+	    },
+	    "destination": {
+	    "postalCode": "08001",
+	    "country": "ES",
+	    "city": "Barcelona",
+	    "state": "Cataluña",
+	    "street": null,
+	    "coords": null
+	    },
+	  "originUnLocCode": "HKHKG",
+	  "originRkstCode": "HKHKG",
+	  "destinationUnLocCode": "ESBCN",
+	  "destinationRkstCode": "ESBCN"
+	}
+
+
+Example response
+~~~~~~~~~~~~~~~~
+   
+   
+   .. sourcecode:: json
+
+      {
+	    "quoteId": "cedb8248-ee94-4bfd-ae68-60d05073d460",
+	    "origin": {
+		"postalCode": "999077",
+		"country": "HK",
+		"city": "Hong Kong",
+		"state": "Sai Kung",
+		"street": null,
+		"coords": {
+		    "lat": null,
+		    "lng": null
+		}
+	    },
+	    "destination": {
+		"postalCode": "08001",
+		"country": "ES",
+		"city": "Barcelona",
+		"state": "Cataluña",
+		"street": null,
+		"coords": {
+		    "lat": null,
+		    "lng": null
+		}
+	    },
+	    "pickUpDate": "2021-11-09T00:00:00",
+	    "rates": [
+		{
+		    "sealine": "None",
+		    "scheduleDetails": [
+			{
+			    "routeDetails": [
+				{
+				    "fromLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "HKHKGMO",
+					"unLocCode": "HKHKG",
+					"city": "Hong Kong",
+					"countryCode": "HK",
+					"expectedDate": "2021-11-10T12:00:00"
+				    },
+				    "toLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "CNNANCT",
+					"unLocCode": "CNNSA",
+					"city": "Nansha New Port",
+					"countryCode": "CN",
+					"expectedDate": "2021-11-10T20:00:00"
+				    },
+				    "transport": {
+					"transportMode": "VESSEL",
+					"name": "SAN CHRISTOBAL",
+					"code": "9699191"
+				    }
+				},
+				{
+				    "fromLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "CNNANCT",
+					"unLocCode": "CNNSA",
+					"city": "Nansha New Port",
+					"countryCode": "CN",
+					"expectedDate": "2021-11-16T11:00:00"
+				    },
+				    "toLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "ESBCNBS",
+					"unLocCode": "ESBCN",
+					"city": "Barcelona",
+					"countryCode": "ES",
+					"expectedDate": "2021-12-18T20:00:00"
+				    },
+				    "transport": {
+					"transportMode": "VESSEL",
+					"name": "MSC ARINA",
+					"code": "9839284"
+				    }
+				}
+			    ],
+			    "deadlines": [
+				{
+				    "deadLineKey": "CY",
+				    "type": "Documentation",
+				    "deadLine": "2021-11-08 17:00:00",
+				    "name": "Commercial Cargo Cutoff"
+				},
+				{
+				    "deadLineKey": "SIAMS",
+				    "type": "Documentation",
+				    "deadLine": "2021-11-06 16:00:00",
+				    "name": "Shipping Instructions Deadline for Advance Manifest Cargo"
+				},
+				{
+				    "deadLineKey": "VGM",
+				    "type": "Documentation",
+				    "deadLine": "2021-11-08 11:00:00",
+				    "name": "Commercial Verified Gross Mass Deadline"
+				},
+				{
+				    "deadLineKey": "LCD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-08 11:00:00",
+				    "name": "Loadlist Closure Deadline"
+				},
+				{
+				    "deadLineKey": "CSPD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-08 12:00:00",
+				    "name": "Coprar to Stowage Planners Deadline"
+				},
+				{
+				    "deadLineKey": "FLD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-08 17:00:00",
+				    "name": "Final Loadlist Deadline"
+				},
+				{
+				    "deadLineKey": "SCDD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-08 11:00:00",
+				    "name": "Special Cargo Documentation Deadline"
+				}
+			    ]
+			},
+			{
+			    "routeDetails": [
+				{
+				    "fromLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "HKHKGMO",
+					"unLocCode": "HKHKG",
+					"city": "Hong Kong",
+					"countryCode": "HK",
+					"expectedDate": "2021-11-10T12:00:00"
+				    },
+				    "toLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "CNNANCT",
+					"unLocCode": "CNNSA",
+					"city": "Nansha New Port",
+					"countryCode": "CN",
+					"expectedDate": "2021-11-10T20:00:00"
+				    },
+				    "transport": {
+					"transportMode": "VESSEL",
+					"name": "SAN CHRISTOBAL",
+					"code": "9699191"
+				    }
+				},
+				{
+				    "fromLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "CNNANCT",
+					"unLocCode": "CNNSA",
+					"city": "Nansha New Port",
+					"countryCode": "CN",
+					"expectedDate": "2021-11-16T11:00:00"
+				    },
+				    "toLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "ESBCNBS",
+					"unLocCode": "ESBCN",
+					"city": "Barcelona",
+					"countryCode": "ES",
+					"expectedDate": "2021-12-18T20:00:00"
+				    },
+				    "transport": {
+					"transportMode": "VESSEL",
+					"name": "MSC ARINA",
+					"code": "9839284"
+				    }
+				}
+			    ],
+			    "deadlines": [
+				{
+				    "deadLineKey": "CY",
+				    "type": "Documentation",
+				    "deadLine": "2021-11-16 12:00:00",
+				    "name": "Commercial Cargo Cutoff"
+				},
+				{
+				    "deadLineKey": "SIAMS",
+				    "type": "Documentation",
+				    "deadLine": "2021-11-13 22:00:00",
+				    "name": "Shipping Instructions Deadline for Advance Manifest Cargo"
+				},
+				{
+				    "deadLineKey": "VGM",
+				    "type": "Documentation",
+				    "deadLine": "2021-11-16 10:00:00",
+				    "name": "Commercial Verified Gross Mass Deadline"
+				},
+				{
+				    "deadLineKey": "LCD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-15 16:00:00",
+				    "name": "Loadlist Closure Deadline"
+				},
+				{
+				    "deadLineKey": "CSPD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-15 17:00:00",
+				    "name": "Coprar to Stowage Planners Deadline"
+				},
+				{
+				    "deadLineKey": "FLD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-16 12:00:00",
+				    "name": "Final Loadlist Deadline"
+				},
+				{
+				    "deadLineKey": "SCDD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-15 16:00:00",
+				    "name": "Special Cargo Documentation Deadline"
+				}
+			    ]
+			}
+		    ],
+		    "conditions": [
+			{
+			    "chargeType": 1,
+			    "containerSizeType": "40DRY",
+			    "freeTimeStartEvent": "DISCHARGE",
+			    "freeTimeGrantInDays": 7,
+			    "commodity": "GENERAL CARGO",
+			    "price": 4308
+			},
+			{
+			    "chargeType": 2,
+			    "containerSizeType": "40DRY",
+			    "freeTimeStartEvent": "DISCHARGE",
+			    "freeTimeGrantInDays": 5,
+			    "commodity": "GENERAL CARGO",
+			    "price": 431
+			}
+		    ],
+		    "penalties": [
+			{
+			    "containerSizeType": "40DRY",
+			    "currency": "EUR",
+			    "charges": [
+				{
+				    "penaltyType": 0,
+				    "price": 51692,
+				    "name": "Amendment Fee"
+				},
+				{
+				    "penaltyType": 0,
+				    "price": 51692,
+				    "name": "Cancellation Fee"
+				},
+				{
+				    "penaltyType": 0,
+				    "price": 103383,
+				    "name": "No Show Fee"
+				}
+			    ]
+			}
+		    ],
+		    "surchages": {
+			"surchargePerDocs": [
+			    {
+				"quantity": 1,
+				"basis": "PER_DOC",
+				"type": "Paid at Origin",
+				"chargeCode": "ODF",
+				"chargeDescription": "Documentation Fee Origin",
+				"value": 6087
+			    },
+			    {
+				"quantity": 1,
+				"basis": "PER_DOC",
+				"type": "Paid at Destination",
+				"chargeCode": "DDF",
+				"chargeDescription": "Documentation fee - Destination",
+				"value": 4981
+			    }
+			],
+			"surchargesPerContainer": [
+			    {
+				"containerSizeType": "40DRY",
+				"surcharges": [
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid with Freight",
+					"chargeCode": "PSS",
+					"chargeDescription": "Peak Season Surcharge",
+					"value": 172305
+				    },
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid with Freight",
+					"chargeCode": "EFF",
+					"chargeDescription": "Environmental Fuel Fee",
+					"value": 19643
+				    },
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid at Destination",
+					"chargeCode": "PAI",
+					"chargeDescription": "Port Additionals / Port Dues Import",
+					"value": 5479
+				    },
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid at Origin",
+					"chargeCode": "OHC",
+					"chargeDescription": "Terminal Handling Service - Origin",
+					"value": 33199
+				    },
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid at Origin",
+					"chargeCode": "EXP",
+					"chargeDescription": "Export Service",
+					"value": 664
+				    },
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid at Destination",
+					"chargeCode": "DHC",
+					"chargeDescription": "Terminal Handling Service - Destination",
+					"value": 22914
+				    },
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid with Freight",
+					"chargeCode": "BAS",
+					"chargeDescription": "Basic Ocean Freight",
+					"value": 1033830
+				    }
+				]
+			    }
+			]
+		    },
+		    "id": "a445119b-6fe4-4607-a976-7af8cdd71d5e",
+		    "agency": "Maerks",
+		    "service": "Maersk Spot",
+		    "pickUpDate": "2021-11-10T00:00:00",
+		    "deliveryDate": "2021-12-18T20:00:00",
+		    "transitDays": 39,
+		    "expirationDate": "2021-11-03T13:50:31.2957013",
+		    "price": 1299094,
+		    "extraInfo": null
+		}
+	    ]
+	}
+      
+   
+Parameters
+~~~~~~~~~~
+
+    ==========================   ===================   =============   ===============================================
+     Name                 	  Type                  Constraint      Description
+    ==========================   ===================   =============   ===============================================
+     Origin               	  Location              Mandatory       Object containing the origin info.
+     Destination               	  Location              Mandatory       Object containing the destination info.
+     Containers               	  List<Containers>      Mandatory       List of containers for the shipment.
+     PickUpDate               	  DateTime              Mandatory       Pickup date
+     GoodsDescription             String                Mandatory       Goods description
+     GoodsValue               	  Long                  Mandatory       Goods value(last 2 digits are decimals)
+     Insurance               	  Boolean               Mandatory       Has insurance
+     Customs               	  Boolean               Mandatory       Has customs
+     Currency               	  String                Mandatory       Currency(Ex:EUR)
+     DangerousCargo               Boolean               Mandatory       Is dangerous cargo
+     OriginServiceType		  Int   	        Mandatory       Origin service type
+     DestinationServiceType       Int	                Mandatory       Destination service type
+     OriginUnLocCode       	  String                Mandatory       Origin UnLoc code
+     DestinationUnLocCode         String                Mandatory       Destination UnLoc code   
+     OriginRkstCode       	  String                Mandatory       Origin Rkst code
+     DestinationRkstCode       	  String                Mandatory       Destination Rkst code
+    ==========================   ===================   =============   ===============================================
+
+    * Location:
+    =============     ========    =============      =======================================
+     Name              Type        Constraint        Description
+    =============     ========    =============      =======================================
+     PostalCode        String      Mandatory 	      PostalCode of the shipment
+     Country           String      Mandatory 	      Country of the shipment
+     City              String      Mandatory 	      City of the shipment
+     State             String      Mandatory 	      State of the shipment
+     Street            String      Optional 	      Street of the shipment
+     coords            Coord       Optional 	      Geolocation data
+    =============     ========    =============      =======================================
+
+    * Coord model:
+    =============     ========     =============    ======================================================
+     Name              Type         Constraint       Description
+    =============     ========     =============    ======================================================
+     lat               Double       Mandatory        Airport latitude, precision is (3, 6).
+     lng               Double       Mandatory 	     Airport longitude, precision is (3, 6).
+    =============     ========     =============    ======================================================
+
+    * Container:
+    ======================    =========    =============     =======================================
+     Name                      Type         Constraint        Description
+    ======================    =========    =============     =======================================
+     Quantity                  Int          Mandatory 	      Quantity
+     Weight                    Double       Mandatory  	      Weight of the cargo
+     MeasurementUnit           String       Mandatory 	      Measurement unit
+     Type                      Double       Mandatory 	      Lenght of the cargo
+     IsOwnedContainer          Boolean      Mandatory 	      Is Owned Container
+     IsReeferContainer         Boolean      Mandatory	      Is Reefer Container 
+     ImoNumber                 String	    Optional	      IMO number
+    ======================    =========    =============     =======================================    
+    
+    
+Response
+~~~~~~~~
+
+    =============     =============    ======================================================
+     Name               Type            Description
+    =============     =============    ======================================================
+     QuoteId           Guid             Id of the quote
+     Origin            Location         Object containing the origin info.
+     Destination       Location         Object containing the destination info.
+     PickUpDate        DateTime         Pickup date
+     Rates             List<Rate>       List containing the rates
+    =============     =============    ======================================================
+
+     * Location:
+    =============     ========    =============      =======================================
+     Name              Type        Constraint        Description
+    =============     ========    =============      =======================================
+     PostalCode        String      Mandatory 	      PostalCode of the shipment
+     Country           String      Mandatory 	      Country of the shipment
+     City              String      Mandatory 	      City of the shipment
+     State             String      Mandatory 	      State of the shipment
+     Street            String      Optional 	      Street of the shipment
+     coords            Coord       Optional 	      Geolocation data
+    =============     ========    =============      =======================================
+
+
+     * Rate:
+    ===================    ========================    ==========================================================
+     Name                    Type                        Description
+    ===================    ========================    ==========================================================
+     Id                     Int                         Quantity
+     Sealine 		    String		        Sealine
+     Agency                 Double                      Agency
+     Service                Double                      Service
+     PickUpDate             Double                      Pickup date
+     DeliveryDate           Double                      Delivery date
+     TransitDays            String                      Transit days
+     ExpirationDate         DateTime                    Expiration date
+     Price                  Long                        Price(Considering 2 last digits as decimals).      
+     ExtraInfo              List<String>                List of extra info
+     ScheduleDetails	    List<scheduleDetails>	List of schedule details
+     Conditions	    	    List<Conditions>		List of conditions
+     Penalties	    	    List<Penalties>		List of penalties
+     Surchages	    	    List<Surchages>		List of surchages     
+    ===================    ========================    ==========================================================
+    
+    
+      * ScheduleDetails:
+    ===================    ========================    ==========================================================
+     Name                    Type                        Description
+    ===================    ========================    ==========================================================
+     RouteDetails           List<RouteDetails>          Quantity
+     Deadlines 		    List<Deadlines>	        Sealine  
+    ===================    ========================    ==========================================================
+    
+    
+      * RouteDetails:
+    ===================    ========================    ==========================================================
+     Name                    Type                        Description
+    ===================    ========================    ==========================================================
+     FromLocation           MaritimeLocation		From Location
+     ToLocation 	    MaritimeLocation 		To Location
+     Transport              Transport		        Transport
+    ===================    ========================    ==========================================================
+    
+     * MaritimeLocation:
+    =====================    ========================    ==========================================================
+     Name                     Type                        Description
+    =====================    ========================    ==========================================================
+     RkstCode                 String                      Rkst Code
+     Type 		      String			  Type
+     UnLocCode                String                      UnLoc Code
+     City                     String                      City     
+     CountryCode              String                      Country Code
+     ExpectedDate             String                      Expected Date
+    =====================    ========================    ==========================================================
+    
+     * Transport:
+    ===================    ========================    ==========================================================
+     Name                    Type                        Description
+    ===================    ========================    ==========================================================
+     Name                   String                      Name
+     Code 		    String		        Code
+     TransportMode          String	                Transport Mode     
+    ===================    ========================    ==========================================================
+    
+    
+      * Deadlines:
+    ===================    ========================    ==========================================================
+     Name                    Type                        Description
+    ===================    ========================    ==========================================================
+     DeadLineKey            String                      DeadLine Key
+     Type 		    String		        Type
+     DeadLine               String                      DeadLine
+     Name                   String                      Name
+    ===================    ========================    ==========================================================
+    
+    
+      * Conditions:
+    =======================    ========================    ==========================================================
+     Name                       Type                        Description
+    =======================    ========================    ==========================================================
+     ChargeType                 Int                         Charge type
+     ContainerSizeType 		String			    Container size type
+     FreeTimeStartEvent         String                      Free time start event
+     FreeTimeGrantInDays        Int                         Free time grant in days
+     Commodity			String                      Commodity
+     Price			Long                        Price(Considering 2 last digits as decimals).
+    =======================    ========================    ==========================================================
+    
+    
+      * Penalties:
+    =======================    ========================    ==========================================================
+     Name                       Type                        Description
+    =======================    ========================    ==========================================================
+     ContainerSizeType 		String			    Container size type
+     Currency		        String                      Currency
+     Charges        		List<Charges>               Charges
+    =======================    ========================    ==========================================================
+     
+     * Charges:
+    =======================    ========================    ==========================================================
+     Name                       Type                        Description
+    =======================    ========================    ==========================================================
+     PenaltyType 		Int			    Penalty type
+     Name		        String                      Name
+     Price        		Long			    Price(Considering 2 last digits as decimals).
+    =======================    ========================    ==========================================================
+    
+     * Surchages:
+    =========================    ===============================    ==========================================================
+     Name                         Type                        	     Description
+    =========================    ===============================    ==========================================================
+     SurchargesPerContainer 	  List<SurchargesPerContainer> 	     Surcharges per container
+     SurchargePerDocs             List<SurchargesItem>               Surcharges per document
+    =========================    ===============================    ==========================================================
+    
+    
+     * SurchargesPerContainer:
+    =========================    ===============================    ==========================================================
+     Name                         Type                        	     Description
+    =========================    ===============================    ==========================================================
+     ContainerSizeType 	  	  String		 	     Container size type
+     Surcharges            	  List<SurchargesItem>               Surcharges
+    =========================    ===============================    ==========================================================
+    
+     * SurchargesItem:
+    =========================    ===============================    ==========================================================
+     Name                         Type                        	     Description
+    =========================    ===============================    ==========================================================
+     Quantity 	  	 	  Int		 	     	     Quantity
+     Basis            		  String	                     Basis
+     Type            		  String	                     Type
+     ChargeCode            	  String	                     Charge code
+     ChargeDescription            String	                     Charge description
+     Value            		  Long   		             Value(Considering 2 last digits as decimals).
+    =========================    ===============================    ==========================================================
+    
+    
+LCL Sea Shipping
+----------------
+
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/shipping/sea/lcl
+        
+    .. sourcecode:: json
+
+     {
+	"id": "8d34a39b-d082-403c-931d-af7c42e901eb",
+	"origin": {
+	"contactPerson": "DO NOT COLLECT",
+	"companyName": "DO NOT COLLECT",
+	"contactMail": "test@test.com",
+	"address": "DO NOT COLLECT",
+	"phonePrefix": "999999999",
+	"phone": "34"
+	},
+	"destination": {
+	"contactPerson": "DO NOT COLLECT",
+	"companyName": "DO NOT COLLECT",
+	"contactMail": "test@test.com",
+	"address": "DO NOT COLLECT",
+	"phonePrefix": "999999999",
+	"phone": "34"
+	},
+	"pickupTimeFrom": "10:10",
+	"pickupTimeTo": "20:20",
+	"pickupDescription": null,
+	"deliveryDescription": null,
+	"incotermCode": null
+    }
+
+
+
+Example response
+~~~~~~~~~~~~~~~~
+
+    .. sourcecode:: json
+
+        {
+          "shipmentId": "215bcdxe-b3df-4400-52e4-08d999fb141c",
+          "shipmentCode": "FR9999FD",
+          "trackingCode": "1S51S1S56816301289",
+          "externalTrackingUrl": "dummy",
+          "bookingCode": "1S51S1S56816301289"
+        }
+
+Parameters
+~~~~~~~~~~
+
+    =====================   =========   =============    ================================================================
+     Name                     Type       Constraint       Description
+    =====================   =========   =============    ================================================================
+     Id                      Guid        Mandatory        Id of selected the quote
+     Origin                  Address     Mandatory        Object containing the origin info.
+     Destination             Address     Mandatory        Object containing the destination info.
+     PickupTimeFrom          String      Mandatory        PickUp start time, timeSpan as string (hh:mm or hh:mm:ss) 
+     PickupTimeTo            String      Mandatory        PickUp end time, timeSpan as string (hh:mm or hh:mm:ss)
+     PickupDescription       String      Optional         Desription for the pickup
+     DeliveryDescription     String      Optional         Desription for the delivery
+     IncotermCode            String      Optional         Inconterm code, requires a valid code
+    =====================   =========   =============    ================================================================
+
+     * Address:
+    =================    ==========   =============    =======================================
+     Name                 Type         Constraint       Description
+    =================    ==========   =============    =======================================
+     ContactPerson        String       Mandatory        Contact person
+     CompanyName          String       Mandatory        Company name
+     ContactMail          String       Mandatory        Contact mail
+     Address              String       Mandatory        Address
+     PhonePrefix          String       Optional         Phone prefix (without "+")
+     Phone                String       Mandatory        Phone
+    =================    ==========   =============    =======================================
+    
+Response
+~~~~~~~~
+
+    =======================   ==========   ===============================================
+     Name                      Type         Description
+    =======================   ==========   ===============================================
+     ShipmentId                Guid         Guid of the processed shipment
+     ShipmentCode              String       Code of the processed shipment
+     TrackingCode              String       Tracking code
+     ExternalTrackingUrl       Url          External tracking url
+     BookingCode               String       Booking code
+    =======================   ==========   ===============================================
+
+
+
 .. autosummary::
    :toctree: generated
 
