@@ -2544,7 +2544,8 @@ Response
      BookingCode               String       Booking code
     =======================   ==========   ===============================================
 
-        
+
+
 .. autosummary::
    :toctree: generated
 
