@@ -1869,6 +1869,339 @@ Example request
 	  "destinationUnLocCode": "ESBCN",
 	  "destinationRkstCode": "ESBCN"
 	}
+
+
+Example response
+~~~~~~~~~~~~~~~~
+   
+   
+   .. sourcecode:: json
+
+      {
+	    "quoteId": "cedb8248-ee94-4bfd-ae68-60d05073d460",
+	    "origin": {
+		"postalCode": "999077",
+		"country": "HK",
+		"city": "Hong Kong",
+		"state": "Sai Kung",
+		"street": null,
+		"coords": {
+		    "lat": null,
+		    "lng": null
+		}
+	    },
+	    "destination": {
+		"postalCode": "08001",
+		"country": "ES",
+		"city": "Barcelona",
+		"state": "Cataluña",
+		"street": null,
+		"coords": {
+		    "lat": null,
+		    "lng": null
+		}
+	    },
+	    "pickUpDate": "2021-11-09T00:00:00",
+	    "rates": [
+		{
+		    "sealine": "None",
+		    "scheduleDetails": [
+			{
+			    "routeDetails": [
+				{
+				    "fromLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "HKHKGMO",
+					"unLocCode": "HKHKG",
+					"city": "Hong Kong",
+					"countryCode": "HK",
+					"expectedDate": "2021-11-10T12:00:00"
+				    },
+				    "toLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "CNNANCT",
+					"unLocCode": "CNNSA",
+					"city": "Nansha New Port",
+					"countryCode": "CN",
+					"expectedDate": "2021-11-10T20:00:00"
+				    },
+				    "transport": {
+					"transportMode": "VESSEL",
+					"name": "SAN CHRISTOBAL",
+					"code": "9699191"
+				    }
+				},
+				{
+				    "fromLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "CNNANCT",
+					"unLocCode": "CNNSA",
+					"city": "Nansha New Port",
+					"countryCode": "CN",
+					"expectedDate": "2021-11-16T11:00:00"
+				    },
+				    "toLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "ESBCNBS",
+					"unLocCode": "ESBCN",
+					"city": "Barcelona",
+					"countryCode": "ES",
+					"expectedDate": "2021-12-18T20:00:00"
+				    },
+				    "transport": {
+					"transportMode": "VESSEL",
+					"name": "MSC ARINA",
+					"code": "9839284"
+				    }
+				}
+			    ],
+			    "deadlines": [
+				{
+				    "deadLineKey": "CY",
+				    "type": "Documentation",
+				    "deadLine": "2021-11-08 17:00:00",
+				    "name": "Commercial Cargo Cutoff"
+				},
+				{
+				    "deadLineKey": "SIAMS",
+				    "type": "Documentation",
+				    "deadLine": "2021-11-06 16:00:00",
+				    "name": "Shipping Instructions Deadline for Advance Manifest Cargo"
+				},
+				{
+				    "deadLineKey": "VGM",
+				    "type": "Documentation",
+				    "deadLine": "2021-11-08 11:00:00",
+				    "name": "Commercial Verified Gross Mass Deadline"
+				},
+				{
+				    "deadLineKey": "LCD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-08 11:00:00",
+				    "name": "Loadlist Closure Deadline"
+				},
+				{
+				    "deadLineKey": "CSPD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-08 12:00:00",
+				    "name": "Coprar to Stowage Planners Deadline"
+				},
+				{
+				    "deadLineKey": "FLD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-08 17:00:00",
+				    "name": "Final Loadlist Deadline"
+				},
+				{
+				    "deadLineKey": "SCDD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-08 11:00:00",
+				    "name": "Special Cargo Documentation Deadline"
+				}
+			    ]
+			},
+			{
+			    "routeDetails": [
+				{
+				    "fromLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "HKHKGMO",
+					"unLocCode": "HKHKG",
+					"city": "Hong Kong",
+					"countryCode": "HK",
+					"expectedDate": "2021-11-10T12:00:00"
+				    },
+				    "toLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "CNNANCT",
+					"unLocCode": "CNNSA",
+					"city": "Nansha New Port",
+					"countryCode": "CN",
+					"expectedDate": "2021-11-10T20:00:00"
+				    },
+				    "transport": {
+					"transportMode": "VESSEL",
+					"name": "SAN CHRISTOBAL",
+					"code": "9699191"
+				    }
+				},
+				{
+				    "fromLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "CNNANCT",
+					"unLocCode": "CNNSA",
+					"city": "Nansha New Port",
+					"countryCode": "CN",
+					"expectedDate": "2021-11-16T11:00:00"
+				    },
+				    "toLocation": {
+					"type": "TERMINAL",
+					"rkstCode": "ESBCNBS",
+					"unLocCode": "ESBCN",
+					"city": "Barcelona",
+					"countryCode": "ES",
+					"expectedDate": "2021-12-18T20:00:00"
+				    },
+				    "transport": {
+					"transportMode": "VESSEL",
+					"name": "MSC ARINA",
+					"code": "9839284"
+				    }
+				}
+			    ],
+			    "deadlines": [
+				{
+				    "deadLineKey": "CY",
+				    "type": "Documentation",
+				    "deadLine": "2021-11-16 12:00:00",
+				    "name": "Commercial Cargo Cutoff"
+				},
+				{
+				    "deadLineKey": "SIAMS",
+				    "type": "Documentation",
+				    "deadLine": "2021-11-13 22:00:00",
+				    "name": "Shipping Instructions Deadline for Advance Manifest Cargo"
+				},
+				{
+				    "deadLineKey": "VGM",
+				    "type": "Documentation",
+				    "deadLine": "2021-11-16 10:00:00",
+				    "name": "Commercial Verified Gross Mass Deadline"
+				},
+				{
+				    "deadLineKey": "LCD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-15 16:00:00",
+				    "name": "Loadlist Closure Deadline"
+				},
+				{
+				    "deadLineKey": "CSPD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-15 17:00:00",
+				    "name": "Coprar to Stowage Planners Deadline"
+				},
+				{
+				    "deadLineKey": "FLD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-16 12:00:00",
+				    "name": "Final Loadlist Deadline"
+				},
+				{
+				    "deadLineKey": "SCDD",
+				    "type": "Marine Services",
+				    "deadLine": "2021-11-15 16:00:00",
+				    "name": "Special Cargo Documentation Deadline"
+				}
+			    ]
+			}
+		    ],
+		    "conditions": [
+			{
+			    "chargeType": 1,
+			    "containerSizeType": "40DRY",
+			    "freeTimeStartEvent": "DISCHARGE",
+			    "freeTimeGrantInDays": 7,
+			    "commodity": "GENERAL CARGO",
+			    "price": 4308
+			},
+			{
+			    "chargeType": 2,
+			    "containerSizeType": "40DRY",
+			    "freeTimeStartEvent": "DISCHARGE",
+			    "freeTimeGrantInDays": 5,
+			    "commodity": "GENERAL CARGO",
+			    "price": 431
+			}
+		    ],
+		    "penalties": [
+			{
+			    "containerSizeType": "40DRY",
+			    "currency": "EUR",
+			    "charges": [
+				{
+				    "penaltyType": 0,
+				    "price": 51692,
+				    "name": "Amendment Fee"
+				},
+				{
+				    "penaltyType": 0,
+				    "price": 51692,
+				    "name": "Cancellation Fee"
+				},
+				{
+				    "penaltyType": 0,
+				    "price": 103383,
+				    "name": "No Show Fee"
+				}
+			    ]
+			}
+		    ],
+		    "surchages": {
+			"surchargePerDocs": [
+			    {
+				"quantity": 1,
+				"basis": "PER_DOC",
+				"type": "Paid at Origin",
+				"chargeCode": "ODF",
+				"chargeDescription": "Documentation Fee Origin",
+				"value": 6087
+			    },
+			    {
+				"quantity": 1,
+				"basis": "PER_DOC",
+				"type": "Paid at Destination",
+				"chargeCode": "DDF",
+				"chargeDescription": "Documentation fee - Destination",
+				"value": 4981
+			    }
+			],
+			"surchargesPerContainer": [
+			    {
+				"containerSizeType": "40DRY",
+				"surcharges": [
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid with Freight",
+					"chargeCode": "PSS",
+					"chargeDescription": "Peak Season Surcharge",
+					"value": 172305
+				    },
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid with Freight",
+					"chargeCode": "EFF",
+					"chargeDescription": "Environmental Fuel Fee",
+					"value": 19643
+				    },
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid at Destination",
+					"chargeCode": "PAI",
+					"chargeDescription": "Port Additionals / Port Dues Import",
+					"value": 5479
+				    },
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid at Origin",
+					"chargeCode": "OHC",
+					"chargeDescription": "Terminal Handling Service - Origin",
+					"value": 33199
+				    },
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
+					"type": "Paid at Origin",
+					"chargeCode": "EXP",
+					"chargeDescription": "Export Service",
+					"value": 664
+				    },
+				    {
+					"quantity": 1,
+					"basis": "PER_CONTAINER",
 					"type": "Paid at Destination",
 					"chargeCode": "DHC",
 					"chargeDescription": "Terminal Handling Service - Destination",
@@ -1898,8 +2231,7 @@ Example request
 		}
 	    ]
 	}
-   
-   
+      
    
 Parameters
 ~~~~~~~~~~
