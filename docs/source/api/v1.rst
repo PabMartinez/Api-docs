@@ -1089,6 +1089,8 @@ Response
 FCL Sea Rating
 ----------------
 
+HTTPPOST
+
 Example request
 ~~~~~~~~~~~~~~~
     
@@ -1819,6 +1821,8 @@ Response
 LCL Sea Rating
 -----------------
 
+HTTPPOST
+
 Example request
 ~~~~~~~~~~~~~~~
     
@@ -2453,6 +2457,7 @@ Response
 LCL Sea Shipping
 ----------------
 
+HTTPPOST
 
 Example request
 ~~~~~~~~~~~~~~~
@@ -2544,6 +2549,914 @@ Response
      BookingCode               String       Booking code
     =======================   ==========   ===============================================
 
+
+
+Air Rating
+-----------------
+
+HTTPPOST
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/rating/sea/lcl
+        
+    .. sourcecode:: json
+
+      {
+		"arrivalAirportCode": "BCN",
+		"departureAirportCode": "HKG",
+		"origin": {
+		"postalCode": "24008",
+		"country": "ES",
+		"city": "Barcelona",
+		"state": "CAT",
+		"street": null,
+		"coords": null
+		},
+		"destination": {
+		"postalCode": "33001",
+		"country": "CN",
+		"city": "Hong Kong",
+		"state": "HK",
+		"street": null,
+		"coords": null
+		},
+		"pickUpDate": "2021-11-18T16:54:30.094Z",
+		"goodsDescription": "string",
+		"goodsValue": 100,
+		"insurance": true,
+		"customs": true,
+		"currency": "EUR",
+		"cargos": [
+			{
+			"quantity": 10,
+			"length": 10,
+			"width": 30,
+			"height": 20,
+			"weight": 40,
+			"measurementUnit": "CmKg",
+			"IsStackable": true,
+			"IsTiltable": true,
+			"IsTopLoadable": true,
+			"ChargeableWeight": 20,
+			"WeightType": "TOTAL"
+			}
+		]
+	}
+
+
+Example response
+~~~~~~~~~~~~~~~~
+   
+   
+   .. sourcecode:: json
+
+      {
+		"quoteId": "7f938132-10ac-40d2-9dc8-4e176fe8378d",
+		"origin": {
+			"postalCode": "24008",
+			"country": "ES",
+			"city": "Barcelona",
+			"state": "CAT",
+			"street": null,
+			"coords": {
+				"lat": null,
+				"lng": null
+			}
+		},
+		"destination": {
+			"postalCode": "33001",
+			"country": "CN",
+			"city": "Hong Kong",
+			"state": "HK",
+			"street": null,
+			"coords": {
+				"lat": null,
+				"lng": null
+			}
+		},
+		"pickUpDate": "2021-11-18T15:54:30.094",
+		"rates": [
+			{
+				"airlineCode": "GF",
+				"airlineIATACode": 72,
+				"arrivalAirportCode": "BKK",
+				"departureAirportCode": "CDG",
+				"timeInTransit": {
+					"ticks": 2619000000000,
+					"days": 3,
+					"hours": 0,
+					"milliseconds": 0,
+					"minutes": 45,
+					"seconds": 0,
+					"totalDays": 3.03125,
+					"totalHours": 72.75,
+					"totalMilliseconds": 261900000,
+					"totalMinutes": 4365,
+					"totalSeconds": 261900
+				},
+				"netRate": 22,
+				"allInRate": 22,
+				"chargeableWeight": 1.000002,
+				"freightPrice": 4500,
+				"legs": [
+					{
+						"flightNumber": "GF016",
+						"aircraftCode": "320",
+						"departureTime": "2021-11-18T08:35:00",
+						"arrivalTime": "2021-11-18T17:00:00",
+						"arrivalAirportCode": "BAH",
+						"departureAirportCode": "CDG",
+						"bodyType": "UNKNOWN",
+						"cO2": {
+							"value": 0,
+							"isEstimation": false
+						}
+					},
+					{
+						"flightNumber": "GF165",
+						"aircraftCode": "789",
+						"departureTime": "2021-11-20T22:05:00",
+						"arrivalTime": "2021-11-21T09:20:00",
+						"arrivalAirportCode": "BKK",
+						"departureAirportCode": "BAH",
+						"bodyType": "UNKNOWN",
+						"cO2": {
+							"value": 0,
+							"isEstimation": false
+						}
+					}
+				],
+				"surchages": null,
+				"id": "95565227-9281-4cdf-b247-515d13e108d7",
+				"agency": "GulfAir",
+				"service": "GF016-GF165",
+				"pickUpDate": "2021-11-18T07:35:00",
+				"deliveryDate": "2021-11-21T08:20:00",
+				"transitDays": 4,
+				"expirationDate": "2021-11-17T23:00:00",
+				"price": 4500,
+				"extraInfo": [
+					"SCC : Barème FCH\nCHC ; 29.50€\nFrais déchargement 0.060€/kg si remise coté ville  - Minimum de perception par opération : 19.00€ (loose cargo)\nRAC : 115.50€ \nTAXE DGR navette : 16.00€\nCCA : 75.00€\nFrais de contrôle Dry Ice / batterie au lithium / quantité exempté et pharma : 17.00€ / contrôle\nTaxe aéroportuaire : 2.40€/LTA\nFrais de transmission de données aux douanes :  8.60€/LTA",
+					"1-\tOffre sous réserve de capacité lors de la réservation.\n2-\tRéférence cotation à rappeler impérativement lors de la réservation.\n3-\tCette cotation est valable pour le colisage indiqué uniquement, en cas de modification, merci de procéder à une nouvelle demande auprès du service commercial. \n4-\tTaxes (IRC – MYC –  etc…) susceptibles de modification sans préavis.\n5-\tEn cas d’annulation ou de no show, nous nous réservons le droit de vous répercuter tout ou une partie des frais \n-\tAnnulation 72heures avant le départ du camion et/ou du vol (heures ouvrées) : facturation 50% du montant du fret\n-\tAnnulation 48heures avant le départ du camion et/ou du vol (heures ouvrées) : facturation 75% du montant du fret\n-\tAnnulation 24heures avant le départ du camion et/ou du vol (heures ouvrées) : facturation 100% du montant du fret\n-\tDans le cas d’un no show (non présentation du fret) : facturation 100% du montant du fret \n-\tDans le cas d’un low show (remise inferieure de 50% au poids taxable réservé) : facturation 75% du poids taxable réservé\n"
+				]
+			},
+			{
+				"airlineCode": "MS",
+				"airlineIATACode": 77,
+				"arrivalAirportCode": "BKK",
+				"departureAirportCode": "CDG",
+				"timeInTransit": {
+					"ticks": 1779000000000,
+					"days": 2,
+					"hours": 1,
+					"milliseconds": 0,
+					"minutes": 25,
+					"seconds": 0,
+					"totalDays": 2.0590277777777777,
+					"totalHours": 49.416666666666664,
+					"totalMilliseconds": 177900000,
+					"totalMinutes": 2965,
+					"totalSeconds": 177900
+				},
+				"netRate": 35,
+				"allInRate": 35,
+				"chargeableWeight": 1.000002,
+				"freightPrice": 7000,
+				"legs": [
+					{
+						"flightNumber": "MS800",
+						"aircraftCode": "789",
+						"departureTime": "2021-11-18T15:45:00",
+						"arrivalTime": "2021-11-18T19:05:00",
+						"arrivalAirportCode": "CAI",
+						"departureAirportCode": "CDG",
+						"bodyType": "UNKNOWN",
+						"cO2": {
+							"value": 0,
+							"isEstimation": false
+						}
+					},
+					{
+						"flightNumber": "MS507",
+						"aircraftCode": "33Y",
+						"departureTime": "2021-11-20T09:00:00",
+						"arrivalTime": "2021-11-20T17:10:00",
+						"arrivalAirportCode": "BKK",
+						"departureAirportCode": "CAI",
+						"bodyType": "UNKNOWN",
+						"cO2": {
+							"value": 0,
+							"isEstimation": false
+						}
+					}
+				],
+				"surchages": null,
+				"id": "ee3d57d0-7b30-4370-b8a8-eb4535299579",
+				"agency": "Egyptair",
+				"service": "MS800-MS507",
+				"pickUpDate": "2021-11-18T14:45:00",
+				"deliveryDate": "2021-11-20T16:10:00",
+				"transitDays": 3,
+				"expirationDate": "2021-11-17T23:00:00",
+				"price": 7000,
+				"extraInfo": [
+					"1.\tTarif ALL IN : Fret, fuel, IRC\n2.\tSi frais de navettes applicables : se référer aux coûts de navettes de la grille général Egyptair\n3.\tHS code obligatoire pour tout envoi à destination de la Chine,…\n4.\tTaxe de transmission de données : 3.00 EUR par MAWB et HAWB\n5.      La fumigation des palettes bois est obligatoire pour toutes les destinations\n",
+					"1.\tLa référence de cotation indiquée ci-dessus doit être fournie au moment de la réservation, et doit obligatoirement apparaître sur la copie de la LTA. \n2.\tLa cotation est soumise à la disponibilité de l&rsquo;espace au moment de la prise de réservation.\n3.\tLa cotation est soumise aux conditions générales d’application et/ou particulières de la compagnie si mentionné.\n4.\tLa cotation est valide un mois à compter de la date de cotation sauf si une date particulière est mentionnée.\n5.\tLe tarif indiqué est basé sur les détails de l&rsquo;envoi (colisage) fournis au moment de la cotation.\n6.\tUne variation importante du poids ou du volume brut de l&rsquo;envoi peut entraîner un changement tarifaire.\n7.\tLa validité du tarif est basée sur la première date de vol.\n8.\tLes surcharges carburant-fuel  (MYC) et de sécurité (IRC), si applicables, sont susceptibles de changer en fonction de la date de vol effective de l&rsquo;expédition.\n9.\tLa liste OCDC (Other Charges Due Carrier) mentionnée ci-dessus n&rsquo;est pas exhaustive.\nD&rsquo;autres frais supplémentaires dus par le transporteur (OCDC) peuvent s&rsquo;appliquer en fonction des caractéristiques de l&rsquo;expédition finale, de sa destination finale, et selon les conditions générales et/ou locales."
+				]
+			},
+			{
+				"airlineCode": "QY",
+				"airlineIATACode": 615,
+				"arrivalAirportCode": "BKK",
+				"departureAirportCode": "CDG",
+				"timeInTransit": {
+					"ticks": 2373000000000,
+					"days": 2,
+					"hours": 17,
+					"milliseconds": 0,
+					"minutes": 55,
+					"seconds": 0,
+					"totalDays": 2.7465277777777777,
+					"totalHours": 65.91666666666667,
+					"totalMilliseconds": 237300000,
+					"totalMinutes": 3955,
+					"totalSeconds": 237300
+				},
+				"netRate": 110,
+				"allInRate": 110,
+				"chargeableWeight": 1.000002,
+				"freightPrice": 22000,
+				"legs": [
+					{
+						"flightNumber": "QY1261",
+						"aircraftCode": "75F",
+						"departureTime": "2021-11-18T21:15:00",
+						"arrivalTime": "2021-11-18T22:50:00",
+						"arrivalAirportCode": "LEJ",
+						"departureAirportCode": "CDG",
+						"bodyType": "UNKNOWN",
+						"cO2": {
+							"value": 0,
+							"isEstimation": false
+						}
+					},
+					{
+						"flightNumber": "QY9446",
+						"aircraftCode": "747",
+						"departureTime": "2021-11-19T20:40:00",
+						"arrivalTime": "2021-11-19T23:40:00",
+						"arrivalAirportCode": "DME",
+						"departureAirportCode": "LEJ",
+						"bodyType": "UNKNOWN",
+						"cO2": {
+							"value": 0,
+							"isEstimation": false
+						}
+					},
+					{
+						"flightNumber": "QY9403A",
+						"aircraftCode": "77F",
+						"departureTime": "2021-11-21T06:10:00",
+						"arrivalTime": "2021-11-21T15:10:00",
+						"arrivalAirportCode": "BKK",
+						"departureAirportCode": "DME",
+						"bodyType": "UNKNOWN",
+						"cO2": {
+							"value": 0,
+							"isEstimation": false
+						}
+					}
+				],
+				"surchages": null,
+				"id": "06f49d04-b1f9-4eb1-8ebe-549b892c645c",
+				"agency": "EuropeanAirTransport",
+				"service": "QY1261-QY9446-QY9403A",
+				"pickUpDate": "2021-11-18T20:15:00",
+				"deliveryDate": "2021-11-21T14:10:00",
+				"transitDays": 3,
+				"expirationDate": "2021-11-17T23:00:00",
+				"price": 22000,
+				"extraInfo": [
+					"SCC : Barème FH\nFrais déchargement 0.060€/kg si remise coté ville  - Minimum de perception par opération : 19.00€ (loose cargo)\nRAC : 115.00€ - Frais de 2ème présentation DGR : 125.00€ \nTaxe DGR navette : 16.00€\nCCA : 75.00€\nFrais de contrôle Dry Ice / batterie au lithium / quantité exempté et pharma : 25.00€ / contrôle\n2eme présentation pour les batteries au lithium ion and metal : 25.00€\nRRY : 57.50€ en sus de la RAC\nAVI : 53.00€\nFrais de transmission messages électroniques.\nL’envoi des FHL/FWB est obligatoire sur TOUTES les destinations depuis le 01 janvier 2021 \nSi vous n’avez pas la possibilité d’assurer la transmission via votre système d’exploitation, cette prestation sera assurée par France Handling et facturée selon le barème suivant : \n15€ / MAWB - 8.50€ / HAWB avec un minimum de 17€.\nSi vous rencontrez des difficultés veuillez contacter ACS.Data.Quality@dhl.com avec une description détaillée du problème (en anglais)\n\n- Le 11 avril 2021, une palette traitée par Hong Kong Air Cargo chargée de smartphones a pris feu à l&rsquo;aéroport international de Hong Kong. \nSuite à cet incident, avec effet immédiat, DHL Aviation n&rsquo;acceptera ni ne transportera les appareils électroniques VIVO nulle part dans le réseau jusqu&rsquo;à nouvel ordre.\nVeuillez communiquer ces informations d&rsquo;interdiction temporaire à vos collaborateurs, clients, afin de n&rsquo;acceptez aucune expédition pouvant contenir de tels éléments.\n\n\n\n\n",
+					"1-\tVol confirmé uniquement lors de la réservation et sous réserve de capacité au moment du booking.\n2-\tRéférence cotation à rappeler impérativement lors de la réservation.\n3-\tCette cotation est valable pour le colisage indiqué uniquement, en cas de modification, merci de procéder à une nouvelle demande auprès du service commercial. \n4-\tTaxes (IRC – MYC –  etc…) susceptibles de modification sans préavis.\n5-\tEn cas d’annulation ou de no show, nous nous réservons le droit de vous répercuter tout ou une partie des frais\nAnnulation 72heures avant le départ du camion et/ou du vol (heures ouvrées) : facturation 50% du montant du fret\nAnnulation 48heures avant le départ du camion et/ou du vol (heures ouvrées) : facturation 75% du montant du fret\nAnnulation 24heures avant le départ du camion et/ou du vol (heures ouvrées) : facturation 100% du montant du fret\n\n"
+				]
+			}
+		]
+	}
+      
+   
+Parameters
+~~~~~~~~~~
+
+    ==========================   ===================   =============   ===============================================
+     Name                 	  Type                  Constraint      Description
+    ==========================   ===================   =============   ===============================================
+     Origin               	  Location              Mandatory       Object containing the origin info.
+     Destination               	  Location              Mandatory       Object containing the destination info.
+     Containers               	  List<Containers>      Mandatory       List of containers for the shipment.
+     PickUpDate               	  DateTime              Mandatory       Pickup date
+     GoodsDescription             String                Mandatory       Goods description
+     GoodsValue               	  Long                  Mandatory       Goods value(last 2 digits are decimals)
+     Insurance               	  Boolean               Mandatory       Has insurance
+     Customs               	  Boolean               Mandatory       Has customs
+     Currency               	  String                Mandatory       Currency(Ex:EUR)
+     DangerousCargo               Boolean               Mandatory       Is dangerous cargo
+     OriginServiceType		  Int   	        Mandatory       Origin service type
+     DestinationServiceType       Int	                Mandatory       Destination service type
+     OriginUnLocCode       	  String                Mandatory       Origin UnLoc code
+     DestinationUnLocCode         String                Mandatory       Destination UnLoc code   
+     OriginRkstCode       	  String                Mandatory       Origin Rkst code
+     DestinationRkstCode       	  String                Mandatory       Destination Rkst code
+    ==========================   ===================   =============   ===============================================
+
+    * Location:
+    =============     ========    =============      =======================================
+     Name              Type        Constraint        Description
+    =============     ========    =============      =======================================
+     PostalCode        String      Mandatory 	      PostalCode of the shipment
+     Country           String      Mandatory 	      Country of the shipment
+     City              String      Mandatory 	      City of the shipment
+     State             String      Mandatory 	      State of the shipment
+     Street            String      Optional 	      Street of the shipment
+     coords            Coord       Optional 	      Geolocation data
+    =============     ========    =============      =======================================
+
+    * Coord model:
+    =============     ========     =============    ======================================================
+     Name              Type         Constraint       Description
+    =============     ========     =============    ======================================================
+     lat               Double       Mandatory        Airport latitude, precision is (3, 6).
+     lng               Double       Mandatory 	     Airport longitude, precision is (3, 6).
+    =============     ========     =============    ======================================================
+
+    * Cargos:
+    ======================    =========    =============     =======================================
+     Name                      Type         Constraint        Description
+    ======================    =========    =============     =======================================
+     Quantity                  Int          Mandatory 	      Quantity
+     Length                    Double       Mandatory  	      Length of the cargo
+     Width                     Double       Mandatory  	      Width of the cargo
+     Weight                    Double       Mandatory  	      Weight of the cargo
+     Height                    Double       Mandatory  	      Height of the cargo
+     MeasurementUnit           String       Mandatory 	      Measurement unit
+     IsStackable               Boolean      Mandatory 	      Is stackable
+     IsTiltable                Boolean      Mandatory	      Is tiltable
+     IsTopLoadable             String	    Optional	      Is top loadable
+     ChargeableWeight          Int          Mandatory	      Chargeable weight
+     WeightType                String       Mandatory	      Weight type
+    ======================    =========    =============     =======================================    
+    
+    
+Response
+~~~~~~~~
+
+    =============     =============    ======================================================
+     Name               Type            Description
+    =============     =============    ======================================================
+     QuoteId           Guid             Id of the quote
+     Origin            Location         Object containing the origin info.
+     Destination       Location         Object containing the destination info.
+     PickUpDate        DateTime         Pickup date
+     Rates             List<Rate>       List containing the rates
+    =============     =============    ======================================================
+
+     * Location:
+    =============     ========    =============      =======================================
+     Name              Type        Constraint        Description
+    =============     ========    =============      =======================================
+     PostalCode        String      Mandatory 	      PostalCode of the shipment
+     Country           String      Mandatory 	      Country of the shipment
+     City              String      Mandatory 	      City of the shipment
+     State             String      Mandatory 	      State of the shipment
+     Street            String      Optional 	      Street of the shipment
+     coords            Coord       Optional 	      Geolocation data
+    =============     ========    =============      =======================================
+
+
+     * Rate:
+    =======================    ========================    ==========================================================
+     Name                       Type                        Description
+    =======================    ========================    ==========================================================
+     Id                         Int                         Quantity
+     AirlineCode                String			    Airline code
+     AirlineIATACode            String                      Airline IATA code
+     ArrivalAirportCode         String			    Arrival Airport Code
+     DepartureAirportCode       String                      Departure Airport Code
+     NetRate			Int			    Net rate
+     AllInRate			Int			    All in rate
+     ChargeableWeight		Decimal			    Chargeable weight
+     FreightPrice		Double			    Freight price
+     Agency                     Double                      Agency
+     Service                    Double                      Service
+     PickUpDate                 Double                      Pickup date
+     DeliveryDate               Double                      Delivery date
+     TransitDays                String                      Transit days
+     ExpirationDate             DateTime                    Expiration date
+     Price                      Long                        Price(Considering 2 last digits as decimals).      
+     ExtraInfo                  List<String>                List of extra info
+     TimeInTransit		List<TimeInTransit>	    TimeInTransit
+     Legs			List<Legs>		    Legs
+    =======================    ========================    ==========================================================
+    
+    
+      * TimeInTransit:
+    ===================    ========================    ==========================================================
+     Name                    Type                        Description
+    ===================    ========================    ==========================================================
+     Ticks          	    Long        		Ticks
+     Days 		    Int			        Days  
+     Hours          	    Int        			Hours
+     Milliseconds 	    Int			        Milliseconds  
+     Minutes          	    Int        			Minutes
+     Seconds 		    Int			        Seconds  
+     TotalDays              Double        		Total days
+     TotalHours 	    Double			Total hours  
+     TotalMilliseconds      Int	        		Total milliseconds
+     TotalMinutes 	    Int			        Total minutes  
+     TotalSeconds           Int        			Total seconds
+    ===================    ========================    ==========================================================
+        
+     * Legs:
+    =====================    ========================    ==========================================================
+     Name                     Type                        Description
+    =====================    ========================    ==========================================================
+     FlightNumber             String                      Flight number
+     AircraftCode 	      String			  Aircraft code
+     DepartureTime            DateTime                    Departure time
+     ArrivalTime              DateTime                    Arrival time     
+     ArrivalAirportCode       String                      Arrival airport code
+     DepartureAirportCode     String                      Departure airport code
+     BodyType                 String                      Body type
+     CO2             	      CO2                         CO2
+    =====================    ========================    ==========================================================   
+    
+
+
+Air Shipping
+----------------
+
+HTTPPOST
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/shipping/sea/lcl
+        
+    .. sourcecode:: json
+    
+	{
+	"id": "dc518d27-0f3d-4bdc-ab4d-3fce1baaee87",
+	"origin": {
+	"contactPerson": "DO NOT COLLECT",
+	"companyName": "DO NOT COLLECT",
+	"contactMail": "pablo.martinez@freightol.com",
+	"address": "DO NOT COLLECT",
+	"phonePrefix": "676226090",
+	"phone": "34"
+	},
+	"destination": {
+	"contactPerson": "DO NOT COLLECT",
+	"companyName": "DO NOT COLLECT",
+	"contactMail": "pablo.martinez@freightol.com",
+	"address": "DO NOT COLLECT",
+	"phonePrefix": "676226090",
+	"phone": "34"
+	},
+	"pickupTimeFrom": "10:10",
+	"pickupTimeTo": "20:20",
+	"pickupDescription": null,
+	"deliveryDescription": null,
+	"incotermCode": null
+	}
+
+Example response
+~~~~~~~~~~~~~~~~
+
+    .. sourcecode:: json
+
+        {
+          "shipmentId": "215bcdxe-b3df-4400-52e4-08d999fb141c",
+          "shipmentCode": "FR9999FD",
+          "trackingCode": "1S51S1S56816301289",
+          "externalTrackingUrl": "dummy",
+          "bookingCode": "1S51S1S56816301289"
+        }
+
+Parameters
+~~~~~~~~~~
+
+    =====================   =========   =============    ================================================================
+     Name                     Type       Constraint       Description
+    =====================   =========   =============    ================================================================
+     Id                      Guid        Mandatory        Id of selected the quote
+     Origin                  Address     Mandatory        Object containing the origin info.
+     Destination             Address     Mandatory        Object containing the destination info.
+     PickupTimeFrom          String      Mandatory        PickUp start time, timeSpan as string (hh:mm or hh:mm:ss) 
+     PickupTimeTo            String      Mandatory        PickUp end time, timeSpan as string (hh:mm or hh:mm:ss)
+     PickupDescription       String      Optional         Desription for the pickup
+     DeliveryDescription     String      Optional         Desription for the delivery
+     IncotermCode            String      Optional         Inconterm code, requires a valid code
+    =====================   =========   =============    ================================================================
+
+     * Address:
+    =================    ==========   =============    =======================================
+     Name                 Type         Constraint       Description
+    =================    ==========   =============    =======================================
+     ContactPerson        String       Mandatory        Contact person
+     CompanyName          String       Mandatory        Company name
+     ContactMail          String       Mandatory        Contact mail
+     Address              String       Mandatory        Address
+     PhonePrefix          String       Optional         Phone prefix (without "+")
+     Phone                String       Mandatory        Phone
+    =================    ==========   =============    =======================================
+    
+Response
+~~~~~~~~
+
+    =======================   ==========   ===============================================
+     Name                      Type         Description
+    =======================   ==========   ===============================================
+     ShipmentId                Guid         Guid of the processed shipment
+     ShipmentCode              String       Code of the processed shipment
+     TrackingCode              String       Tracking code
+     ExternalTrackingUrl       Url          External tracking url
+     BookingCode               String       Booking code
+    =======================   ==========   ===============================================
+
+
+
+Tracking - Shipments Query
+--------------------------------
+
+HTTPPOST
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/tracking/shipments
+        
+    .. sourcecode:: json
+    
+	{
+        "Destination": "",
+        "Origin": "",
+        "FR": "",
+        "TransportOperator": "",
+        "StartDate": null,
+        "EndDate": null
+	}
+
+Example response
+~~~~~~~~~~~~~~~~
+
+    .. sourcecode:: json
+
+      {
+    	"shipments": [
+        {
+            "shipmentId": "339d8158-ca3d-4ed7-ac21-08d6ee8277b7",
+            "agency": "CorreosExpress",
+            "pickUpDate": "2019-06-12T09:28:00",
+            "deliveryDate": "2019-06-13T09:28:00",
+            "transitDays": 1,
+            "clientPrice": 7943,
+            "currency": "EUR",
+            "shipmentCode": "FR000002",
+            "currencyExchangedApplied": null,
+            "customs": true,
+            "insurance": true,
+            "shipmentType": "Box",
+            "trackingStatus": 0,
+            "customsStatus": null,
+            "originState": "PV",
+            "originCountry": "ES",
+            "originCountryName": "Spain",
+            "originCity": "Galdácano",
+            "originPostalCode": "48960",
+            "destinationState": "CT",
+            "destinationCountry": "ES",
+            "destinationCountryName": "Spain",
+            "destinationCity": "La Garriga",
+            "destinationPostalCode": "08530",
+            "hasInvoice": false
+        },
+        {
+            "shipmentId": "4b5a254c-6735-474f-81ea-08d7523e7fee",
+            "agency": "TNT",
+            "pickUpDate": "2019-10-21T06:26:00",
+            "deliveryDate": "2019-10-22T16:00:00",
+            "transitDays": 1,
+            "clientPrice": 1637,
+            "currency": "EUR",
+            "shipmentCode": "FR00061C",
+            "currencyExchangedApplied": null,
+            "customs": false,
+            "insurance": false,
+            "shipmentType": "Box",
+            "trackingStatus": 0,
+            "customsStatus": null,
+            "originState": "Cantabria",
+            "originCountry": "ES",
+            "originCountryName": "Spain",
+            "originCity": "Torrelavega",
+            "originPostalCode": "39300",
+            "destinationState": "País Vasco",
+            "destinationCountry": "ES",
+            "destinationCountryName": "Spain",
+            "destinationCity": "Sestao",
+            "destinationPostalCode": "48910",
+            "hasInvoice": true
+        },
+        {
+            "shipmentId": "cfab8e81-d328-4d4c-81eb-08d7523e7fee",
+            "agency": "TNT",
+            "pickUpDate": "2019-10-21T07:07:00",
+            "deliveryDate": "2019-10-23T16:00:00",
+            "transitDays": 2,
+            "clientPrice": 2869,
+            "currency": "EUR",
+            "shipmentCode": "FR00061D",
+            "currencyExchangedApplied": null,
+            "customs": false,
+            "insurance": false,
+            "shipmentType": "Box",
+            "trackingStatus": 0,
+            "customsStatus": null,
+            "originState": "England",
+            "originCountry": "GB",
+            "originCountryName": "United Kingdom of Great Britain and Northern Ireland (the)",
+            "originCity": "Midlands Occidentales",
+            "originPostalCode": "B65 0QW",
+            "destinationState": "País Vasco",
+            "destinationCountry": "ES",
+            "destinationCountryName": "Spain",
+            "destinationCity": "Itziar",
+            "destinationPostalCode": "20829",
+            "hasInvoice": true
+        }
+      ]
+    }
+
+Parameters
+~~~~~~~~~~
+
+    =====================   ===========   =============    ================================================================
+     Name                     Type         Constraint       Description
+    =====================   ===========   =============    ================================================================
+     Origin                  String        Optional         Origin
+     Destination             String        Optional         Destination
+     FR             	     String        Optional         FR
+     TransportOperator       String        Optional         Transport Operator
+     StartDate       	     DateTime      Optional         Start date
+     EndDate		     DateTime      Optional         End date
+    =====================   ===========   =============    ================================================================
+    
+Response
+~~~~~~~~
+
+    ===========================   ==========   ===============================================
+     Name                          Type         Description
+    ===========================   ==========   ===============================================
+     ShipmentId                    Guid         Guid of the processed shipment
+     ShipmentCode                  String       Shipment code
+     Agency                        String       Agency
+     PickUpDate                    Double       Pickup date
+     DeliveryDate                  Double       Delivery date
+     TransitDays                   Int          Transit days
+     ExpirationDate                DateTime     Expiration date
+     ClientPrice                   Long         ClientPrice(Considering 2 last digits as decimals).      
+     Currency		           String	Currency
+     CurrencyExchangedApplied      Double?	Currency exchanged applied
+     Customs		           Boolean	Customs
+     Insurance		           Boolean	Insurance
+     ShipmentType	           String	Shipment type
+     TrackingStatus	           Int		Tracking status
+     CustomsStatus	           String	Customs status
+     OriginState	           String	Origin state
+     OriginCountry	           String	Origin country
+     OriginCountryName	           String	Origin countryName
+     OriginCity	           	   String	Origin city
+     OriginPostalCode	           String	Origin postalCode
+     DestinationState	           String	Destination state
+     DestinationCountry	           String	Destination country
+     DestinationCountryName	   String	Destination country name
+     DestinationCity	           String	Destination city
+     DestinationPostalCode	   String	Destination postal code
+     HasInvoice	           	   Boolean	Has invoice
+    ===========================   ==========   ===============================================
+
+
+Tracking - Shipment details
+--------------------------------
+
+HTTPGET
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/tracking/shipment/details?shipmentId=339d8158-ca3d-4ed7-ac21-08d6ee8277b7
+        
+    
+Example response
+~~~~~~~~~~~~~~~~
+
+    .. sourcecode:: json
+
+     {
+	    "commodityId": "339d8158-ca3d-4ed7-ac21-08d6ee8277b7",
+	    "userId": "2b1d55e2-ce72-4ba3-12ca-08d93ca29348",
+	    "commodityType": "Box",
+	    "commodityDescription": "silla",
+	    "commodityValue": 100,
+	    "serviceName": "CorreosExpress CorreosExpress 24",
+	    "reference": "FR000002",
+	    "bookingReference": null,
+	    "externalTrackingURL": null,
+	    "trackingReference": null,
+	    "commodityUnits": [
+		{
+		    "commodityId": "339d8158-ca3d-4ed7-ac21-08d6ee8277b7",
+		    "commodityUnitId": "6050254f-ce83-4ab5-3c91-08d93cc1b5e4",
+		    "unitType": "Box",
+		    "measurementUnit": 1,
+		    "quantity": 1,
+		    "weight": 25,
+		    "length": 58,
+		    "width": 62,
+		    "height": 66,
+		    "isStackable": null,
+		    "palletType": null,
+		    "containerType": null,
+		    "isOwnedContainer": null,
+		    "isReeferContainer": null,
+		    "imoNumber": null
+		}
+	    ],
+	    "paymentStatus": "Paid",
+	    "paymentType": "TPV",
+	    "customs": "True",
+	    "insurance": "True",
+	    "originAddress": "Pol in erletxes plataforma e nave 5",
+	    "originState": "PV",
+	    "originCountryCode": "ES",
+	    "originCountryName": "Spain",
+	    "originCity": "Galdácano",
+	    "originPostalCode": "48960",
+	    "originCompany": "Xayglobal ",
+	    "originContact": "Aitor",
+	    "originMail": "Peluquerianorte@hotmail.com",
+	    "originPhone": "34 - 699660583",
+	    "destinationAddress": "divina infantita Nº6",
+	    "destinationState": "AL",
+	    "destinationCountryCode": "ES",
+	    "destinationCountryName": "Spain",
+	    "destinationCity": "El Ejido/Almeria ",
+	    "destinationPostalCode": "04700",
+	    "destinationCompany": "Dreams salon sl",
+	    "destinationContact": "Antonio",
+	    "destinationMail": "peluquerianorte@hotmail.com",
+	    "destinationPhone": "34 - 695733174",
+	    "pickupDescription": null,
+	    "deliveryDescription": null,
+	    "pickupHours": " - "
+	}
+    
+Response
+~~~~~~~~
+
+    ===========================   ====================   ===============================================
+     Name                          Type         	  Description
+    ===========================   ====================   ===============================================
+     CommodityId                   Guid         	  Guid of the shipment
+     UserId                    	   Guid         	  Guid of the user
+     CommodityType	           String		  Commodity type
+     CommodityUnits	           List<Commodities>      Commodity type
+     CommodityDescription	   String		  Commodity description
+     CommodityValue	           Int   		  Commodity value
+     ServiceName	           String		  Service name
+     Reference	           	   String		  Reference
+     BookingReference	           String		  Booking reference
+     ExternalTrackingURL	   String		  External tracking URL
+     TrackingReference	           String		  Tracking reference
+     PaymentType	           String		  Payment type
+     PaymentStatus	           String		  Payment status
+     Customs		           Boolean		  Customs
+     Insurance		           Boolean		  Insurance
+     OriginAddress	           String		  Origin address
+     OriginState	           String		  Origin state
+     OriginCountryCode	           String		  Origin country code
+     OriginCountryName	           String		  Origin country name
+     OriginCity	           	   String		  Origin city
+     OriginPostalCode	           String		  Origin postalCode
+     OriginCompany	           String		  Origin company
+     OriginContact	           String		  Origin contact	 
+     OriginMail	         	   String		  Origin mail
+     OriginPhone	           String		  Origin phone     
+     DestinationAddress	           String		  Destination address
+     DestinationState	           String		  Destination state
+     DestinationCountryCode        String		  Destination country code
+     DestinationCountryName	   String		  Destination country name
+     DestinationCity	           String		  Destination city
+     DestinationPostalCode	   String		  Destination postal code
+     DestinationCompany	           String		  Destination company
+     DestinationContact	           String		  Destination contact	 
+     DestinationMail	           String		  Destination mail
+     DestinationPhone	           String		  Destination phone
+     PickupDescription	           String		  Pickup description
+     DeliveryDescription           String		  Delivery description
+     PickupHours	           String		  Pickup hours
+    ===========================   ====================   ===============================================
+
+     * Commodities:
+    ====================    ==========  =======================================
+     Name                    Type        Description
+    ====================    ==========  =======================================
+     CommodityId             String      Shipment Id
+     CommodityUnitId         String      Commodity Id
+     UnitType                String      Unit type
+     MeasurementUnit         String      Measurement unit
+     Quantity                String      Quantity
+     Weight                  String      Weight
+     Length                  String      Length
+     Width                   String      Width
+     Height                  String      Height
+     IsStackable             String      Is stackable
+     PalletType              String      Pallet type
+     ContainerType           String      Container type
+     IsOwnedContainer        String      Is ownedContainer
+     IsReeferContainer       String      Is reefer container
+     ImoNumber               String      Imo number
+    ====================    ==========  =======================================
+
+Tracking - Tracking Messages
+--------------------------------
+
+HTTPGET
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/tracking?Code=cfab8e81-d328-4d4c-81eb-08d7523e7fee
+        
+    
+Example response
+~~~~~~~~~~~~~~~~
+
+    .. sourcecode:: json
+
+	[
+	   {
+		"shipmentId": "cfab8e81-d328-4d4c-81eb-08d7523e7fee",
+		"message": "Shipment Received At Transit Point.",
+		"updatedDate": null,
+		"status": "None",
+		"groupIndex": null,
+		"countryCode": null,
+		"countryName": null,
+		"city": "MV9",
+		"address": null
+	    },
+	    {
+		"shipmentId": "cfab8e81-d328-4d4c-81eb-08d7523e7fee",
+		"message": "Shipment Received At Origin Depot.",
+		"updatedDate": null,
+		"status": "None",
+		"groupIndex": null,
+		"countryCode": null,
+		"countryName": null,
+		"city": "Korntal Muenchingen",
+		"address": null
+	    }
+        ]
+         
+Response
+~~~~~~~~
+
+    ===========================   ==========   ===============================================
+     Name                          Type         Description
+    ===========================   ==========   ===============================================
+     ShipmentId                    Guid         Guid of the shipment
+     Message                       String       Message
+     UpdatedDate                   DateTime     Updated date
+     Status	                   String       Status
+     GroupIndex 	           String       Group index
+     CountryCode                   String       Country code  
+     CountryName		   String	Country name
+     City			   String	City
+     Address		           String	Address
+    ===========================   ==========   ===============================================
 
 
 .. autosummary::
