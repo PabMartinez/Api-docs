@@ -3447,6 +3447,206 @@ Response
     ===========================   ==========   ===============================================
 
 
+Save Box Quote - HTTPPOST
+----------------------------
+
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/quote/box/save?rateId=cacc83d3-de42-4148-ba8b-e52b5bdbd2cf
+        
+
+Example response
+~~~~~~~~~~~~~~~~
+
+    .. sourcecode:: json
+
+        {
+	    "shipmentId": "13c06914-a7bd-4656-b56f-08d9a5012bc7",
+	    "success": true,
+	    "message": "Success"
+	}
+    
+Response
+~~~~~~~~
+
+    =======================   ==================   ================================================
+     Name                      Type                 Description
+    =======================   ==================   ================================================
+     ShipmentId                Guid                 Guid of the Quote
+     Success                   Boolean              Boolean indicating Success(true/false)
+     Message                   String               Text message indicating success or error
+    =======================   ==================   ================================================
+    
+    
+Save Pallet Quote - HTTPPOST
+----------------------------
+
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/quote/pallet/save?rateId=d0d7b19c-40f9-4e81-ab94-166556bcdde7
+        
+
+Example response
+~~~~~~~~~~~~~~~~
+
+    .. sourcecode:: json
+
+        {
+	    "shipmentId": "47dedca2-559c-47dc-83e1-7f42a0985544",
+	    "success": true,
+	    "message": "Success"
+	}
+    
+Response
+~~~~~~~~
+
+    =======================   ==================   ================================================
+     Name                      Type                 Description
+    =======================   ==================   ================================================
+     ShipmentId                Guid                 Guid of the Quote
+     Success                   Boolean              Boolean indicating Success(true/false)
+     Message                   String               Text message indicating success or error
+    =======================   ==================   ================================================
+    
+    
+Save Sea FCL Quote - HTTPPOST
+----------------------------
+
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/quote/sea/fcl/save?rateId=3a1b28bb-11ba-40a6-b0fc-bffbfcb39b2c
+        
+
+Example response
+~~~~~~~~~~~~~~~~
+
+    .. sourcecode:: json
+
+        {
+	    "shipmentId": "38c070c5-444d-482d-b927-7f3472bcbaf8",
+	    "success": true,
+	    "message": "Success"
+	}
+    
+Response
+~~~~~~~~
+
+    =======================   ==================   ================================================
+     Name                      Type                 Description
+    =======================   ==================   ================================================
+     ShipmentId                Guid                 Guid of the Quote
+     Success                   Boolean              Boolean indicating Success(true/false)
+     Message                   String               Text message indicating success or error
+    =======================   ==================   ================================================
+    
+    
+Save Sea LCL Quote - HTTPPOST
+----------------------------
+
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/quote/sea/lcl/save?rateId=218eb88c-f536-4b82-ad70-e828b5a0cc1c
+        
+
+Example response
+~~~~~~~~~~~~~~~~
+
+    .. sourcecode:: json
+
+        {
+	    "shipmentId": "5b7c2f22-4489-4240-ba81-2d0b93600dd2",
+	    "success": true,
+	    "message": "Success"
+	}
+    
+Response
+~~~~~~~~
+
+    =======================   ==================   ================================================
+     Name                      Type                 Description
+    =======================   ==================   ================================================
+     ShipmentId                Guid                 Guid of the Quote
+     Success                   Boolean              Boolean indicating Success(true/false)
+     Message                   String               Text message indicating success or error
+    =======================   ==================   ================================================
+    
+    
+Save Air Quote - HTTPPOST
+----------------------------
+
+
+Example request
+~~~~~~~~~~~~~~~
+    
+    .. sourcecode::
+
+        https://api.freightol.com/v1/quote/air/save?rateId=7b785c55-a98f-4710-96f3-666556e70cde
+	
+    .. sourcecode:: json
+        
+	{
+	   "body": {
+	   	"awb":"Test",
+		"awbtype":"EAP"
+	   }
+	}
+
+Example response
+~~~~~~~~~~~~~~~~
+
+    .. sourcecode:: json
+
+        {
+	    "shipmentId": "2ded32b2-2996-45ed-9535-7803975d0bd9",
+	    "success": true,
+	    "message": "Success"
+	}
+	
+
+Parameters
+~~~~~~~~~~
+
+    ========   ===========   =============    ===============
+     Name       Type         Constraint       Description
+    ========   ===========   =============    ===============
+     Body   	AWB           Mandatory        Awb info
+    ========   ===========   =============    ===============
+    
+     *AWB
+    ============   ===========   =============    ===============
+     Name           Type         Constraint       Description
+    ============   ===========   =============    ===============
+     AWB            String        Mandatory        Awb code
+     AWBType        String        Mandatory        Awb type
+    ============   ===========   =============    ===============
+    
+Response
+~~~~~~~~
+
+    =======================   ==================   ===========================================================
+     Name                      Type                 Description
+    =======================   ==================   ===========================================================
+     ShipmentId                Guid                 Guid of the Quote
+     Success                   Boolean              Boolean indicating Success(true/false)
+     Message                   String               Text message indicating success or error
+    =======================   ==================   ===========================================================
+
 Saved quotes
 ----------------
 
