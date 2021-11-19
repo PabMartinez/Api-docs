@@ -216,20 +216,20 @@ Example request
 
       {
         "origin": {
-        "postalCode": "24008",
-        "country": "ES",
-        "city": "León",
-        "state": "CYL",
-        "street": null,
-        "coords": null
+		"postalCode": "24008",
+		"country": "ES",
+		"city": "León",
+		"state": "CYL",
+		"street": null,
+		"coords": null
         },
         "destination": {
-        "postalCode": "33001",
-        "country": "ES",
-        "city": "Ovieod",
-        "state": "AST",
-        "street": null,
-        "coords": null
+		"postalCode": "33001",
+		"country": "ES",
+		"city": "Ovieod",
+		"state": "AST",
+		"street": null,
+		"coords": null
         },
         "pickUpDate": "2021-10-28T16:54:30.094Z",
         "goodsDescription": "string",
@@ -460,20 +460,20 @@ Example request
        {
         "id": "cacc83d3-de42-4148-ba8b-e52b5bdbd2cf",
         "origin": {
-        "contactPerson": "DO NOT COLLECT",
-        "companyName": "DO NOT COLLECT",
-        "contactMail": "test@test.com",
-        "address": "DO NOT COLLECT",
-        "phonePrefix": "676226090",
-        "phone": "34"
+		"contactPerson": "DO NOT COLLECT",
+		"companyName": "DO NOT COLLECT",
+		"contactMail": "test@test.com",
+		"address": "DO NOT COLLECT",
+		"phonePrefix": "676226090",
+		"phone": "34"
         },
         "destination": {
-        "contactPerson": "DO NOT COLLECT",
-        "companyName": "DO NOT COLLECT",
-        "contactMail": "test@test.com",
-        "address": "DO NOT COLLECT",
-        "phonePrefix": "676226090",
-        "phone": "34"
+		"contactPerson": "DO NOT COLLECT",
+		"companyName": "DO NOT COLLECT",
+		"contactMail": "test@test.com",
+		"address": "DO NOT COLLECT",
+		"phonePrefix": "676226090",
+		"phone": "34"
         },
         "pickupTimeFrom": "10:10",
         "pickupTimeTo": "20:20",
@@ -488,11 +488,11 @@ Example response
     .. sourcecode:: json
 
         {
-        "shipmentId": "215bcdxe-b3df-4400-52e4-08d999fb141c",
-        "shipmentCode": "FR9999FD",
-        "trackingCode": "1S51S1S56816301289",
-        "externalTrackingUrl": "dummy",
-        "bookingCode": "1S51S1S56816301289"
+		"shipmentId": "215bcdxe-b3df-4400-52e4-08d999fb141c",
+		"shipmentCode": "FR9999FD",
+		"trackingCode": "1S51S1S56816301289",
+		"externalTrackingUrl": "dummy",
+		"bookingCode": "1S51S1S56816301289"
         }
 
 Parameters
@@ -551,20 +551,20 @@ Example request
 
       {
 	    "origin": {
-	    "postalCode": "24008",
-	    "country": "ES",
-	    "city": "León",
-	    "state": "CYL",
-	    "street": null,
-	    "coords": null
+		    "postalCode": "24008",
+		    "country": "ES",
+		    "city": "León",
+		    "state": "CYL",
+		    "street": null,
+		    "coords": null
 	    },
 	    "destination": {
-	    "postalCode": "33001",
-	    "country": "ES",
-	    "city": "Oviedo",
-	    "state": "AST",
-	    "street": null,
-	    "coords": null
+		    "postalCode": "33001",
+		    "country": "ES",
+		    "city": "Oviedo",
+		    "state": "AST",
+		    "street": null,
+		    "coords": null
 	    },
 	    "pickUpDate": "2021-10-28T16:54:30.094Z",
 	    "goodsDescription": "string",
@@ -575,14 +575,14 @@ Example request
 	    "dangerousCargo": true,
 	    "pallets": [
 		{
-		"quantity": 1,
-		"length": 10,
-		"width": 10,
-		"height": 10,
-		"weight": 10,
-		"measurementUnit": "CmKg",
-		"IsStackable": false,
-		"PalletType": 2
+			"quantity": 1,
+			"length": 10,
+			"width": 10,
+			"height": 10,
+			"weight": 10,
+			"measurementUnit": "CmKg",
+			"isStackable": false,
+			"palletType": 2
 		}
 	    ]
 	}
@@ -797,20 +797,20 @@ Example request
      {
 	"id": "8d34a39b-d082-403c-931d-af7c42e901eb",
 	"origin": {
-	"contactPerson": "DO NOT COLLECT",
-	"companyName": "DO NOT COLLECT",
-	"contactMail": "test@test.com",
-	"address": "DO NOT COLLECT",
-	"phonePrefix": "999999999",
-	"phone": "34"
+		"contactPerson": "DO NOT COLLECT",
+		"companyName": "DO NOT COLLECT",
+		"contactMail": "test@test.com",
+		"address": "DO NOT COLLECT",
+		"phonePrefix": "999999999",
+		"phone": "34"
 	},
 	"destination": {
-	"contactPerson": "DO NOT COLLECT",
-	"companyName": "DO NOT COLLECT",
-	"contactMail": "test@test.com",
-	"address": "DO NOT COLLECT",
-	"phonePrefix": "999999999",
-	"phone": "34"
+		"contactPerson": "DO NOT COLLECT",
+		"companyName": "DO NOT COLLECT",
+		"contactMail": "test@test.com",
+		"address": "DO NOT COLLECT",
+		"phonePrefix": "999999999",
+		"phone": "34"
 	},
 	"pickupTimeFrom": "10:10",
 	"pickupTimeTo": "20:20",
@@ -1107,7 +1107,7 @@ Example request
 	  "goodsValue": 10,
 	  "pickUpDate": "2021-11-09T00:00:00.000Z",
 	  "insurance": false,
-	  "Containers": [
+	  "containers": [
 	    {
 	      "quantity": 1,
 	      "weight": 1000,
@@ -1118,8 +1118,8 @@ Example request
 	      "imoNumber": ""
 	    }
 	  ],
-	  "Cargos": [],
-	  "DangerousInfo": null,
+	  "cargos": [],
+	  "dangerousInfo": null,
 	  "originServiceType": 2,
 	  "destinationServiceType": 2,
 	  "origin": {
@@ -1739,20 +1739,20 @@ Example request
        {
 	"id": "a445119b-6fe4-4607-a976-7af8cdd71d5e",
 	"origin": {
-	"contactPerson": "DO NOT COLLECT",
-	"companyName": "DO NOT COLLECT",
-	"contactMail": "test@test.com",
-	"address": "DO NOT COLLECT",
-	"phonePrefix": "999999999",
-	"phone": "34"
+		"contactPerson": "DO NOT COLLECT",
+		"companyName": "DO NOT COLLECT",
+		"contactMail": "test@test.com",
+		"address": "DO NOT COLLECT",
+		"phonePrefix": "999999999",
+		"phone": "34"
 	},
 	"destination": {
-	"contactPerson": "DO NOT COLLECT",
-	"companyName": "DO NOT COLLECT",
-	"contactMail": "test@test.com",
-	"address": "DO NOT COLLECT",
-	"phonePrefix": "999999999",
-	"phone": "34"
+		"contactPerson": "DO NOT COLLECT",
+		"companyName": "DO NOT COLLECT",
+		"contactMail": "test@test.com",
+		"address": "DO NOT COLLECT",
+		"phonePrefix": "999999999",
+		"phone": "34"
 	},
 	"pickupTimeFrom": "10:10",
 	"pickupTimeTo": "20:20",
@@ -3097,12 +3097,12 @@ Example request
     .. sourcecode:: json
     
 	{
-        "Destination": "",
-        "Origin": "",
+        "destination": "",
+        "origin": "",
         "FR": "",
-        "TransportOperator": "",
-        "StartDate": null,
-        "EndDate": null
+        "transportOperator": "",
+        "startDate": null,
+        "endDate": null
 	}
 
 Example response
