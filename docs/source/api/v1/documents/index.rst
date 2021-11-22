@@ -96,18 +96,18 @@ Download a given shipment document
         
 **Example response**:
 
-    .. sourcecode:: json
+.. sourcecode:: json
 
-        {
-            "id": "74933d7c-5d07-4b94-7608-08d767961595",
-            "shipmentId": "c7ef9573-59df-4da0-0983-08d95c96c463",
-            "documentName": "Label",
-            "isRequired": true,
-            "validationStatus": "None",
-            "observations": "Etiquetas del envio",
-            "extension": "pdf",
-            "file": "JVBERi0xLjYNJeLjz9MNCjI0IDAgb2JqDTw8L0ZpbHRlci9GbGF0ZURlY29kZS9GaXJzdCA0L0xlbmd0aCAyMTYvT..."
-        }
+    {
+        "id": "74933d7c-5d07-4b94-7608-08d767961595",
+        "shipmentId": "c7ef9573-59df-4da0-0983-08d95c96c463",
+        "documentName": "Label",
+        "isRequired": true,
+        "validationStatus": "None",
+        "observations": "Etiquetas del envio",
+        "extension": "pdf",
+        "file": "JVBERi0xLjYNJeLjz9MNCjI0IDAgb2JqDTw8L0ZpbHRlci9GbGF0ZURlY29kZS9GaXJzdCA0L0xlbmd0aCAyMTYvT..."
+    }
     
 =====================   =========  ================================================================
 Name                     Type      Description
@@ -160,12 +160,10 @@ Name                     Type      Constraint      Description
 ShipmentId              Guid        Mandatory       Shipment ID
 DocumentTemplateId      Guid        Mandatory       Document template ID
 DocumentName            String      Mandatory       Document name
-File            	    String      Mandatory       File content in base64 format
-Extension	  	        String	    Mandatory       MIME type
-Observations     	    String      Optional        Observations
-=====================   =========  =============   ================================================================
-
-        
+File                    String      Mandatory       File content in base64 format
+Extension               String	    Mandatory       MIME type
+Observations            String      Optional        Observations
+=====================   =========  =============   ================================================================  
   
 **Example response**:
 

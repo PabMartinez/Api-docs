@@ -3,29 +3,36 @@ Tracking
 =====================
 
 
-Tracking - Shipments Query
+Shipments
 --------------------------
 
-Example request
-~~~~~~~~~~~~~~~
+**Example request**:
     
-    .. sourcecode::
+.. http:get:: /v1/tracking/shipments
 
-        https://api.freightol.com/v1/tracking/shipments
-        
-    .. sourcecode:: json
-    
-	{
-        "destination": "",
-        "origin": "",
-        "FR": "",
-        "transportOperator": "",
-        "startDate": null,
-        "endDate": null
-	}
 
-Example response
-~~~~~~~~~~~~~~~~
+.. tabs::
+    .. code-tab:: bash
+
+        $ curl \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer <token>" \
+            https://<env>.freightol.com/v1/tracking/shipments
+
+The query params are like,
+
+=====================   ===========   =============    ================================================================
+Name                     Type         Constraint       Description
+=====================   ===========   =============    ================================================================
+Origin                  String        Optional         Origin
+Destination             String        Optional         Destination
+ShipmentCode   	        String        Optional         ShipmentCode
+TransportOperator       String        Optional         Transport Operator
+StartDate       	    DateTime      Optional         Start date
+EndDate		            DateTime      Optional         End date
+=====================   ===========   =============    ================================================================
+
+**Example response**:
 
     .. sourcecode:: json
 
@@ -115,68 +122,56 @@ Example response
       ]
     }
 
-Parameters
-~~~~~~~~~~
-
-    =====================   ===========   =============    ================================================================
-     Name                     Type         Constraint       Description
-    =====================   ===========   =============    ================================================================
-     Origin                  String        Optional         Origin
-     Destination             String        Optional         Destination
-     FR             	     String        Optional         FR
-     TransportOperator       String        Optional         Transport Operator
-     StartDate       	     DateTime      Optional         Start date
-     EndDate		     DateTime      Optional         End date
-    =====================   ===========   =============    ================================================================
-    
-Response
-~~~~~~~~
-
     ===========================   ==========   ===============================================
      Name                          Type         Description
     ===========================   ==========   ===============================================
-     ShipmentId                    Guid         Guid of the processed shipment
+     ShipmentId                    Guid         Shipment ID
      ShipmentCode                  String       Shipment code
      Agency                        String       Agency
-     PickUpDate                    Double       Pickup date
-     DeliveryDate                  Double       Delivery date
-     TransitDays                   Int          Transit days
+     PickUpDate                    DateTime?    Pickup date
+     DeliveryDate                  DateTime?    Delivery date
+     TransitDays                   Integer      Transit days
      ExpirationDate                DateTime     Expiration date
-     ClientPrice                   Long         ClientPrice(Considering 2 last digits as decimals).      
-     Currency		           String	Currency
-     CurrencyExchangedApplied      Double?	Currency exchanged applied
-     Customs		           Boolean	Customs
-     Insurance		           Boolean	Insurance
-     ShipmentType	           String	Shipment type
-     TrackingStatus	           Int		Tracking status
-     CustomsStatus	           String	Customs status
-     OriginState	           String	Origin state
-     OriginCountry	           String	Origin country
-     OriginCountryName	           String	Origin countryName
-     OriginCity	           	   String	Origin city
-     OriginPostalCode	           String	Origin postalCode
-     DestinationState	           String	Destination state
-     DestinationCountry	           String	Destination country
-     DestinationCountryName	   String	Destination country name
-     DestinationCity	           String	Destination city
-     DestinationPostalCode	   String	Destination postal code
-     HasInvoice	           	   Boolean	Has invoice
+     ClientPrice                   Longer       Total price
+     Currency		               String	    Currency ISO code
+     CurrencyExchangedApplied      Double?	    Currency exchanged applied
+     Customs		               Boolean	    Customs
+     Insurance		               Boolean	    Insurance
+     ShipmentType	               String	    Shipment type
+     TrackingStatus	               String		Tracking status
+     CustomsStatus	               String	    Customs status
+     OriginState	               String	    Origin state
+     OriginCountry	               String	    Origin country
+     OriginCountryName	           String	    Origin countryName
+     OriginCity	           	       String	    Origin city
+     OriginPostalCode	           String	    Origin postalCode
+     DestinationState	           String	    Destination state
+     DestinationCountry	           String	    Destination country
+     DestinationCountryName	       String	    Destination country name
+     DestinationCity	           String	    Destination city
+     DestinationPostalCode	       String	    Destination postal code
+     HasInvoice	           	       Boolean	    True if shipment has invoice saved
     ===========================   ==========   ===============================================
 
 
-Tracking - Shipment details - HTTPGET
+Shipment Info
 ------------------------------------------
 
-Example request
-~~~~~~~~~~~~~~~
+**Example request**:
     
-    .. sourcecode::
+    .. http:get:: /v1/tracking/shipments/(guid: shipmentId)
 
-        https://api.freightol.com/v1/tracking/shipment/details/shipmentId=339d8158-ca3d-4ed7-ac21-08d6ee8277b7
+
+.. tabs::
+    .. code-tab:: bash
+
+        $ curl \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer <token>" \
+            https://<env>.freightol.com/v1/tracking/shipments/339d8158-ca3d-4ed7-ac21-08d6ee8277b7
         
     
-Example response
-~~~~~~~~~~~~~~~~
+**Example response**:
 
     .. sourcecode:: json
 
@@ -192,23 +187,23 @@ Example response
 	    "externalTrackingURL": null,
 	    "trackingReference": null,
 	    "commodityUnits": [
-		{
-		    "commodityId": "339d8158-ca3d-4ed7-ac21-08d6ee8277b7",
-		    "commodityUnitId": "6050254f-ce83-4ab5-3c91-08d93cc1b5e4",
-		    "unitType": "Box",
-		    "measurementUnit": 1,
-		    "quantity": 1,
-		    "weight": 25,
-		    "length": 58,
-		    "width": 62,
-		    "height": 66,
-		    "isStackable": null,
-		    "palletType": null,
-		    "containerType": null,
-		    "isOwnedContainer": null,
-		    "isReeferContainer": null,
-		    "imoNumber": null
-		}
+            {
+                "commodityId": "339d8158-ca3d-4ed7-ac21-08d6ee8277b7",
+                "commodityUnitId": "6050254f-ce83-4ab5-3c91-08d93cc1b5e4",
+                "unitType": "Box",
+                "measurementUnit": 1,
+                "quantity": 1,
+                "weight": 25,
+                "length": 58,
+                "width": 62,
+                "height": 66,
+                "isStackable": null,
+                "palletType": null,
+                "containerType": null,
+                "isOwnedContainer": null,
+                "isReeferContainer": null,
+                "imoNumber": null
+            }
 	    ],
 	    "paymentStatus": "Paid",
 	    "paymentType": "TPV",
@@ -236,136 +231,128 @@ Example response
 	    "destinationPhone": "34 - 695733174",
 	    "pickupDescription": null,
 	    "deliveryDescription": null,
-	    "pickupHours": " - "
+	    "pickupHours": "12:00 - 14:00"
 	}
     
-Response
-~~~~~~~~
 
-    ===========================   ====================   ===============================================
-     Name                          Type         	  Description
-    ===========================   ====================   ===============================================
-     CommodityId                   Guid         	  Guid of the shipment
-     UserId                    	   Guid         	  Guid of the user
-     CommodityType	           String		  Commodity type
-     CommodityUnits	           List<Commodities>      Commodity type
-     CommodityDescription	   String		  Commodity description
-     CommodityValue	           Int   		  Commodity value
-     ServiceName	           String		  Service name
-     Reference	           	   String		  Reference
-     BookingReference	           String		  Booking reference
-     ExternalTrackingURL	   String		  External tracking URL
-     TrackingReference	           String		  Tracking reference
-     PaymentType	           String		  Payment type
-     PaymentStatus	           String		  Payment status
-     Customs		           Boolean		  Customs
-     Insurance		           Boolean		  Insurance
-     OriginAddress	           String		  Origin address
-     OriginState	           String		  Origin state
-     OriginCountryCode	           String		  Origin country code
-     OriginCountryName	           String		  Origin country name
-     OriginCity	           	   String		  Origin city
-     OriginPostalCode	           String		  Origin postalCode
-     OriginCompany	           String		  Origin company
-     OriginContact	           String		  Origin contact	 
-     OriginMail	         	   String		  Origin mail
-     OriginPhone	           String		  Origin phone     
-     DestinationAddress	           String		  Destination address
-     DestinationState	           String		  Destination state
-     DestinationCountryCode        String		  Destination country code
-     DestinationCountryName	   String		  Destination country name
-     DestinationCity	           String		  Destination city
-     DestinationPostalCode	   String		  Destination postal code
-     DestinationCompany	           String		  Destination company
-     DestinationContact	           String		  Destination contact	 
-     DestinationMail	           String		  Destination mail
-     DestinationPhone	           String		  Destination phone
-     PickupDescription	           String		  Pickup description
-     DeliveryDescription           String		  Delivery description
-     PickupHours	           String		  Pickup hours
-    ===========================   ====================   ===============================================
+===========================   ====================   ===============================================
+Name                          Type         	            Description
+===========================   ====================   ===============================================
+CommodityId                     Guid         	        Guid of the shipment
+UserId                    	    Guid         	        Guid of the user
+CommodityType	                String		            Commodity type
+CommodityUnits	                List<Commodities>       Commodity type
+CommodityDescription	        String		            Commodity description
+CommodityValue	                Int   		            Commodity value
+ServiceName	                    String		            Service name
+Reference	           	        String		            Reference
+BookingReference	            String		            Booking reference
+ExternalTrackingURL	            String		            External tracking URL
+TrackingReference	            String		            Tracking reference
+PaymentType	                    String		            Payment type
+PaymentStatus	                String		            Payment status
+Customs		                    Boolean		            Customs
+Insurance		                Boolean		            Insurance
+OriginAddress	                String		            Origin address
+OriginState	                    String		            Origin state
+OriginCountryCode	            String		            Origin country code
+OriginCountryName	            String		            Origin country name
+OriginCity	           	        String		            Origin city
+OriginPostalCode	            String		            Origin postalCode
+OriginCompany	                String		            Origin company
+OriginContact	                String		            Origin contact	 
+OriginMail	         	        String		            Origin mail
+OriginPhone	                    String		            Origin phone     
+DestinationAddress	            String		            Destination address
+DestinationState	            String		            Destination state
+DestinationCountryCode          String		            Destination country code
+DestinationCountryName	        String		            Destination country name
+DestinationCity	                String		            Destination city
+DestinationPostalCode	        String		            Destination postal code
+DestinationCompany	            String		            Destination company
+DestinationContact	            String		            Destination contact	 
+DestinationMail	                String		            Destination mail
+DestinationPhone	            String		            Destination phone
+PickupDescription	            String		            Pickup description
+DeliveryDescription             String		            Delivery description
+PickupHours	                    String		            Pickup hours
+===========================   ====================   ===============================================
 
-     * Commodities:
-    ====================    ==========  =======================================
-     Name                    Type        Description
-    ====================    ==========  =======================================
-     CommodityId             String      Shipment Id
-     CommodityUnitId         String      Commodity Id
-     UnitType                String      Unit type
-     MeasurementUnit         String      Measurement unit
-     Quantity                String      Quantity
-     Weight                  String      Weight
-     Length                  String      Length
-     Width                   String      Width
-     Height                  String      Height
-     IsStackable             String      Is stackable
-     PalletType              String      Pallet type
-     ContainerType           String      Container type
-     IsOwnedContainer        String      Is ownedContainer
-     IsReeferContainer       String      Is reefer container
-     ImoNumber               String      Imo number
-    ====================    ==========  =======================================
+* Commodities:
+  
+====================    ==========  =======================================
+Name                    Type        Description
+====================    ==========  =======================================
+CommodityId             String      Shipment Id
+CommodityUnitId         String      Commodity Id
+UnitType                String      Unit type
+MeasurementUnit         String      Measurement unit
+Quantity                Integer     Quantity
+Weight                  Double      Weight
+Length                  Double      Dimensions: Length
+Width                   Double      Dimensions: Width
+Height                  Double      Dimensions: Height
+IsStackable             String      True if pallets is stackable (only pallets)
+PalletType              String      Pallet type (only Pallets)
+ContainerType           String      Container type (only FCL)
+IsOwnedContainer        String      True if container is owner (only FCL)
+IsReeferContainer       String      True if container is reefer (only FCL)
+ImoNumber               String      IMO number (only FCL)
+====================    ==========  =======================================
 
-Tracking - Tracking Messages - HTTPGET
+Tracking messages
 ---------------------------------------
 
-
-Example request
-~~~~~~~~~~~~~~~
+**Example request**:
     
     .. sourcecode::
 
         https://api.freightol.com/v1/tracking/cfab8e81-d328-4d4c-81eb-08d7523e7fee
         
     
-Example response
-~~~~~~~~~~~~~~~~
+**Example response**:
 
-    .. sourcecode:: json
+.. sourcecode:: json
 
 	[
 	   {
-		"shipmentId": "cfab8e81-d328-4d4c-81eb-08d7523e7fee",
-		"message": "Shipment Received At Transit Point.",
-		"updatedDate": null,
-		"status": "None",
-		"groupIndex": null,
-		"countryCode": null,
-		"countryName": null,
-		"city": "MV9",
-		"address": null
+            "shipmentId": "cfab8e81-d328-4d4c-81eb-08d7523e7fee",
+            "message": "Shipment Received At Transit Point.",
+            "updatedDate": null,
+            "status": "None",
+            "groupIndex": null,
+            "countryCode": null,
+            "countryName": null,
+            "city": "MV9",
+            "address": null
 	    },
 	    {
-		"shipmentId": "cfab8e81-d328-4d4c-81eb-08d7523e7fee",
-		"message": "Shipment Received At Origin Depot.",
-		"updatedDate": null,
-		"status": "None",
-		"groupIndex": null,
-		"countryCode": null,
-		"countryName": null,
-		"city": "Korntal Muenchingen",
-		"address": null
+            "shipmentId": "cfab8e81-d328-4d4c-81eb-08d7523e7fee",
+            "message": "Shipment Received At Origin Depot.",
+            "updatedDate": null,
+            "status": "None",
+            "groupIndex": null,
+            "countryCode": null,
+            "countryName": null,
+            "city": "Korntal Muenchingen",
+            "address": null
 	    }
-        ]
+    ]
          
-Response
-~~~~~~~~
 
-    ===========================   ==========   ===============================================
-     Name                          Type         Description
-    ===========================   ==========   ===============================================
-     ShipmentId                    Guid         Guid of the shipment
-     Message                       String       Message
-     UpdatedDate                   DateTime     Updated date
-     Status	                   String       Status
-     GroupIndex 	           String       Group index
-     CountryCode                   String       Country code  
-     CountryName		   String	Country name
-     City			   String	City
-     Address		           String	Address
-    ===========================   ==========   ===============================================
+===========================   ==========   ===============================================
+Name                          Type         Description
+===========================   ==========   ===============================================
+ShipmentId                      Guid         Guid of the shipment
+Message                         String       Message
+UpdatedDate                    DateTime?    Updated date
+Status	                        String       Status
+GroupIndex                      Integer?     Allows group massages when value is not null
+CountryCode                     String       Country code  
+CountryName                     String	     Country name
+City                            String	     City
+Address                         String	     Street address
+===========================   ==========   ===============================================
 
 .. autosummary::
    :toctree: generated
-
-   lumache

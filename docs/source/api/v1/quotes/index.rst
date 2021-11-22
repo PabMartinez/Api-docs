@@ -2,146 +2,123 @@
 Quotes
 =====================
 
-Saved quotes
+Saved Quotes
 ----------------
 
-
-Example request
-~~~~~~~~~~~~~~~
+**Example request**:
     
-    .. sourcecode::
+.. http:get:: /v1/quotes
 
-        https://api.freightol.com/v1/quotes
-        
 
-Example response
-~~~~~~~~~~~~~~~~
+.. tabs::
+    .. code-tab:: bash
 
-    .. sourcecode:: json
+        $ curl \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer <token>" \
+            https://<env>.freightol.com/v1/quotes
 
-        [
-            {
-                "quoteId": "a11e7c54-0d79-4898-fc6f-08d981bf0c29",
-                "agency": "ASM",
-                "shipmentType": "Box",
-                "pickUpDate": "2021-09-29T00:00:00",
-                "deliveryDate": "2021-10-02T00:00:00",
-                "expirationDate": "2021-09-29T00:00:00",
-                "transitDays": 3,
-                "totalPrice": {
+**Example response**:
+
+.. sourcecode:: json
+
+    [
+        {
+            "quoteId": "a11e7c54-0d79-4898-fc6f-08d981bf0c29",
+            "agency": "ASM",
+            "shipmentType": "Box",
+            "pickUpDate": "2021-09-29T00:00:00",
+            "deliveryDate": "2021-10-02T00:00:00",
+            "expirationDate": "2021-09-29T00:00:00",
+            "transitDays": 3,
+            "totalPrice": {
                 "value": 668,
                 "currency": "EUR"
-                },
-                "surcharges": [
+            },
+            "surcharges": [
                 {
                     "description": "Transport",
                     "price": {
-                    "value": 668,
-                    "currency": "EUR"
+                        "value": 668,
+                        "currency": "EUR"
                     },
                     "taxPercent": 0
                 }
-                ]
-            }
-        ]
+            ]
+        }
+    ]
 
-Parameters
-~~~~~~~~~~
-    
-Response
-~~~~~~~~
 
-    =======================   ==================   ===========================================================
-     Name                      Type                 Description
-    =======================   ==================   ===========================================================
-     QuoteId                   Guid                 Guid of saved quote
-     Agency                    String               Transport operator name
-     PickupDate                DateTime?            Pickup date (estimated), can be null on Maritime
-     DeliveryDate              DateTime?            Delivery date (estimated), can be null on Maritime
-     ExpirationDate            DateTime             Expiration date when quote will not be valid
-     TransitDays               int                  Days in transit (estimated), if delivery date has value
-     TotalPrice                MoneyModel           Total price 
-     Surcharges                List<Surcharge>      List with all surcharges relatives with this quote
-    =======================   ==================   ===========================================================
+* Quote model    
 
-     * Surcharge:
-    =======================   ==================   ===========================================================
-     Name                      Type                 Description
-    =======================   ==================   ===========================================================
-     Description               String               Surcharge description 
-     Price                     MoneyModel           Surcharge price
-    =======================   ==================   ===========================================================
+=======================   ==================   ===========================================================
+Name                      Type                 Description
+=======================   ==================   ===========================================================
+QuoteId                   Guid                 Guid of saved quote
+Agency                    String               Transport operator name
+PickupDate                DateTime?            Pickup date (estimated), can be null on Maritime
+DeliveryDate              DateTime?            Delivery date (estimated), can be null on Maritime
+ExpirationDate            DateTime             Expiration date when quote will not be valid
+TransitDays               Integer?             Days in transit (estimated), if delivery date has value
+TotalPrice                Money                Total price 
+Surcharges                List<Surcharge>      List with all surcharges relatives with this quote
+=======================   ==================   ===========================================================
 
-     * Moneymodel:
-    =======================   ==================   ===========================================================
-     Name                      Type                 Description
-    =======================   ==================   ===========================================================
-     Value                     Long                 Surcharge value (last 2 digits are decimals)
-     Currency                  String               Surcharge currency
-    =======================   ==================   ===========================================================
+* Surcharge model:
 
-Delete Boxes quote
+=======================   ==================   ===========================================================
+Name                      Type                 Description
+=======================   ==================   ===========================================================
+Description               String               Surcharge description 
+Price                     Money                Surcharge price
+=======================   ==================   ===========================================================
+
+* Money model:
+
+=======================   ==================   ===========================================================
+Name                      Type                 Description
+=======================   ==================   ===========================================================
+Value                     Long                 Surcharge value (last 2 digits are decimals)
+Currency                  String               Surcharge currency
+=======================   ==================   ===========================================================
+
+Delete Quote
 ----------------
 
-
-Example request
-~~~~~~~~~~~~~~~
-    
-    .. sourcecode::
-
-        https://api.freightol.com/v1/quotes/boxes/{quoteId}
+**Example request**:
         
+.. http:delete:: /v1/quotes/{string: type}/{guid: quoteId}
 
 
-Delete Pallets quote
-----------------
+.. tabs::
 
+    .. code-tab:: bash
 
-Example request
-~~~~~~~~~~~~~~~
-    
-    .. sourcecode::
+        $ curl \
+            -X POST \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer <token>" \
+            -d @body.json \
+            https://<env>.freightol.com/v1/quotes/sea/fcl/c7ef9573-59df-4da0-0983-08d95c96c463 
 
-        https://api.freightol.com/v1/quotes/pallets/{quoteId}
-	
+* Query params
 
-Delete FCL quote
-----------------
+=====================   =============  =============   ================================================================
+Name                     Type           Constraint      Description
+=====================   =============  =============   ================================================================
+Type                    ShipmentType    Mandatory       Shipment type
+QuoteId                 Guid            Mandatory       Guid of quote ID
+=====================   =============  =============   ================================================================
 
+* Shipment type model:
 
-Example request
-~~~~~~~~~~~~~~~
-    
-    .. sourcecode::
++-------+---------+---------+---------+---------+
+| Boxes | Pallets | Sea FCL | Sea LCL | Aerial  |
++=======+=========+=========+=========+=========+
+| boxes | pallets | sea/fcl | sea/lcl | air     |
++-------+---------+---------+---------+---------+
 
-        https://api.freightol.com/v1/quotes/sea/fcl/{quoteId}
-	
-
-Delete LCL quote
-----------------
-
-
-Example request
-~~~~~~~~~~~~~~~
-    
-    .. sourcecode::
-
-        https://api.freightol.com/v1/quote/boxes/{quoteId}
-	
-
-Delete Air quote
-----------------
-
-
-Example request
-~~~~~~~~~~~~~~~
-    
-    .. sourcecode::
-
-        https://api.freightol.com/v1/quotes/air/{quoteId}
 
 
 .. autosummary::
    :toctree: generated
-
-   lumache

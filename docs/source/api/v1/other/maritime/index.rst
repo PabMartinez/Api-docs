@@ -194,10 +194,10 @@ CityName       String    Mandatory   Name of city or IATA airport code.
 =============  =======  ======================================================
 Name            Type    Description
 =============  =======  ======================================================
-unLocCode      String   UN/LOCODE 
-country        String   Country ISO 3166-1 alfa-2 code.
-city           String   City name.
-rkstCode       String   Code used internally in Maersk network
+UnLocCode      String   UN/LOCODE 
+Country        String   Country ISO 3166-1 alfa-2 code.
+City           String   City name.
+RkstCode       String   Code used internally in Maersk API
 =============  =======  ======================================================
 
 

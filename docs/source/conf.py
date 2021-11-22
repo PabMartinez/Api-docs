@@ -16,6 +16,8 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.intersphinx',
     'sphinxcontrib.httpdomain',
+    'sphinx.ext.todo',
+    'sphinx.ext.viewcode',
     'sphinx_tabs.tabs',
     'sphinx-prompt',
     'notfound.extension',

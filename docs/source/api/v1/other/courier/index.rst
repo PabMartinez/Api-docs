@@ -22,8 +22,8 @@ Receives the name of the city or postal code, and returns a list of locations.
 =============  =======  ===========  =========================================
 Name            Type     Constraint             Description
 =============  =======  ===========  =========================================
-countryCode    String    Mandatory   Country ISO 3166-1 alfa-2 code.
-loc            String    Mandatory   Name of city or postal code.
+CountryCode    String    Mandatory   Country ISO 3166-1 alfa-2 code.
+Loc            String    Mandatory   Name of city or postal code.
 =============  =======  ===========  =========================================
 
 **Example response**:
@@ -68,14 +68,14 @@ loc            String    Mandatory   Name of city or postal code.
 =============  =======  ======================================================
 Name            Type    Description
 =============  =======  ======================================================
-latitude        Double   Latitude, precision is (3, 6).
-longitude       Double   longitude precision is (3, 6).
-country         String   Country name.
-countryCode     String   Country ISO 3166-1 alfa-2 code.
-city            String   City name.
-region          Model    Region name.
-regionCode      Model    Region code.
-postalCode      Model    Postal code.
+Latitude        Double   Latitude, precision is (3, 6).
+Longitude       Double   longitude precision is (3, 6).
+Country         String   Country name.
+CountryCode     String   Country ISO 3166-1 alfa-2 code.
+City            String   City name.
+Region          Model    Region name.
+RegionCode      Model    Region code.
+PostalCode      Model    Postal code.
 =============  =======  ======================================================
 
 
@@ -129,11 +129,11 @@ Retrieves the list of supported pallet types.
 =======================   ==========   ===============================================
 Name                      Type         Description
 =======================   ==========   ===============================================
-Type		                String       Pallet type
-Length		                Double       Pallet length
-Width		                Double       Pallet width
-Height		                Double       Pallet height
-Unit		                String       Unit of measurement
+Type                        String       Pallet type
+Length                      Double       Pallet length
+Width                       Double       Pallet width
+Height                      Double       Pallet height
+Unit                        String       Unit of measurement
 =======================   ==========   ===============================================
 
 .. autosummary::
