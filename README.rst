@@ -1,9 +1,5 @@
-Template for the Read the Docs tutorial
+Freightol Public API docs
 =======================================
 
-This GitHub template includes fictional Python library
-with some basic Sphinx docs.
-
-Read the tutorial here:
-
-https://docs.readthedocs.io/en/stable/tutorial/
+This GitHub repo is developed and maintenance by Freightol.
+You can contact with sales department for more information in [Freightol Web](www.freightol.com).

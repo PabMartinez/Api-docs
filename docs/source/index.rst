@@ -1,21 +1,21 @@
-API
+===================================
+Freightol Public API
 ===================================
 
-**Freightol** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+**Freightol** API enables programmatic access to Freightol in unique and advanced ways.
+Tap into core elements of Freightol like: Rating, Shipping and more.
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+Based on simple REST principles, the Freightol Web API endpoints return JSON data from multiples operators: TNT, Fedex, UPS, Maersk, HMM, Qatar Airlines and more.
 
-.. note::
+.. warning::
 
-   This project is under active development.
+   This project is WIP.
 
 Contents
 --------
 
 .. toctree::
+   :glob:
+   :maxdepth: 2
 
    api/index

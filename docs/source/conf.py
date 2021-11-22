@@ -6,17 +6,22 @@ project = 'Freightol'
 copyright = '2021, Freightol'
 author = 'Freightol'
 
-release = '0.1'
-version = '0.1.0'
+release = '1.0'
+version = '1.0.0'
 
 # -- General configuration
 
 extensions = [
-    'sphinx.ext.duration',
-    'sphinx.ext.doctest',
+    'sphinx.ext.autosectionlabel',
     'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
+    'sphinxcontrib.httpdomain',
+    'sphinx_tabs.tabs',
+    'sphinx-prompt',
+    'notfound.extension',
+    'hoverxref.extension',
+    'sphinx_search.extension',
+    'sphinxemoji.sphinxemoji',
 ]
 
 intersphinx_mapping = {

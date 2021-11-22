@@ -1,4 +1,8 @@
-Get Shipment Documents
+===========================
+Documents
+===========================
+
+Shipment Documents
 ----------------------
 Retrieve a list of all shipment documents
 
@@ -171,3 +175,9 @@ Observations     	    String      Optional        Observations
         "success": true,
         "message": "Success"
     }
+
+
+.. autosummary::
+   :toctree: generated
+
+   lumache

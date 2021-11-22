@@ -1,5 +1,9 @@
+===========================
 Aerial
-------
+===========================
+
+Airports
+--------
 
 Retrieve the name of a city or an IATA code, and returns a list of airports that meet the value received. 
 
@@ -63,3 +67,7 @@ lat             Double   Airport latitude, precision is (3, 6).
 lng             Double   Airport longitude, precision is (3, 6).
 =============  =======  ======================================================
 
+.. autosummary::
+   :toctree: generated
+
+   lumache
