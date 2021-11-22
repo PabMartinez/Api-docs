@@ -1,13 +1,9 @@
 API
 ===================================
 
-**Freightol** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+**Freightol** (/lu'make/) is a Freight Api for Box/Pallet/Container/Cargo Rating, Booking, Shipping and more features yet to be discovered, join us to be part of this amazing journey. Pls if something doesnt work try removing the zoom first.
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+Check out the :doc:`usage` section for further information.
 
 .. note::
 
