@@ -112,11 +112,11 @@ QuoteId                 Guid            Mandatory       Guid of quote ID
 
 * Shipment type model:
 
-+-------+---------+---------+---------+---------+
-| Boxes | Pallets | Sea FCL | Sea LCL | Aerial  |
-+=======+=========+=========+=========+=========+
-| boxes | pallets | sea/fcl | sea/lcl | air     |
-+-------+---------+---------+---------+---------+
++-----------+-------+---------+---------+---------+---------+
+| Type      | Boxes | Pallets | Sea FCL | Sea LCL | Aerial  |
++===========+=======+=========+=========+=========+=========+
+| **Param** | boxes | pallets | sea/fcl | sea/lcl | air     |
++-----------+-------+---------+---------+---------+---------+
 
 
 

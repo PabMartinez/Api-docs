@@ -8,7 +8,7 @@ Retrieves the list of supported containers types
 
 **Example request**:
 
-.. http:get:: /v1/maritime
+.. http:get:: /v1/maritime/containers
 
 .. tabs::
     .. code-tab:: bash
@@ -16,7 +16,7 @@ Retrieves the list of supported containers types
         $ curl \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
-            https://<env>.freightol.com/v1/maritime
+            https://<env>.freightol.com/v1/maritime/containers
   
   
 **Example response**:
@@ -169,7 +169,7 @@ Receives the name of the city, and returns a list of ports.
 =============  =======  =================================================
 Name            Type    Description
 =============  =======  =================================================
-CityName       String    Mandatory   Name of city or IATA airport code.
+CityName       String    Name of city or IATA airport code.
 =============  =======  =================================================
 
 **Example response**:
@@ -200,4 +200,5 @@ City           String   City name.
 RkstCode       String   Code used internally in Maersk API
 =============  =======  ======================================================
 
-
+.. autosummary::
+   :toctree: generated

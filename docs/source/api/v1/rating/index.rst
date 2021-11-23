@@ -106,7 +106,7 @@ Lng               Double       Mandatory 		Location longitude, precision is (3, 
 ==================    =========    =============     =======================================
 Name                  Type         Constraint        Description
 ==================    =========    =============     =======================================
-Quantity              Int          Mandatory 	  	 Quantity
+Quantity              Integer      Mandatory 	  	 Quantity
 Length                Double       Mandatory 	  	 Length of the box
 Width                 Double       Mandatory 	  	 Width of the box
 Height                Double       Mandatory	  	 Height of the box
@@ -209,7 +209,7 @@ MeasurementUnit       String       Mandatory 	  	 Measurement unit
 	}
 
 
-* Box quote model:
+* Box Quote model:
 
 =============     =============    ======================================================
 Name               Type            Description
@@ -308,7 +308,7 @@ The content of ``body.json`` is like,
 				"weight": 10,
 				"measurementUnit": "CmKg",
 				"isStackable": false,
-				"palletType": 2
+				"palletType": Custom
 			}
 		]
 	}
@@ -320,7 +320,7 @@ Name                 Type                  Constraint      Description
 ==================   ===================   =============   ===============================================
 Origin               Location              Mandatory       Object containing the origin info.
 Destination          Location              Mandatory       Object containing the destination info.
-Boxes                List<Containers>      Mandatory       List of containers for the shipment.
+Pallets              List<Pallet>          Mandatory       List of pallets for the shipment.
 PickUpDate           DateTime              Mandatory       Pickup date
 GoodsDescription     String                Mandatory       Goods description
 GoodsValue           Long                  Mandatory       Goods value (last 2 digits are decimals)
@@ -340,7 +340,7 @@ Country           String      Mandatory 	      Country of the shipment
 City              String      Mandatory 	      City of the shipment
 State             String      Mandatory 	      State of the shipment
 Street            String      Optional 	      	  Street of the shipment
-coords            Coord       Optional 	          Geolocation data
+Coords            Coord       Optional 	          Geolocation data
 =============     ========    =============      =======================================
 
 * Coord model:
@@ -348,24 +348,35 @@ coords            Coord       Optional 	          Geolocation data
 =============     ========     =============    ======================================================
 Name              Type         Constraint       Description
 =============     ========     =============    ======================================================
-lat               Double       Mandatory        Location latitude, precision is (3, 6).
-lng               Double       Mandatory 	    Location longitude, precision is (3, 6).
+Lat               Double       Mandatory        Location latitude, precision is (3, 6).
+Lng               Double       Mandatory 	    Location longitude, precision is (3, 6).
 =============     ========     =============    ======================================================
 
-* Container:
+* Pallet:
   
 ==================    =============      ==============     ==========================================================
 Name                  Type               Constraint         Description
 ==================    =============      ==============     ==========================================================
-Quantity              Integer            Mandatory 	 		Quantity of pallet (same type)
+Quantity              Integer            Mandatory 	 		Quantity of pallet
 Length                Double             Mandatory 	 		Length of the pallet
 Width                 Double             Mandatory 	 		Width of the pallet
 Height                Double             Mandatory	        Height of the pallet
 Weight                Double             Mandatory  	 	Weight of the pallet
 MeasurementUnit       String             Mandatory 	 		Measurement unit
 IsStackable	          Boolean            Mandatory          True if pallet is stackable
-PalletType            Integer            Mandatory		 	Pallet Type(0-Other,1-Euro1,2-Euro2,3-UK)
+PalletType            PalletType         Mandatory		 	Pallet Type
 ==================    =============      ==============     ==========================================================
+
+* Pallet type model:
+  
+================     =======================================  
+Name                  Description
+================     =======================================  
+Custom                Customs size
+Euro1                 EURO1 size standard
+Euro2                 EURO2 size standard
+Uk      		      UK size standard
+================     =======================================  
 
 
 **Example response**:
@@ -467,7 +478,7 @@ PalletType            Integer            Mandatory		 	Pallet Type(0-Other,1-Euro
 =============     ===================    ======================================================
 Name               Type           		  Description
 =============     ===================    ======================================================
-QuoteId           Guid             			Id of the quote
+QuoteId           Guid             			Guid of the quote
 Origin            Location         			Object containing the origin info.
 Destination       Location         			Object containing the destination info.
 PickUpDate        DateTime         	  		Pickup date
@@ -583,26 +594,25 @@ The content of ``body.json`` is like,
 
 * FCL Quote model:
 
-==========================   ===================   =============   ===============================================
-Name                         Type                  Constraint      Description
-==========================   ===================   =============   ===============================================
-Origin                          Location              Mandatory       Object containing the origin info.
-Destination                     Location              Mandatory       Object containing the destination info.
-Containers                      List<Containers>      Mandatory       List of containers for the shipment.
-PickUpDate                      DateTime              Mandatory       Pickup date
-GoodsDescription             	String                Mandatory       Goods description
-GoodsValue                      Long                  Mandatory       Goods value (last 2 digits are decimals)
-Insurance                       Boolean               Mandatory       Has insurance
-Customs                         Boolean               Mandatory       Has customs
-Currency                        String                Mandatory       Currency (Ex:EUR)
-DangerousCargo               	Boolean               Mandatory       Is dangerous cargo
-OriginServiceType               ServiceType           Mandatory       Origin service type
-DestinationServiceType          ServiceType           Mandatory       Destination service type
-OriginUnLocCode                 String                Mandatory       Origin UnLoc code
-DestinationUnLocCode         	String                Mandatory       Destination UnLoc code   
-OriginRkstCode                  String                Mandatory       Origin Rkst code
-DestinationRkstCode          	String                Mandatory       Destination Rkst code
-==========================   ===================   =============   ===============================================
+==========================   ==========================   ===============   ===============================================
+Name                          Type                        Constraint         Description
+==========================   ==========================   ===============   ===============================================
+Origin                          Location                   Mandatory         Object containing the origin info.
+Destination                     Location                   Mandatory         Object containing the destination info.
+Containers                      List<Containers>           Mandatory         List of containers for the shipment.
+PickUpDate                      DateTime                   Mandatory         Pickup date
+GoodsDescription             	String                     Mandatory         Goods description
+GoodsValue                      Long                       Mandatory         Goods value (last 2 digits are decimals)
+Insurance                       Boolean                    Mandatory         Has insurance
+Customs                         Boolean                    Mandatory         Has customs
+Currency                        String                     Mandatory         Currency (Ex:EUR)
+OriginServiceType               ServiceType                Mandatory         Origin service type
+DestinationServiceType          ServiceType                Mandatory         Destination service type
+OriginUnLocCode                 String                     Mandatory         Origin UnLoc code
+DestinationUnLocCode         	String                     Mandatory         Destination UnLoc code   
+OriginRkstCode                  String                     Mandatory         Origin Rkst code
+DestinationRkstCode          	String                     Mandatory         Destination Rkst code
+==========================   ==========================   ===============   ===============================================
 
 * Service type model:
   
@@ -898,7 +908,7 @@ HFLATRACK40      	40' Flat Rack High Cube
 				],
 				"conditions": [
 					{
-						"chargeType": 1,
+						"chargeType": "Detention",
 						"containerSizeType": "40DRY",
 						"freeTimeStartEvent": "DISCHARGE",
 						"freeTimeGrantInDays": 7,
@@ -906,7 +916,7 @@ HFLATRACK40      	40' Flat Rack High Cube
 						"price": 4308
 					},
 					{
-						"chargeType": 2,
+						"chargeType": "Storage",
 						"containerSizeType": "40DRY",
 						"freeTimeStartEvent": "DISCHARGE",
 						"freeTimeGrantInDays": 5,
@@ -920,17 +930,17 @@ HFLATRACK40      	40' Flat Rack High Cube
 						"currency": "EUR",
 						"charges": [
 						{
-							"penaltyType": 0,
+							"penaltyType": "AmendmentFee",
 							"price": 51692,
 							"name": "Amendment Fee"
 						},
 						{
-							"penaltyType": 0,
+							"penaltyType": "CancellationFee",
 							"price": 51692,
 							"name": "Cancellation Fee"
 						},
 						{
-							"penaltyType": 0,
+							"penaltyType": "NoShowFee",
 							"price": 103383,
 							"name": "No Show Fee"
 						}
@@ -1072,13 +1082,13 @@ Lng               Double       Mandatory 		Location longitude, precision is (3, 
 ===================    ========================    ==========================================================
  Name                    Type                        Description
 ===================    ========================    ==========================================================
- Id                     Int                         Quantity
+ Id                     Guid                        Rate ID
  Sealine 		        String		                Scas code
  Agency                 Double                      Agency
  Service                Double                      Service
- PickUpDate             DateTime?                   Pickup date
- DeliveryDate           DateTuime?                  Delivery date
- TransitDays            Integer?                    Transit days
+ PickUpDate             DateTime?                   Pickup date (estimated)
+ DeliveryDate           DateTuime?                  Delivery date. Null if rate is a pre-booking.
+ TransitDays            Integer?                    Transit days. Null or -1 if rate is a pre-booking.
  ExpirationDate         DateTime                    Expiration date
  Price                  Long                        Price (Considering 2 last digits as decimals).      
  ExtraInfo              List<String>                List of extra info
@@ -1113,7 +1123,7 @@ Lng               Double       Mandatory 		Location longitude, precision is (3, 
  Name                     Type                        Description
 =====================    ========================    ==========================================================
  RkstCode                 String                      Rkst Code
- Type 		              String			          Type: VESSEL, TRUCK
+ Type                     MaritimeLocationType		  Transport Type route
  UnLocCode                String                      UnLoc Code
  City                     String                      City     
  CountryCode              String                      Country Code
@@ -1129,6 +1139,15 @@ Lng               Double       Mandatory 		Location longitude, precision is (3, 
  Code 		            String		                Code
  TransportMode          String	                    Transport Mode     
 ===================    ========================    ==========================================================
+
+* Maritime location type model:
+  
+================     =======================================  
+Name                  Description
+================     =======================================  
+VESSEL         		  Maritime location
+TRUCK      			  Ground location
+================     =======================================  
 
 * Deadlines model:
   
@@ -1146,13 +1165,23 @@ Lng               Double       Mandatory 		Location longitude, precision is (3, 
 =======================    ========================    ==========================================================
  Name                       Type                        Description
 =======================    ========================    ==========================================================
- ChargeType                 Int                         Charge type
+ ChargeType                 ConditionChargeType         Charge type
  ContainerSizeType 		    String			            Container size type
  FreeTimeStartEvent         String                      Free time start event
  FreeTimeGrantInDays        Integer                     Free time grant in days
  Commodity			        String                      Commodity
  Price			            Long                        Price (Considering 2 last digits as decimals).
 =======================    ========================    ==========================================================
+
+* Condition charge type model:
+  
+================     =======================================  
+Name                  Description
+================     =======================================  
+Demurrage         	 Demurrage condition type
+Detention      		 Detention condition type
+Storage              Demurrage condition type
+================     =======================================  
 
 * Penalties model:
   
@@ -1356,355 +1385,355 @@ CBM                       Double       Mandatory 	      CBM of the cargo
       {
 	    "quoteId": "cedb8248-ee94-4bfd-ae68-60d05073d460",
 	    "origin": {
-		"postalCode": "999077",
-		"country": "HK",
-		"city": "Hong Kong",
-		"state": "Sai Kung",
-		"street": null,
-		"coords": {
-		    "lat": null,
-		    "lng": null
-		}
+			"postalCode": "999077",
+			"country": "HK",
+			"city": "Hong Kong",
+			"state": "Sai Kung",
+			"street": null,
+			"coords": {
+				"lat": null,
+				"lng": null
+			}
 	    },
 	    "destination": {
-		"postalCode": "08001",
-		"country": "ES",
-		"city": "Barcelona",
-		"state": "Cataluña",
-		"street": null,
-		"coords": {
-		    "lat": null,
-		    "lng": null
-		}
+			"postalCode": "08001",
+			"country": "ES",
+			"city": "Barcelona",
+			"state": "Cataluña",
+			"street": null,
+			"coords": {
+				"lat": null,
+				"lng": null
+			}
 	    },
 	    "pickUpDate": "2021-11-09T00:00:00",
 	    "rates": [
-		{
-		    "sealine": "MAEU",
-		    "scheduleDetails": [
 			{
-			    "routeDetails": [
+				"sealine": "MAEU",
+				"scheduleDetails": [
 				{
-				    "fromLocation": {
-						"type": "TERMINAL",
-						"rkstCode": "HKHKGMO",
-						"unLocCode": "HKHKG",
-						"city": "Hong Kong",
-						"countryCode": "HK",
-						"expectedDate": "2021-11-10T12:00:00"
-				    },
-				    "toLocation": {
-						"type": "TERMINAL",
-						"rkstCode": "CNNANCT",
-						"unLocCode": "CNNSA",
-						"city": "Nansha New Port",
-						"countryCode": "CN",
-						"expectedDate": "2021-11-10T20:00:00"
-				    },
-				    "transport": {
-						"transportMode": "VESSEL",
-						"name": "SAN CHRISTOBAL",
-						"code": "9699191"
-				    }
+					"routeDetails": [
+					{
+						"fromLocation": {
+							"type": "TERMINAL",
+							"rkstCode": "HKHKGMO",
+							"unLocCode": "HKHKG",
+							"city": "Hong Kong",
+							"countryCode": "HK",
+							"expectedDate": "2021-11-10T12:00:00"
+						},
+						"toLocation": {
+							"type": "TERMINAL",
+							"rkstCode": "CNNANCT",
+							"unLocCode": "CNNSA",
+							"city": "Nansha New Port",
+							"countryCode": "CN",
+							"expectedDate": "2021-11-10T20:00:00"
+						},
+						"transport": {
+							"transportMode": "VESSEL",
+							"name": "SAN CHRISTOBAL",
+							"code": "9699191"
+						}
+					},
+					{
+						"fromLocation": {
+							"type": "TERMINAL",
+							"rkstCode": "CNNANCT",
+							"unLocCode": "CNNSA",
+							"city": "Nansha New Port",
+							"countryCode": "CN",
+							"expectedDate": "2021-11-16T11:00:00"
+						},
+						"toLocation": {
+							"type": "TERMINAL",
+							"rkstCode": "ESBCNBS",
+							"unLocCode": "ESBCN",
+							"city": "Barcelona",
+							"countryCode": "ES",
+							"expectedDate": "2021-12-18T20:00:00"
+						},
+						"transport": {
+							"transportMode": "VESSEL",
+							"name": "MSC ARINA",
+							"code": "9839284"
+						}
+					}
+					],
+					"deadlines": [
+					{
+						"deadLineKey": "CY",
+						"type": "Documentation",
+						"deadLine": "2021-11-08 17:00:00",
+						"name": "Commercial Cargo Cutoff"
+					},
+					{
+						"deadLineKey": "SIAMS",
+						"type": "Documentation",
+						"deadLine": "2021-11-06 16:00:00",
+						"name": "Shipping Instructions Deadline for Advance Manifest Cargo"
+					},
+					{
+						"deadLineKey": "VGM",
+						"type": "Documentation",
+						"deadLine": "2021-11-08 11:00:00",
+						"name": "Commercial Verified Gross Mass Deadline"
+					},
+					{
+						"deadLineKey": "LCD",
+						"type": "Marine Services",
+						"deadLine": "2021-11-08 11:00:00",
+						"name": "Loadlist Closure Deadline"
+					},
+					{
+						"deadLineKey": "CSPD",
+						"type": "Marine Services",
+						"deadLine": "2021-11-08 12:00:00",
+						"name": "Coprar to Stowage Planners Deadline"
+					},
+					{
+						"deadLineKey": "FLD",
+						"type": "Marine Services",
+						"deadLine": "2021-11-08 17:00:00",
+						"name": "Final Loadlist Deadline"
+					},
+					{
+						"deadLineKey": "SCDD",
+						"type": "Marine Services",
+						"deadLine": "2021-11-08 11:00:00",
+						"name": "Special Cargo Documentation Deadline"
+					}
+					]
 				},
 				{
-				    "fromLocation": {
-						"type": "TERMINAL",
-						"rkstCode": "CNNANCT",
-						"unLocCode": "CNNSA",
-						"city": "Nansha New Port",
-						"countryCode": "CN",
-						"expectedDate": "2021-11-16T11:00:00"
-				    },
-				    "toLocation": {
-						"type": "TERMINAL",
-						"rkstCode": "ESBCNBS",
-						"unLocCode": "ESBCN",
-						"city": "Barcelona",
-						"countryCode": "ES",
-						"expectedDate": "2021-12-18T20:00:00"
-				    },
-				    "transport": {
-						"transportMode": "VESSEL",
-						"name": "MSC ARINA",
-						"code": "9839284"
-				    }
+					"routeDetails": [
+					{
+						"fromLocation": {
+							"type": "TERMINAL",
+							"rkstCode": "HKHKGMO",
+							"unLocCode": "HKHKG",
+							"city": "Hong Kong",
+							"countryCode": "HK",
+							"expectedDate": "2021-11-10T12:00:00"
+						},
+						"toLocation": {
+							"type": "TERMINAL",
+							"rkstCode": "CNNANCT",
+							"unLocCode": "CNNSA",
+							"city": "Nansha New Port",
+							"countryCode": "CN",
+							"expectedDate": "2021-11-10T20:00:00"
+						},
+						"transport": {
+							"transportMode": "VESSEL",
+							"name": "SAN CHRISTOBAL",
+							"code": "9699191"
+						}
+					},
+					{
+						"fromLocation": {
+							"type": "TERMINAL",
+							"rkstCode": "CNNANCT",
+							"unLocCode": "CNNSA",
+							"city": "Nansha New Port",
+							"countryCode": "CN",
+							"expectedDate": "2021-11-16T11:00:00"
+						},
+						"toLocation": {
+							"type": "TERMINAL",
+							"rkstCode": "ESBCNBS",
+							"unLocCode": "ESBCN",
+							"city": "Barcelona",
+							"countryCode": "ES",
+							"expectedDate": "2021-12-18T20:00:00"
+						},
+						"transport": {
+							"transportMode": "VESSEL",
+							"name": "MSC ARINA",
+							"code": "9839284"
+						}
+					}
+					],
+					"deadlines": [
+					{
+						"deadLineKey": "CY",
+						"type": "Documentation",
+						"deadLine": "2021-11-16 12:00:00",
+						"name": "Commercial Cargo Cutoff"
+					},
+					{
+						"deadLineKey": "SIAMS",
+						"type": "Documentation",
+						"deadLine": "2021-11-13 22:00:00",
+						"name": "Shipping Instructions Deadline for Advance Manifest Cargo"
+					},
+					{
+						"deadLineKey": "VGM",
+						"type": "Documentation",
+						"deadLine": "2021-11-16 10:00:00",
+						"name": "Commercial Verified Gross Mass Deadline"
+					},
+					{
+						"deadLineKey": "LCD",
+						"type": "Marine Services",
+						"deadLine": "2021-11-15 16:00:00",
+						"name": "Loadlist Closure Deadline"
+					},
+					{
+						"deadLineKey": "CSPD",
+						"type": "Marine Services",
+						"deadLine": "2021-11-15 17:00:00",
+						"name": "Coprar to Stowage Planners Deadline"
+					},
+					{
+						"deadLineKey": "FLD",
+						"type": "Marine Services",
+						"deadLine": "2021-11-16 12:00:00",
+						"name": "Final Loadlist Deadline"
+					},
+					{
+						"deadLineKey": "SCDD",
+						"type": "Marine Services",
+						"deadLine": "2021-11-15 16:00:00",
+						"name": "Special Cargo Documentation Deadline"
+					}
+					]
 				}
-			    ],
-			    "deadlines": [
+				],
+				"conditions": [
 				{
-				    "deadLineKey": "CY",
-				    "type": "Documentation",
-				    "deadLine": "2021-11-08 17:00:00",
-				    "name": "Commercial Cargo Cutoff"
+					"chargeType": "Storage",
+					"containerSizeType": "40DRY",
+					"freeTimeStartEvent": "DISCHARGE",
+					"freeTimeGrantInDays": 7,
+					"commodity": "GENERAL CARGO",
+					"price": 4308
 				},
 				{
-				    "deadLineKey": "SIAMS",
-				    "type": "Documentation",
-				    "deadLine": "2021-11-06 16:00:00",
-				    "name": "Shipping Instructions Deadline for Advance Manifest Cargo"
-				},
-				{
-				    "deadLineKey": "VGM",
-				    "type": "Documentation",
-				    "deadLine": "2021-11-08 11:00:00",
-				    "name": "Commercial Verified Gross Mass Deadline"
-				},
-				{
-				    "deadLineKey": "LCD",
-				    "type": "Marine Services",
-				    "deadLine": "2021-11-08 11:00:00",
-				    "name": "Loadlist Closure Deadline"
-				},
-				{
-				    "deadLineKey": "CSPD",
-				    "type": "Marine Services",
-				    "deadLine": "2021-11-08 12:00:00",
-				    "name": "Coprar to Stowage Planners Deadline"
-				},
-				{
-				    "deadLineKey": "FLD",
-				    "type": "Marine Services",
-				    "deadLine": "2021-11-08 17:00:00",
-				    "name": "Final Loadlist Deadline"
-				},
-				{
-				    "deadLineKey": "SCDD",
-				    "type": "Marine Services",
-				    "deadLine": "2021-11-08 11:00:00",
-				    "name": "Special Cargo Documentation Deadline"
+					"chargeType": "Detention",
+					"containerSizeType": "40DRY",
+					"freeTimeStartEvent": "DISCHARGE",
+					"freeTimeGrantInDays": 5,
+					"commodity": "GENERAL CARGO",
+					"price": 431
 				}
-			    ]
-			},
-			{
-			    "routeDetails": [
+				],
+				"penalties": [
 				{
-				    "fromLocation": {
-						"type": "TERMINAL",
-						"rkstCode": "HKHKGMO",
-						"unLocCode": "HKHKG",
-						"city": "Hong Kong",
-						"countryCode": "HK",
-						"expectedDate": "2021-11-10T12:00:00"
-				    },
-				    "toLocation": {
-						"type": "TERMINAL",
-						"rkstCode": "CNNANCT",
-						"unLocCode": "CNNSA",
-						"city": "Nansha New Port",
-						"countryCode": "CN",
-						"expectedDate": "2021-11-10T20:00:00"
-				    },
-				    "transport": {
-						"transportMode": "VESSEL",
-						"name": "SAN CHRISTOBAL",
-						"code": "9699191"
-				    }
-				},
-				{
-				    "fromLocation": {
-						"type": "TERMINAL",
-						"rkstCode": "CNNANCT",
-						"unLocCode": "CNNSA",
-						"city": "Nansha New Port",
-						"countryCode": "CN",
-						"expectedDate": "2021-11-16T11:00:00"
-				    },
-				    "toLocation": {
-						"type": "TERMINAL",
-						"rkstCode": "ESBCNBS",
-						"unLocCode": "ESBCN",
-						"city": "Barcelona",
-						"countryCode": "ES",
-						"expectedDate": "2021-12-18T20:00:00"
-				    },
-				    "transport": {
-						"transportMode": "VESSEL",
-						"name": "MSC ARINA",
-						"code": "9839284"
-				    }
+					"containerSizeType": "40DRY",
+					"currency": "EUR",
+					"charges": [
+					{
+						"penaltyType": "AmmendmentFee",
+						"price": 51692,
+						"name": "Amendment Fee"
+					},
+					{
+						"penaltyType": "CancellationFee",
+						"price": 51692,
+						"name": "Cancellation Fee"
+					},
+					{
+						"penaltyType": "NoShowFee",
+						"price": 103383,
+						"name": "No Show Fee"
+					}
+					]
 				}
-			    ],
-			    "deadlines": [
-				{
-				    "deadLineKey": "CY",
-				    "type": "Documentation",
-				    "deadLine": "2021-11-16 12:00:00",
-				    "name": "Commercial Cargo Cutoff"
-				},
-				{
-				    "deadLineKey": "SIAMS",
-				    "type": "Documentation",
-				    "deadLine": "2021-11-13 22:00:00",
-				    "name": "Shipping Instructions Deadline for Advance Manifest Cargo"
-				},
-				{
-				    "deadLineKey": "VGM",
-				    "type": "Documentation",
-				    "deadLine": "2021-11-16 10:00:00",
-				    "name": "Commercial Verified Gross Mass Deadline"
-				},
-				{
-				    "deadLineKey": "LCD",
-				    "type": "Marine Services",
-				    "deadLine": "2021-11-15 16:00:00",
-				    "name": "Loadlist Closure Deadline"
-				},
-				{
-				    "deadLineKey": "CSPD",
-				    "type": "Marine Services",
-				    "deadLine": "2021-11-15 17:00:00",
-				    "name": "Coprar to Stowage Planners Deadline"
-				},
-				{
-				    "deadLineKey": "FLD",
-				    "type": "Marine Services",
-				    "deadLine": "2021-11-16 12:00:00",
-				    "name": "Final Loadlist Deadline"
-				},
-				{
-				    "deadLineKey": "SCDD",
-				    "type": "Marine Services",
-				    "deadLine": "2021-11-15 16:00:00",
-				    "name": "Special Cargo Documentation Deadline"
-				}
-			    ]
-			}
-		    ],
-		    "conditions": [
-			{
-			    "chargeType": 1,
-			    "containerSizeType": "40DRY",
-			    "freeTimeStartEvent": "DISCHARGE",
-			    "freeTimeGrantInDays": 7,
-			    "commodity": "GENERAL CARGO",
-			    "price": 4308
-			},
-			{
-			    "chargeType": 2,
-			    "containerSizeType": "40DRY",
-			    "freeTimeStartEvent": "DISCHARGE",
-			    "freeTimeGrantInDays": 5,
-			    "commodity": "GENERAL CARGO",
-			    "price": 431
-			}
-		    ],
-		    "penalties": [
-			{
-			    "containerSizeType": "40DRY",
-			    "currency": "EUR",
-			    "charges": [
-				{
-				    "penaltyType": 0,
-				    "price": 51692,
-				    "name": "Amendment Fee"
-				},
-				{
-				    "penaltyType": 0,
-				    "price": 51692,
-				    "name": "Cancellation Fee"
-				},
-				{
-				    "penaltyType": 0,
-				    "price": 103383,
-				    "name": "No Show Fee"
-				}
-			    ]
-			}
-		    ],
-		    "surchages": {
-			"surchargePerDocs": [
-			    {
-				"quantity": 1,
-				"basis": "PER_DOC",
-				"type": "Paid at Origin",
-				"chargeCode": "ODF",
-				"chargeDescription": "Documentation Fee Origin",
-				"value": 6087
-			    },
-			    {
-				"quantity": 1,
-				"basis": "PER_DOC",
-				"type": "Paid at Destination",
-				"chargeCode": "DDF",
-				"chargeDescription": "Documentation fee - Destination",
-				"value": 4981
-			    }
-			],
-			"surchargesPerContainer": [
-			    {
-				"containerSizeType": "40DRY",
-				"surcharges": [
-				    {
+				],
+				"surchages": {
+				"surchargePerDocs": [
+					{
 					"quantity": 1,
-					"basis": "PER_CONTAINER",
-					"type": "Paid with Freight",
-					"chargeCode": "PSS",
-					"chargeDescription": "Peak Season Surcharge",
-					"value": 172305
-				    },
-				    {
-					"quantity": 1,
-					"basis": "PER_CONTAINER",
-					"type": "Paid with Freight",
-					"chargeCode": "EFF",
-					"chargeDescription": "Environmental Fuel Fee",
-					"value": 19643
-				    },
-				    {
-					"quantity": 1,
-					"basis": "PER_CONTAINER",
-					"type": "Paid at Destination",
-					"chargeCode": "PAI",
-					"chargeDescription": "Port Additionals / Port Dues Import",
-					"value": 5479
-				    },
-				    {
-					"quantity": 1,
-					"basis": "PER_CONTAINER",
+					"basis": "PER_DOC",
 					"type": "Paid at Origin",
-					"chargeCode": "OHC",
-					"chargeDescription": "Terminal Handling Service - Origin",
-					"value": 33199
-				    },
-				    {
+					"chargeCode": "ODF",
+					"chargeDescription": "Documentation Fee Origin",
+					"value": 6087
+					},
+					{
 					"quantity": 1,
-					"basis": "PER_CONTAINER",
-					"type": "Paid at Origin",
-					"chargeCode": "EXP",
-					"chargeDescription": "Export Service",
-					"value": 664
-				    },
-				    {
-					"quantity": 1,
-					"basis": "PER_CONTAINER",
+					"basis": "PER_DOC",
 					"type": "Paid at Destination",
-					"chargeCode": "DHC",
-					"chargeDescription": "Terminal Handling Service - Destination",
-					"value": 22914
-				    },
-				    {
-					"quantity": 1,
-					"basis": "PER_CONTAINER",
-					"type": "Paid with Freight",
-					"chargeCode": "BAS",
-					"chargeDescription": "Basic Ocean Freight",
-					"value": 1033830
-				    }
+					"chargeCode": "DDF",
+					"chargeDescription": "Documentation fee - Destination",
+					"value": 4981
+					}
+				],
+				"surchargesPerContainer": [
+					{
+					"containerSizeType": "40DRY",
+					"surcharges": [
+						{
+						"quantity": 1,
+						"basis": "PER_CONTAINER",
+						"type": "Paid with Freight",
+						"chargeCode": "PSS",
+						"chargeDescription": "Peak Season Surcharge",
+						"value": 172305
+						},
+						{
+						"quantity": 1,
+						"basis": "PER_CONTAINER",
+						"type": "Paid with Freight",
+						"chargeCode": "EFF",
+						"chargeDescription": "Environmental Fuel Fee",
+						"value": 19643
+						},
+						{
+						"quantity": 1,
+						"basis": "PER_CONTAINER",
+						"type": "Paid at Destination",
+						"chargeCode": "PAI",
+						"chargeDescription": "Port Additionals / Port Dues Import",
+						"value": 5479
+						},
+						{
+						"quantity": 1,
+						"basis": "PER_CONTAINER",
+						"type": "Paid at Origin",
+						"chargeCode": "OHC",
+						"chargeDescription": "Terminal Handling Service - Origin",
+						"value": 33199
+						},
+						{
+						"quantity": 1,
+						"basis": "PER_CONTAINER",
+						"type": "Paid at Origin",
+						"chargeCode": "EXP",
+						"chargeDescription": "Export Service",
+						"value": 664
+						},
+						{
+						"quantity": 1,
+						"basis": "PER_CONTAINER",
+						"type": "Paid at Destination",
+						"chargeCode": "DHC",
+						"chargeDescription": "Terminal Handling Service - Destination",
+						"value": 22914
+						},
+						{
+						"quantity": 1,
+						"basis": "PER_CONTAINER",
+						"type": "Paid with Freight",
+						"chargeCode": "BAS",
+						"chargeDescription": "Basic Ocean Freight",
+						"value": 1033830
+						}
+					]
+					}
 				]
-			    }
-			]
-		    },
-		    "id": "a445119b-6fe4-4607-a976-7af8cdd71d5e",
-		    "agency": "Maerks",
-		    "service": "Maersk Spot",
-		    "pickUpDate": "2021-11-10T00:00:00",
-		    "deliveryDate": "2021-12-18T20:00:00",
-		    "transitDays": 39,
-		    "expirationDate": "2021-11-03T13:50:31.2957013",
-		    "price": 1299094,
-		    "extraInfo": null
-		}
+				},
+				"id": "a445119b-6fe4-4607-a976-7af8cdd71d5e",
+				"agency": "Maerks",
+				"service": "Maersk Spot",
+				"pickUpDate": "2021-11-10T00:00:00",
+				"deliveryDate": "2021-12-18T20:00:00",
+				"transitDays": 39,
+				"expirationDate": "2021-11-03T13:50:31.2957013",
+				"price": 1299094,
+				"extraInfo": null
+			}
 	    ]
 	}
     
@@ -1742,18 +1771,18 @@ Lat               Double       Mandatory     	Location latitude, precision is (3
 Lng               Double       Mandatory 		Location longitude, precision is (3, 6).
 =============     ========     =============    ======================================================
 
-* FCL Rate model:
+* LCL Rate model:
   
 ===================    ========================    ==========================================================
  Name                    Type                        Description
 ===================    ========================    ==========================================================
- Id                     Int                         Quantity
+ Id                     Guid                        Rate ID
  Sealine 		        String		                Scas code
  Agency                 Double                      Agency
  Service                Double                      Service
- PickUpDate             DateTime?                   Pickup date
- DeliveryDate           DateTuime?                  Delivery date
- TransitDays            Integer?                    Transit days
+ PickUpDate             DateTime?                   Pickup date (estimated)
+ DeliveryDate           DateTuime?                  Delivery date. Null if rate is a pre-booking.
+ TransitDays            Integer?                    Transit days. Null or -1 if rate is a pre-booking.
  ExpirationDate         DateTime                    Expiration date
  Price                  Long                        Price (Considering 2 last digits as decimals).      
  ExtraInfo              List<String>                List of extra info
@@ -1788,7 +1817,7 @@ Lng               Double       Mandatory 		Location longitude, precision is (3, 
  Name                     Type                        Description
 =====================    ========================    ==========================================================
  RkstCode                 String                      Rkst Code
- Type 		              String			          Type: VESSEL, TRUCK
+ Type                     MaritimeLocationType		  Transport Type route
  UnLocCode                String                      UnLoc Code
  City                     String                      City     
  CountryCode              String                      Country Code
@@ -1804,6 +1833,15 @@ Lng               Double       Mandatory 		Location longitude, precision is (3, 
  Code 		            String		                Code
  TransportMode          String	                    Transport Mode     
 ===================    ========================    ==========================================================
+
+* Maritime location type model:
+  
+================     =======================================  
+Name                  Description
+================     =======================================  
+VESSEL         		  Maritime location
+TRUCK      			  Ground location
+================     =======================================  
 
 * Deadlines model:
   
@@ -1821,13 +1859,23 @@ Lng               Double       Mandatory 		Location longitude, precision is (3, 
 =======================    ========================    ==========================================================
  Name                       Type                        Description
 =======================    ========================    ==========================================================
- ChargeType                 Int                         Charge type
+ ChargeType                 ConditionChargeType         Charge type
  ContainerSizeType 		    String			            Container size type
  FreeTimeStartEvent         String                      Free time start event
  FreeTimeGrantInDays        Integer                     Free time grant in days
  Commodity			        String                      Commodity
  Price			            Long                        Price (Considering 2 last digits as decimals).
 =======================    ========================    ==========================================================
+
+* Condition charge type model:
+  
+================     =======================================  
+Name                  Description
+================     =======================================  
+Demurrage         	 Demurrage condition type
+Detention      		 Detention condition type
+Storage              Demurrage condition type
+================     =======================================  
 
 * Penalties model:
   
@@ -1858,7 +1906,7 @@ AmmendmentFee         Modification cost
 CancellationFee       Cancelation booking
 NoShowFee             No show cost
 CompensationFee       Compensation cost
-================     =======================================
+================     =======================================  
 
 * Surchages model:
   

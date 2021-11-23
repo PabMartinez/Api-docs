@@ -28,130 +28,84 @@ Origin                  String        Optional         Origin
 Destination             String        Optional         Destination
 ShipmentCode   	        String        Optional         ShipmentCode
 TransportOperator       String        Optional         Transport Operator
-StartDate       	    DateTime      Optional         Start date
-EndDate		            DateTime      Optional         End date
+StartDate               DateTime      Optional         Start date
+EndDate                 DateTime      Optional         End date
 =====================   ===========   =============    ================================================================
 
 **Example response**:
 
     .. sourcecode:: json
 
-      {
-    	"shipments": [
         {
-            "shipmentId": "339d8158-ca3d-4ed7-ac21-08d6ee8277b7",
-            "agency": "CorreosExpress",
-            "pickUpDate": "2019-06-12T09:28:00",
-            "deliveryDate": "2019-06-13T09:28:00",
-            "transitDays": 1,
-            "clientPrice": 7943,
-            "currency": "EUR",
-            "shipmentCode": "FR000002",
-            "currencyExchangedApplied": null,
-            "customs": true,
-            "insurance": true,
-            "shipmentType": "Box",
-            "trackingStatus": 0,
-            "customsStatus": null,
-            "originState": "PV",
-            "originCountry": "ES",
-            "originCountryName": "Spain",
-            "originCity": "Galdácano",
-            "originPostalCode": "48960",
-            "destinationState": "CT",
-            "destinationCountry": "ES",
-            "destinationCountryName": "Spain",
-            "destinationCity": "La Garriga",
-            "destinationPostalCode": "08530",
-            "hasInvoice": false
-        },
-        {
-            "shipmentId": "4b5a254c-6735-474f-81ea-08d7523e7fee",
-            "agency": "TNT",
-            "pickUpDate": "2019-10-21T06:26:00",
-            "deliveryDate": "2019-10-22T16:00:00",
-            "transitDays": 1,
-            "clientPrice": 1637,
-            "currency": "EUR",
-            "shipmentCode": "FR00061C",
-            "currencyExchangedApplied": null,
-            "customs": false,
-            "insurance": false,
-            "shipmentType": "Box",
-            "trackingStatus": 0,
-            "customsStatus": null,
-            "originState": "Cantabria",
-            "originCountry": "ES",
-            "originCountryName": "Spain",
-            "originCity": "Torrelavega",
-            "originPostalCode": "39300",
-            "destinationState": "País Vasco",
-            "destinationCountry": "ES",
-            "destinationCountryName": "Spain",
-            "destinationCity": "Sestao",
-            "destinationPostalCode": "48910",
-            "hasInvoice": true
-        },
-        {
-            "shipmentId": "cfab8e81-d328-4d4c-81eb-08d7523e7fee",
-            "agency": "TNT",
-            "pickUpDate": "2019-10-21T07:07:00",
-            "deliveryDate": "2019-10-23T16:00:00",
-            "transitDays": 2,
-            "clientPrice": 2869,
-            "currency": "EUR",
-            "shipmentCode": "FR00061D",
-            "currencyExchangedApplied": null,
-            "customs": false,
-            "insurance": false,
-            "shipmentType": "Box",
-            "trackingStatus": 0,
-            "customsStatus": null,
-            "originState": "England",
-            "originCountry": "GB",
-            "originCountryName": "United Kingdom of Great Britain and Northern Ireland (the)",
-            "originCity": "Midlands Occidentales",
-            "originPostalCode": "B65 0QW",
-            "destinationState": "País Vasco",
-            "destinationCountry": "ES",
-            "destinationCountryName": "Spain",
-            "destinationCity": "Itziar",
-            "destinationPostalCode": "20829",
-            "hasInvoice": true
+            "shipments": [
+                {
+                    "shipmentId": "339d8158-ca3d-4ed7-ac21-08d6ee8277b7",
+                    "agency": "CorreosExpress",
+                    "pickUpDate": "2019-06-12T09:28:00",
+                    "deliveryDate": "2019-06-13T09:28:00",
+                    "transitDays": 1,
+                    "clientPrice": 7943,
+                    "currency": "EUR",
+                    "shipmentCode": "FR000002",
+                    "currencyExchangedApplied": null,
+                    "customs": true,
+                    "insurance": true,
+                    "shipmentType": "Box",
+                    "trackingStatus": 0,
+                    "customsStatus": null,
+                    "origin": {
+                        "state": "PV",
+                        "countryCode": "ES",
+                        "city": "Galdácano",
+                        "postalCode": "48960",
+                    },
+                    "destination": {
+                        "state": "CT",
+                        "countryCode": "ES",
+                        "city": "La Garriga",
+                        "postalCode": "08530",
+                    }
+                    "hasInvoice": false
+                }
+            ],
+            totalElements: 1
         }
-      ]
-    }
 
-    ===========================   ==========   ===============================================
-     Name                          Type         Description
-    ===========================   ==========   ===============================================
-     ShipmentId                    Guid         Shipment ID
-     ShipmentCode                  String       Shipment code
-     Agency                        String       Agency
-     PickUpDate                    DateTime?    Pickup date
-     DeliveryDate                  DateTime?    Delivery date
-     TransitDays                   Integer      Transit days
-     ExpirationDate                DateTime     Expiration date
-     ClientPrice                   Longer       Total price
-     Currency		               String	    Currency ISO code
-     CurrencyExchangedApplied      Double?	    Currency exchanged applied
-     Customs		               Boolean	    Customs
-     Insurance		               Boolean	    Insurance
-     ShipmentType	               String	    Shipment type
-     TrackingStatus	               String		Tracking status
-     CustomsStatus	               String	    Customs status
-     OriginState	               String	    Origin state
-     OriginCountry	               String	    Origin country
-     OriginCountryName	           String	    Origin countryName
-     OriginCity	           	       String	    Origin city
-     OriginPostalCode	           String	    Origin postalCode
-     DestinationState	           String	    Destination state
-     DestinationCountry	           String	    Destination country
-     DestinationCountryName	       String	    Destination country name
-     DestinationCity	           String	    Destination city
-     DestinationPostalCode	       String	    Destination postal code
-     HasInvoice	           	       Boolean	    True if shipment has invoice saved
-    ===========================   ==========   ===============================================
+ * Shipment model:
+
+===========================   ====================   ===============================================
+    Name                          Type                   Description
+===========================   ====================   ===============================================
+ShipmentId                    Guid                   Shipment ID
+ShipmentCode                  String                 Shipment code
+Agency                        String                 Agency
+PickUpDate                    DateTime?              Pickup date
+DeliveryDate                  DateTime?              Delivery date
+TransitDays                   Integer                Transit days
+ExpirationDate                DateTime               Expiration date
+ClientPrice                   Longer                 Total price
+Currency                      String	              Currency ISO code
+CurrencyExchangedApplied      Double?	              Currency exchanged applied
+Customs                       Boolean	              Customs
+Insurance                     Boolean	              Insurance
+ShipmentType                  String	              Shipment type
+TrackingStatus                String		          Tracking status
+CustomsStatus                 String	              Customs status
+Origin                        ShipmentLocation	      Origin location
+Destination                   ShipmentLocation	      Destination location
+HasInvoice	           	       Boolean	              True if shipment has invoice saved
+===========================   ====================   ===============================================
+
+* Shipment location model:
+
+===========================   ====================   ===============================================
+    Name                          Type                   Description
+===========================   ====================   ===============================================
+Country code                   String	              Origin country ISO-2 code
+State	                       String	              Origin state 
+City	           	           String	              Origin city
+PostalCode	                   String	              Origin postalCode
+===========================   ====================   ===============================================
 
 
 Shipment Info

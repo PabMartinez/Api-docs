@@ -9,7 +9,7 @@ Retrieve the name of a city or an IATA code, and returns a list of airports that
 
 **Example request**:
 
-.. http:get:: /v1/aerial?nameCityuIata=(string: text) 
+.. http:get:: /v1/aerial/airports
 
 .. tabs::
     .. code-tab:: bash
@@ -17,7 +17,7 @@ Retrieve the name of a city or an IATA code, and returns a list of airports that
         $ curl \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
-            https://<env>.freightol.com/v1/aerial?NameCityIata=barcelona
+            https://<env>.freightol.com/v1/aerial/airports?nameCityIata=barcelona
 
 =============  =======  ===========  =========================================
 Name            Type     Constraint  Description
@@ -49,13 +49,13 @@ nameCityIata   String    Mandatory   Name of city or IATA airport code.
 =============  =======  ======================================================
 Name            Type    Description
 =============  =======  ======================================================
-name            String   Name of the airport. 
-city            String   Airport city.
-state           String   Airport state. 
-country         String   Airport country.
-iataCode        String   Airport IATA code. 
-iso             String   Country ISO code.
-geoloc          Model    Airport geolocation.
+Name            String   Name of the airport. 
+City            String   Airport city.
+State           String   Airport state. 
+Country         String   Airport country.
+IataCode        String   Airport IATA code. 
+Iso             String   Country ISO code.
+Geoloc          Model    Airport geolocation.
 =============  =======  ======================================================
 
 * Geoloc model:
@@ -63,11 +63,9 @@ geoloc          Model    Airport geolocation.
 =============  =======  ======================================================
 Name            Type    Description
 =============  =======  ======================================================
-lat             Double   Airport latitude, precision is (3, 6).
-lng             Double   Airport longitude, precision is (3, 6).
+Lat             Double   Airport latitude, precision is (3, 6).
+Lng             Double   Airport longitude, precision is (3, 6).
 =============  =======  ======================================================
 
 .. autosummary::
    :toctree: generated
-
-   lumache

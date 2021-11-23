@@ -9,7 +9,7 @@ Receives the name of the city or postal code, and returns a list of locations.
 
 **Example request**:
     
-.. http:get:: /v1/postalcode?countryCode=(string: iso2Code)&loc=(string: text)
+.. http:get:: /v1/postalcodes
 
 .. tabs::
     .. code-tab:: bash
@@ -17,7 +17,7 @@ Receives the name of the city or postal code, and returns a list of locations.
         $ curl \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
-            https://<env>.freightol.com/v1/postalcode?countryCode=ES&loc=Barcelona
+            https://<env>.freightol.com/v1/postalcodes?countryCode=ES&loc=Barcelona
 
 =============  =======  ===========  =========================================
 Name            Type     Constraint             Description
@@ -86,7 +86,7 @@ Retrieves the list of supported pallet types.
 
 **Example request**:
 
-.. http:get:: /v1/courier/pallets
+.. http:get:: /v1/courier/pallet/types
 
 .. tabs::
     .. code-tab:: bash
@@ -94,7 +94,7 @@ Retrieves the list of supported pallet types.
         $ curl \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
-            https://<env>.freightol.com/v1/courier/pallets
+            https://<env>.freightol.com/v1/courier/pallet/types
 
 
 **Example response**:
@@ -138,5 +138,3 @@ Unit                        String       Unit of measurement
 
 .. autosummary::
    :toctree: generated
-
-   lumache
