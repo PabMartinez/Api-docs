@@ -27,7 +27,7 @@ Ease integration
 To production
 --------------
 
-* Once your integration is completed, you are ready for production. Contact us and we give you more information for next steps.
+* Once your integration is completed, you are ready for production. Contact us and we will give you more information for next steps.
 
 Contents
 --------
