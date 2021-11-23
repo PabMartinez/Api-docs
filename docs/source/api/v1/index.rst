@@ -6,6 +6,7 @@ API v1
    :glob:
    :maxdepth: 2
    
+   auth/index
    rating/index
    shipping/index
    tracking/index
@@ -15,5 +16,3 @@ API v1
 
 .. autosummary::
    :toctree: generated
-
-   lumache

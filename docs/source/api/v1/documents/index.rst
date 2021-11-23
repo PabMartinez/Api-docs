@@ -177,5 +177,3 @@ Observations            String      Optional        Observations
 
 .. autosummary::
    :toctree: generated
-
-   lumache
