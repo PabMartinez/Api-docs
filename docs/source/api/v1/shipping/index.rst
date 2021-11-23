@@ -314,7 +314,7 @@ LCL Sea Shipping
 
 .. warning::
 
-   This project is working in progress.
+   This endpoint is working in progress.
 
 **Example request**:
     

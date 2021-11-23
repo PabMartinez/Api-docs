@@ -64,7 +64,7 @@ EndDate                 DateTime      Optional         End date
                         "countryCode": "ES",
                         "city": "La Garriga",
                         "postalCode": "08530",
-                    }
+                    },
                     "hasInvoice": false
                 }
             ],
@@ -110,6 +110,10 @@ PostalCode	                   String	              Origin postalCode
 
 Shipment Info
 ------------------------------------------
+
+.. warning::
+
+   This endpoint is working in progress.
 
 **Example request**:
     
