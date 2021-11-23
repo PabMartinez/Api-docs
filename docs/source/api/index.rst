@@ -1,10 +1,9 @@
-API
-===
-
-Texto ejemplo
-
-.. note::
-   This project is under active development.
+===============
+Public API
+===============
 
 .. toctree::
-   v1
+   :glob:
+   :maxdepth: 1
+   
+   v1/index
