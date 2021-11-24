@@ -14,10 +14,11 @@ Receives the name of the city or postal code, and returns a list of locations.
 .. tabs::
     .. code-tab:: bash
 
-        $ curl \
+        $ curl -X 'GET' \
+            'https://<env>.freightol.com/v1/postalcodes?countryCode=ES&loc=Barcelona' \
             -H "Content-Type: application/json" \
-            -H "Authorization: Bearer <token>" \
-            https://<env>.freightol.com/v1/postalcodes?countryCode=ES&loc=Barcelona
+            -H "Authorization: Bearer <token>"
+            
 
 =============  =======  ===========  =========================================
 Name            Type     Constraint             Description

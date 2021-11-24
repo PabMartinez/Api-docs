@@ -13,10 +13,10 @@ Retrieves the list of supported containers types
 .. tabs::
     .. code-tab:: bash
 
-        $ curl \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer <token>" \
-            https://<env>.freightol.com/v1/maritime/containers
+        $ curl -X 'GET' \
+			'https://<env>.freightol.com/v1/maritime/containers' \
+			-H "Content-Type: application/json" \
+            -H "Authorization: Bearer <token>" 
   
   
 **Example response**:

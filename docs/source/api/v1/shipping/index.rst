@@ -14,12 +14,11 @@ Box Shipping
 
     .. code-tab:: bash
 
-        $ curl \
-            -X POST \
+        $ curl '-X POST' \
+            'https://<env>.freightol.com/v1/shipping/boxes' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
-            -d @body.json \
-            https://<env>.freightol.com/v1/shipping/boxes
+            -d @body.json
 
 The content of ``body.json`` is like,
 	
@@ -116,12 +115,12 @@ Pallet Shipping
 
     .. code-tab:: bash
 
-        $ curl \
-            -X POST \
+        $ curl -X POST \
+            'https://<env>.freightol.com/v1/shipping/pallets'
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
-            -d @body.json \
-            https://<env>.freightol.com/v1/shipping/pallets
+            -d @body.json
+            
 
 The content of ``body.json`` is like,
 	
@@ -221,12 +220,11 @@ FCL Sea Shipping
 
     .. code-tab:: bash
 
-        $ curl \
-            -X POST \
+        $ curl -X POST \
+            'https://<env>.freightol.com/v1/shipping/sea/fcl'
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
-            -d @body.json \
-            https://<env>.freightol.com/v1/shipping/sea/fcl
+            -d @body.json
 
 The content of ``body.json`` is like,
 	
@@ -325,12 +323,12 @@ LCL Sea Shipping
 
     .. code-tab:: bash
 
-        $ curl \
-            -X POST \
+        $ curl -X POST \
+            'https://<env>.freightol.com/v1/shipping/sea/lcl' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
-            -d @body.json \
-            https://<env>.freightol.com/v1/shipping/sea/lcl
+            -d @body.json
+            
 
 The content of ``body.json`` is like,
 	
@@ -425,12 +423,11 @@ Air Shipping
 
     .. code-tab:: bash
 
-        $ curl \
-            -X POST \
+        $ curl -X POST \
+            'https://<env>.freightol.com/v1/shipping/air' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
-            -d @body.json \
-            https://<env>.freightol.com/v1/shipping/air
+            -d @body.json
 
 The content of ``body.json`` is like,
 	
@@ -497,9 +494,9 @@ Phone                String       Mandatory        Phone
     {
         "shipmentId": "215bcdxe-b3df-4400-52e4-08d999fb141c",
         "shipmentCode": "FR9999FD",
-        "trackingCode": "1S51S1S56816301289",
+        "trackingCode": "http://dummy",
         "externalTrackingUrl": "dummy",
-        "bookingCode": "1S51S1S56816301289"
+        "bookingCode": "dummy"
     }
 
 * Air Booking model:

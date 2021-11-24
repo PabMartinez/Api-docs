@@ -15,12 +15,12 @@ Box Rating
 
     .. code-tab:: bash
 
-        $ curl \
-            -X POST \
+        $ curl -X POST \
+            'https://<env>.freightol.com/v1/rating/boxes' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
-            -d @body.json \
-            https://<env>.freightol.com/v1/rating/boxes
+            -d @body.json
+            
 
 The content of ``body.json`` is like,
 	
@@ -264,12 +264,11 @@ Pallet Rating
 
     .. code-tab:: bash
 
-        $ curl \
-            -X POST \
+        $ curl -X POST \
+			'https://<env>.freightol.com/v1/rating/pallets'
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
-            -d @body.json \
-            https://<env>.freightol.com/v1/rating/pallets
+            -d @body.json
 
 The content of ``body.json`` is like,
         
@@ -536,12 +535,11 @@ FCL Sea Rating
 
     .. code-tab:: bash
 
-        $ curl \
-            -X POST \
+        $ curl -X POST \
+            'https://<env>.freightol.com/v1/rating/sea/fcl' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
-            -d @body.json \
-            https://<env>.freightol.com/v1/rating/sea/fcl
+            -d @body.json
 
 The content of ``body.json`` is like,
 
@@ -1260,12 +1258,11 @@ LCL Sea Rating
 
     .. code-tab:: bash
 
-        $ curl \
-            -X POST \
+        $ curl -X POST \
+			'https://<env>.freightol.com/v1/rating/sea/lcl'
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
-            -d @body.json \
-            https://<env>.freightol.com/v1/rating/sea/lcl
+            -d @body.json
 
 The content of ``body.json`` is like,
         
@@ -1955,12 +1952,11 @@ Air Rating
 
     .. code-tab:: bash
 
-        $ curl \
-            -X POST \
+        $ curl -X POST \
+			'https://<env>.freightol.com/v1/rating/air'
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
-            -d @body.json \
-            https://<env>.freightol.com/v1/rating/air
+            -d @body.json
 
 The content of ``body.json`` is like,
         

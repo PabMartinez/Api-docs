@@ -14,10 +14,11 @@ Shipments
 .. tabs::
     .. code-tab:: bash
 
-        $ curl \
+        $ curl -X 'GET' \
+            'https://<env>.freightol.com/v1/tracking/shipments' \
             -H "Content-Type: application/json" \
-            -H "Authorization: Bearer <token>" \
-            https://<env>.freightol.com/v1/tracking/shipments
+            -H "Authorization: Bearer <token>"
+
 
 The query params are like,
 
@@ -83,7 +84,7 @@ PickUpDate                    DateTime?              Pickup date
 DeliveryDate                  DateTime?              Delivery date
 TransitDays                   Integer                Transit days
 ExpirationDate                DateTime               Expiration date
-ClientPrice                   Longer                 Total price
+Price                         Long                    Total price
 Currency                      String	              Currency ISO code
 CurrencyExchangedApplied      Double?	              Currency exchanged applied
 Customs                       Boolean	              Customs
@@ -123,10 +124,11 @@ Shipment Info
 .. tabs::
     .. code-tab:: bash
 
-        $ curl \
+        $ curl -X 'GET' \
+            'https://<env>.freightol.com/v1/tracking/shipments/339d8158-ca3d-4ed7-ac21-08d6ee8277b7' \
             -H "Content-Type: application/json" \
-            -H "Authorization: Bearer <token>" \
-            https://<env>.freightol.com/v1/tracking/shipments/339d8158-ca3d-4ed7-ac21-08d6ee8277b7
+            -H "Authorization: Bearer <token>"
+            
         
     
 **Example response**:
@@ -165,28 +167,32 @@ Shipment Info
 	    ],
 	    "paymentStatus": "Paid",
 	    "paymentType": "TPV",
-	    "customs": "True",
-	    "insurance": "True",
-	    "originAddress": "Pol in erletxes plataforma e nave 5",
-	    "originState": "PV",
-	    "originCountryCode": "ES",
-	    "originCountryName": "Spain",
-	    "originCity": "Galdácano",
-	    "originPostalCode": "48960",
-	    "originCompany": "Xayglobal ",
-	    "originContact": "Aitor",
-	    "originMail": "Peluquerianorte@hotmail.com",
-	    "originPhone": "34 - 699660583",
-	    "destinationAddress": "divina infantita Nº6",
-	    "destinationState": "AL",
-	    "destinationCountryCode": "ES",
-	    "destinationCountryName": "Spain",
-	    "destinationCity": "El Ejido/Almeria ",
-	    "destinationPostalCode": "04700",
-	    "destinationCompany": "Dreams salon sl",
-	    "destinationContact": "Antonio",
-	    "destinationMail": "peluquerianorte@hotmail.com",
-	    "destinationPhone": "34 - 695733174",
+	    "customs": true,
+	    "insurance": true,
+        "origin": {
+        	"address": "Pol in erletxes plataforma e nave 5",
+            "state": "PV",
+            "countryCode": "ES",
+            "countryName": "Spain",
+            "city": "Galdácano",
+            "postalCode": "48960",
+            "company": "Xayglobal ",
+            "contact": "Aitor",
+            "mail": "Peluquerianorte@hotmail.com",
+            "phone": "34 - 699660583",
+        },
+        "destination": {
+            "address": "divina infantita Nº6",
+            "state": "AL",
+            "countryCode": "ES",
+            "countryName": "Spain",
+            "city": "El Ejido/Almeria ",
+            "postalCode": "04700",
+            "company": "Dreams salon sl",
+            "contact": "Antonio",
+            "mail": "peluquerianorte@hotmail.com",
+            "phone": "34 - 695733174",
+        },
 	    "pickupDescription": null,
 	    "deliveryDescription": null,
 	    "pickupHours": "12:00 - 14:00"

@@ -14,10 +14,10 @@ Retrieve a list of all shipment documents
 .. tabs::
     .. code-tab:: bash
 
-        $ curl \
+        $ curl -X 'GET'\
+            'https://<env>.freightol.com/v1/documents/shipment/c7ef9573-59df-4da0-0983-08d95c96c463' \
             -H "Content-Type: application/json" \
-            -H "Authorization: Bearer <token>" \
-            https://<env>.freightol.com/v1/documents/shipment/c7ef9573-59df-4da0-0983-08d95c96c463 
+            -H "Authorization: Bearer <token>"
 
 
 **Example response**:
@@ -88,11 +88,11 @@ Download a given shipment document
 
     .. code-tab:: bash
 
-        $ curl \
-            -X POST \
+        $ curl -X GET \
+            'https://<env>.freightol.com/v1/documents/shipment/c7ef9573-59df-4da0-0983-08d95c96c463/download' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
-            https://<env>.freightol.com/v1/documents/shipment/c7ef9573-59df-4da0-0983-08d95c96c463/download
+            
         
 **Example response**:
 
@@ -135,12 +135,12 @@ Upload an allow shipment document
 
     .. code-tab:: bash
 
-        $ curl \
-            -X POST \
+        $ curl -X POST \
+            'https://<env>.freightol.com/v1/documents/shipment/c7ef9573-59df-4da0-0983-08d95c96c463/upload' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
-            -d @body.json \
-            https://<env>.freightol.com/v1/documents/shipment/c7ef9573-59df-4da0-0983-08d95c96c463/download 
+            -d @body.json
+             
 
 The content of ``body.json`` is like,
 
