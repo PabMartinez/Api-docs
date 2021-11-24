@@ -6,7 +6,7 @@ API v1
    :glob:
    :maxdepth: 2
    
-   token/index
+   auth/index
    rating/index
    shipping/index
    tracking/index
