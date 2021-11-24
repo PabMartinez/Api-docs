@@ -35,44 +35,43 @@ EndDate                 DateTime      Optional         End date
 
 **Example response**:
 
-    .. sourcecode:: json
+.. sourcecode:: json
 
-        {
-            "shipments": [
-                {
-                    "shipmentId": "339d8158-ca3d-4ed7-ac21-08d6ee8277b7",
-                    "agency": "CorreosExpress",
-                    "pickUpDate": "2019-06-12T09:28:00",
-                    "deliveryDate": "2019-06-13T09:28:00",
-                    "transitDays": 1,
-                    "clientPrice": 7943,
-                    "currency": "EUR",
-                    "shipmentCode": "FR000002",
-                    "currencyExchangedApplied": null,
-                    "customs": true,
-                    "insurance": true,
-                    "shipmentType": "Box",
-                    "trackingStatus": 0,
-                    "customsStatus": null,
-                    "origin": {
-                        "state": "PV",
-                        "countryCode": "ES",
-                        "city": "Galdácano",
-                        "postalCode": "48960",
-                    },
-                    "destination": {
-                        "state": "CT",
-                        "countryCode": "ES",
-                        "city": "La Garriga",
-                        "postalCode": "08530",
-                    },
-                    "hasInvoice": false
-                }
-            ],
-            totalElements: 1
-        }
+    {
+        "shipments": [
+            {
+                "shipmentId": "339d8158-ca3d-4ed7-ac21-08d6ee8277b7",
+                "agency": "CorreosExpress",
+                "pickUpDate": "2019-06-12T09:28:00",
+                "deliveryDate": "2019-06-13T09:28:00",
+                "transitDays": 1,
+                "price": 7943,
+                "currency": "EUR",
+                "shipmentCode": "FR000002",
+                "customs": true,
+                "insurance": true,
+                "shipmentType": "Box",
+                "trackingStatus": "None",
+                "customsStatus": null,
+                "origin": {
+                    "state": "PV",
+                    "countryCode": "ES",
+                    "city": "Galdácano",
+                    "postalCode": "48960"
+                },
+                "destination": {
+                    "state": "CT",
+                    "countryCode": "ES",
+                    "city": "La Garriga",
+                    "postalCode": "08530"
+                },
+                "hasInvoice": false
+            }
+        ],
+        totalElements: 1
+    }
 
- * Shipment model:
+* Shipment model:
 
 ===========================   ====================   ===============================================
     Name                          Type                   Description
@@ -86,7 +85,6 @@ TransitDays                   Integer                Transit days
 ExpirationDate                DateTime               Expiration date
 Price                         Long                    Total price
 Currency                      String	              Currency ISO code
-CurrencyExchangedApplied      Double?	              Currency exchanged applied
 Customs                       Boolean	              Customs
 Insurance                     Boolean	              Insurance
 ShipmentType                  String	              Shipment type
@@ -94,7 +92,7 @@ TrackingStatus                String		          Tracking status
 CustomsStatus                 String	              Customs status
 Origin                        ShipmentLocation	      Origin location
 Destination                   ShipmentLocation	      Destination location
-HasInvoice	           	       Boolean	              True if shipment has invoice saved
+HasInvoice	           	      Boolean	              True if shipment has invoice saved
 ===========================   ====================   ===============================================
 
 * Shipment location model:
@@ -118,14 +116,14 @@ Shipment Info
 
 **Example request**:
     
-    .. http:get:: /v1/tracking/shipments/(guid: shipmentId)
+    .. http:get:: /v1/tracking/shipment/(guid: shipmentId)/detail
 
 
 .. tabs::
     .. code-tab:: bash
 
         $ curl -X 'GET' \
-            'https://<env>.freightol.com/v1/tracking/shipments/339d8158-ca3d-4ed7-ac21-08d6ee8277b7' \
+            'https://<env>.freightol.com/v1/tracking/shipment/339d8158-ca3d-4ed7-ac21-08d6ee8277b7' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>"
             
@@ -133,71 +131,65 @@ Shipment Info
     
 **Example response**:
 
-    .. sourcecode:: json
+.. sourcecode:: json
 
-     {
-	    "commodityId": "339d8158-ca3d-4ed7-ac21-08d6ee8277b7",
-	    "userId": "2b1d55e2-ce72-4ba3-12ca-08d93ca29348",
-	    "commodityType": "Box",
-	    "commodityDescription": "silla",
-	    "commodityValue": 100,
-	    "serviceName": "CorreosExpress CorreosExpress 24",
-	    "reference": "FR000002",
-	    "bookingReference": null,
-	    "externalTrackingURL": null,
-	    "trackingReference": null,
-	    "commodityUnits": [
-            {
-                "commodityId": "339d8158-ca3d-4ed7-ac21-08d6ee8277b7",
-                "commodityUnitId": "6050254f-ce83-4ab5-3c91-08d93cc1b5e4",
+    {
+        "shipmentId": "cfab8e81-d328-4d4c-81eb-08d7523e7fee",
+        "commodityType": "Box",
+        "serviceName": "TNT Economy Express",
+        "shipmentCode": null,
+        "bookingReference": "XHB  835745",
+        "trackingReference": "511706288",
+        "externalTrackingURL": "https://www.tnt.com/express/es_es/site/herramientas-envio/seguimiento.html?searchType=con&cons=511706288",
+        "customs": null,
+        "insurance": null,
+        "origin": {
+            "address": "CAKEMORE ROAD, ROWLEY REGIS, WEST MIDLANDS",
+            "state": "Inglaterra",
+            "city": "Midlands Occidentales",
+            "postalCode": "B65 0QW",
+            "countryCode": "GB",
+            "company": "CUBE PRECISION ENGINEERING LTD",
+            "contact": "SID HICKMAN",
+            "mail": "s.hickman@cubeprecision.com",
+            "phone": "00441 - 215593096"
+        },
+        "destination": {
+            "address": "POLIGONO IND. PARCELA M 4.1",
+            "state": "PV",
+            "city": "Itziar-Deba",
+            "postalCode": "20829",
+            "countryCode": "ES",
+            "company": "MACHINE TOOL ENGINEERING, S.A.",
+            "contact": "Esteban",
+            "mail": "esteban@mtemachine.com",
+            "phone": "34 - 943606383"
+        },
+        "commodity": {
+            "commodityDescription": "NIVEL TCP",
+            "commodityValue": 0,
+            "commodityUnits": [
+                {
+                "commodityId": "cfab8e81-d328-4d4c-81eb-08d7523e7fee",
+                "commodityUnitId": "ec794362-100f-496b-96eb-08d93cd24e74",
                 "unitType": "Box",
                 "measurementUnit": 1,
                 "quantity": 1,
-                "weight": 25,
-                "length": 58,
-                "width": 62,
-                "height": 66,
+                "weight": 16,
+                "length": 37,
+                "width": 37,
+                "height": 40,
                 "isStackable": null,
                 "palletType": null,
                 "containerType": null,
                 "isOwnedContainer": null,
                 "isReeferContainer": null,
                 "imoNumber": null
-            }
-	    ],
-	    "paymentStatus": "Paid",
-	    "paymentType": "TPV",
-	    "customs": true,
-	    "insurance": true,
-        "origin": {
-        	"address": "Pol in erletxes plataforma e nave 5",
-            "state": "PV",
-            "countryCode": "ES",
-            "countryName": "Spain",
-            "city": "Galdácano",
-            "postalCode": "48960",
-            "company": "Xayglobal ",
-            "contact": "Aitor",
-            "mail": "Peluquerianorte@hotmail.com",
-            "phone": "34 - 699660583",
-        },
-        "destination": {
-            "address": "divina infantita Nº6",
-            "state": "AL",
-            "countryCode": "ES",
-            "countryName": "Spain",
-            "city": "El Ejido/Almeria ",
-            "postalCode": "04700",
-            "company": "Dreams salon sl",
-            "contact": "Antonio",
-            "mail": "peluquerianorte@hotmail.com",
-            "phone": "34 - 695733174",
-        },
-	    "pickupDescription": null,
-	    "deliveryDescription": null,
-	    "pickupHours": "12:00 - 14:00"
-	}
-    
+                }
+            ]
+        }
+    }
+        
 
 ===========================   ====================   ===============================================
 Name                          Type         	            Description
@@ -269,17 +261,24 @@ Tracking messages
 
 **Example request**:
     
-    .. sourcecode::
+    .. http:get:: /v1/tracking/shipment/(string: shipmentCode)/messages
 
-        https://api.freightol.com/v1/tracking/cfab8e81-d328-4d4c-81eb-08d7523e7fee
+
+.. tabs::
+    .. code-tab:: bash
+
+        $ curl -X 'GET' \
+            'https://<env>.freightol.com/v1/tracking/shipment/FR00061D/detail' \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer <token>"
         
     
 **Example response**:
 
 .. sourcecode:: json
 
-	[
-	   {
+    [
+        {
             "shipmentId": "cfab8e81-d328-4d4c-81eb-08d7523e7fee",
             "message": "Shipment Received At Transit Point.",
             "updatedDate": null,
@@ -289,8 +288,8 @@ Tracking messages
             "countryName": null,
             "city": "MV9",
             "address": null
-	    },
-	    {
+        },
+        {
             "shipmentId": "cfab8e81-d328-4d4c-81eb-08d7523e7fee",
             "message": "Shipment Received At Origin Depot.",
             "updatedDate": null,
@@ -300,7 +299,7 @@ Tracking messages
             "countryName": null,
             "city": "Korntal Muenchingen",
             "address": null
-	    }
+        }
     ]
          
 
