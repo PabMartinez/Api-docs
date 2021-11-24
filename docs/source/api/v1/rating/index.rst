@@ -307,7 +307,7 @@ The content of ``body.json`` is like,
 				"weight": 10,
 				"measurementUnit": "CmKg",
 				"isStackable": false,
-				"palletType": Custom
+				"palletType": "Custom"
 			}
 		]
 	}
