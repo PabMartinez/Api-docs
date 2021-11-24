@@ -14,10 +14,10 @@ Retrieve the name of a city or an IATA code, and returns a list of airports that
 .. tabs::
     .. code-tab:: bash
 
-        $ curl \
+        $ curl -X 'GET' \
+            'https://<env>.freightol.com/v1/aerial/airports?nameCityIata=barcelona' \
             -H "Content-Type: application/json" \
-            -H "Authorization: Bearer <token>" \
-            https://<env>.freightol.com/v1/aerial/airports?nameCityIata=barcelona
+            -H "Authorization: Bearer <token>"
 
 =============  =======  ===========  =========================================
 Name            Type     Constraint  Description
