@@ -138,8 +138,8 @@ Shipment Info
         "commodityType": "Box",
         "serviceName": "TNT Economy Express",
         "shipmentCode": null,
-        "bookingReference": "XHB  835745",
-        "trackingReference": "511706288",
+        "bookingCode": "XHB  835745",
+        "externalTracking": "511706288",
         "externalTrackingURL": "https://www.tnt.com/express/es_es/site/herramientas-envio/seguimiento.html?searchType=con&cons=511706288",
         "customs": null,
         "insurance": null,
@@ -194,47 +194,50 @@ Shipment Info
 ===========================   ====================   ===============================================
 Name                          Type         	            Description
 ===========================   ====================   ===============================================
-CommodityId                     Guid         	        Guid of the shipment
-UserId                    	    Guid         	        Guid of the user
-CommodityType	                String		            Commodity type
-CommodityUnits	                List<Commodities>       Commodity type
-CommodityDescription	        String		            Commodity description
-CommodityValue	                Int   		            Commodity value
+ShipmentId                      Guid         	        Guid of the shipment
+ShipmentType	                String		            Commodity type
+Commodity                       Commodity               Commodity info
 ServiceName	                    String		            Service name
 Reference	           	        String		            Reference
-BookingReference	            String		            Booking reference
+BookingCode        	            String		            Booking reference
 ExternalTrackingURL	            String		            External tracking URL
-TrackingReference	            String		            Tracking reference
-PaymentType	                    String		            Payment type
-PaymentStatus	                String		            Payment status
+ExternalTracking	            String		            Tracking reference
 Customs		                    Boolean		            Customs
 Insurance		                Boolean		            Insurance
-OriginAddress	                String		            Origin address
-OriginState	                    String		            Origin state
-OriginCountryCode	            String		            Origin country code
-OriginCountryName	            String		            Origin country name
-OriginCity	           	        String		            Origin city
-OriginPostalCode	            String		            Origin postalCode
-OriginCompany	                String		            Origin company
-OriginContact	                String		            Origin contact	 
-OriginMail	         	        String		            Origin mail
-OriginPhone	                    String		            Origin phone     
-DestinationAddress	            String		            Destination address
-DestinationState	            String		            Destination state
-DestinationCountryCode          String		            Destination country code
-DestinationCountryName	        String		            Destination country name
-DestinationCity	                String		            Destination city
-DestinationPostalCode	        String		            Destination postal code
-DestinationCompany	            String		            Destination company
-DestinationContact	            String		            Destination contact	 
-DestinationMail	                String		            Destination mail
-DestinationPhone	            String		            Destination phone
+Origin                          ShipmentLocation        Origin address
+Destination                     ShipmentLocation        Destination address
 PickupDescription	            String		            Pickup description
 DeliveryDescription             String		            Delivery description
 PickupHours	                    String		            Pickup hours
 ===========================   ====================   ===============================================
 
-* Commodities:
+* Shipment location model:
+  
+====================    ==========  =======================================
+Name                    Type        Description
+====================    ==========  =======================================
+Address	                String		 Street adress
+State	                String		 State
+CountryCode	            String		 Country code
+City	           	    String		 City
+PostalCode	            String		 PostalCode
+Company	                String		 Company
+Contact	                String		 Contact	 
+Mail	         	    String		 Mail
+Phone	                String		 Phone    
+====================    ==========  =======================================
+
+* Commodity info model:
+  
+====================    ==================  =======================================
+Name                    Type                Description
+====================    ==================  =======================================
+CommodityUnits	        List<Commodities>   Commodity type
+CommodityDescription	String		        Commodity description
+CommodityValue	        Integer  	        Commodity value   
+====================    ==================  =======================================
+
+* Commodities item model:
   
 ====================    ==========  =======================================
 Name                    Type        Description

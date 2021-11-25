@@ -69,8 +69,8 @@ Surcharges                List<Surcharge>      List with all surcharges relative
 =======================   ==================   ===========================================================
 Name                      Type                 Description
 =======================   ==================   ===========================================================
-Description               String               Surcharge description 
-Price                     Money                Surcharge price
+Description               String               Surcharge description (ISO code or text)
+Price                     Money                Surcharge price object
 =======================   ==================   ===========================================================
 
 * Money model:
@@ -79,7 +79,7 @@ Price                     Money                Surcharge price
 Name                      Type                 Description
 =======================   ==================   ===========================================================
 Value                     Long                 Surcharge value (last 2 digits are decimals)
-Currency                  String               Surcharge currency
+Currency                  String               Surcharge currency ISO code
 =======================   ==================   ===========================================================
 
 Delete Quote
@@ -87,7 +87,7 @@ Delete Quote
 
 **Example request**:
         
-.. http:delete:: /v1/quotes/{string: type}/{guid: quoteId}
+.. http:delete:: /v1/quotes/(string: type)/(guid: quoteId)
 
 
 .. tabs::

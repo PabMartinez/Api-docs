@@ -48,13 +48,13 @@ Retrieve a list of all shipment documents
             "templateExtension": null
         },
         {
-            "id": null",
+            "id": null,
             "shipmentId": "c7ef9573-59df-4da0-0983-08d95c96c463",
             "documentTemplateId": "4d6656ac-c178-474f-a54b-08d97811fda0",
             "documentName": "Tipo de documento 1",
-            "isRequired": false,
-            "validationStatus": null,
-            "observations": "",
+            "isRequired": true,
+            "validationStatus": "Validated",
+            "observations": null,
             "template": "JVBERi0xLjYNJeLjz9MNCjI0IDAgb2JqDTw8L0ZpbHRlci9GbGF0ZURlY29kZS9GaXJzdCA0L0xlbmd0aCAyMTYvT...",
             "templateExtension": "pdf"
         }
@@ -65,9 +65,9 @@ Name                    Type        Description
 =====================   =========  ================================================================
 Id                      Guid        Shipment document ID
 ShipmentId              Guid        Shipment ID
-DocumentTemplateId      Guid?       DocumentTemplate ID 
+DocumentTemplateId      Guid?       Document template ID
 DocumentName            String      Name of the document
-IsRequired              String      Is required
+IsRequired              String      True if document is required
 ValidationStatus        String      Validation status
 Observations            String      Observations
 Template                String      Template file in base64 format
@@ -119,7 +119,7 @@ IsRequired              String      True if document is required
 ValidationStatus        String      Validation status
 Observations            String      Comments relatives to shipment
 File                    String      File content in base64 format.
-Extension	  	        String	    File extension.
+Extension               String      File extension
 =====================   =========  ================================================================
 
 Upload Shipment Document

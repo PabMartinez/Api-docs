@@ -75,7 +75,7 @@ Country         String   Country name.
 CountryCode     String   Country ISO 3166-1 alfa-2 code.
 City            String   City name.
 Region          Model    Region name.
-RegionCode      Model    Region code.
+RegionCode      Model    Region ISO code.
 PostalCode      Model    Postal code.
 =============  =======  ======================================================
 
@@ -134,7 +134,7 @@ Type                        String       Pallet type
 Length                      Double       Pallet length
 Width                       Double       Pallet width
 Height                      Double       Pallet height
-Unit                        String       Unit of measurement
+Unit                        String       Unit of measurement (CM/IN)
 =======================   ==========   ===============================================
 
 .. autosummary::
