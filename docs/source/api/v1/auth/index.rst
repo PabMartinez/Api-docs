@@ -15,18 +15,17 @@ Create a JWT (Json Web Token) using a API Key and API Secret valid in public API
 
     .. code-tab:: bash
 
-        $ curl \
-            -X POST \
-            -H "Content-Type: application/json" \
+        $ curl -X POST \
+            'https://<env>.freightol.com/v1/auth/token' \
             -H "x-api-key: <api-key>" \
-            -H "secret-api-key: <api-secret>" \
-            https://<env>.freightol.com/v1/auth/token
+            -H "secret-api-key: <api-secret>"
+            
 
 =====================   =========  =============   ================================================================
 Name                     Type      Constraint      Description
 =====================   =========  =============   ================================================================
-X-API-Key               String        Mandatory     API Key provider by Freightol staff
-Secret-API-Key          String        Mandatory     API Secret provider by Freightol staff
+X-API-Key               String        Mandatory     API Key provided by Freightol staff
+Secret-API-Key          String        Mandatory     API Secret provided by Freightol staff
 =====================   =========  =============   ================================================================  
   
 **Example response**:

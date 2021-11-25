@@ -41,7 +41,10 @@ The content of ``body.json`` is like,
 			"city": "Ovieod",
 			"state": "AST",
 			"street": null,
-			"coords": null
+			"coords": {
+                "lat": 41.3006,
+                "lng": 2.07976
+            }
 		},
 		"pickUpDate": "2021-10-28T16:54:30.094Z",
 		"goodsDescription": "string",
@@ -70,12 +73,12 @@ Name                 Type                  Constraint      Description
 Origin               Location              Mandatory       Object containing the origin info.
 Destination          Location              Mandatory       Object containing the destination info.
 Boxes                List<Box>      	   Mandatory       List of boxes for the shipment.
-PickUpDate           DateTime              Mandatory       Pickup date
+PickUpDate           DateTime              Mandatory       Requests pickup date
 GoodsDescription     String                Mandatory       Goods description
 GoodsValue           Long                  Mandatory       Goods value (last 2 digits are decimals)
 Insurance            Boolean               Mandatory       True if insurance is requested
 Customs              Boolean               Mandatory       True if customs is requered
-Currency             String                Mandatory       Currency(Ex:EUR)
+Currency             String                Mandatory       Currency (Ex:EUR)
 DangerousCargo       Boolean               Mandatory       Check if dangerous cargo is sent
 ==================   ===================   =============   ===============================================
 
@@ -265,7 +268,7 @@ Pallet Rating
     .. code-tab:: bash
 
         $ curl -X POST \
-			'https://<env>.freightol.com/v1/rating/pallets'
+            'https://<env>.freightol.com/v1/rating/pallets'
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
             -d @body.json
@@ -281,7 +284,10 @@ The content of ``body.json`` is like,
 			"city": "León",
 			"state": "CYL",
 			"street": null,
-			"coords": null
+			"coords": {
+                "lat": 41.3006,
+                "lng": 2.07976
+            }
 		},
 		"destination": {
 			"postalCode": "33001",
@@ -289,7 +295,10 @@ The content of ``body.json`` is like,
 			"city": "Oviedo",
 			"state": "AST",
 			"street": null,
-			"coords": null
+			"coords": {
+                "lat": 41.3006,
+                "lng": 2.07976
+            }
 		},
 		"pickUpDate": "2021-10-28T16:54:30.094Z",
 		"goodsDescription": "string",
@@ -549,7 +558,6 @@ The content of ``body.json`` is like,
 	{
 		"currency": "EUR",
 		"customs": false,
-		"dangerousCargo": false,
 		"goodsDescription": "PRODUCTOS ORIGEN ANIMAL",
 		"goodsValue": 10,
 		"pickUpDate": "2021-11-09T00:00:00.000Z",
@@ -565,7 +573,6 @@ The content of ``body.json`` is like,
 				"imoNumber": "1234"
 			}
 		],
-		"dangerousInfo": null,
 		"originServiceType": "CY",
 		"destinationServiceType": "SD",
 		"origin": {
@@ -652,8 +659,8 @@ Quantity                  Integer             Mandatory 	    Quantity
 Weight                    Double              Mandatory  	    Weight of the container
 MeasurementUnit           String              Mandatory 	    Measurement unit: CmKg
 Type                      ContainerType       Mandatory 	    Length of the container
-IsOwnedContainer          Boolean             Mandatory 	    Is Owned Container
-IsReeferContainer         Boolean             Mandatory	        Is Reefer Container 
+IsOwnedContainer          Boolean             Mandatory 	    Ture if container is Owned
+IsReeferContainer         Boolean             Mandatory	        True if container is Reefer (only RF) 
 ImoNumber                 String	          Optional	        IMO number
 ======================    =============      =============     =======================================
 
@@ -1259,7 +1266,7 @@ LCL Sea Rating
     .. code-tab:: bash
 
         $ curl -X POST \
-			'https://<env>.freightol.com/v1/rating/sea/lcl'
+            'https://<env>.freightol.com/v1/rating/sea/lcl' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
             -d @body.json
@@ -1271,7 +1278,6 @@ The content of ``body.json`` is like,
 	{
 		"currency": "EUR",
 		"customs": false,
-		"dangerousCargo": false,
 		"goodsDescription": "PRODUCTOS ORIGEN ANIMAL",
 		"goodsValue": 10,
 		"pickUpDate": "2021-11-09T00:00:00.000Z",
@@ -1284,7 +1290,6 @@ The content of ``body.json`` is like,
 				"CBM": 10
 			}
 		],
-		"dangerousInfo": null,
 		"originServiceType": "SD",
 		"destinationServiceType": "CY",
 		"origin": {
@@ -1323,7 +1328,6 @@ GoodsValue               	 Long                  Mandatory       Goods value(las
 Insurance               	 Boolean               Mandatory       Has insurance
 Customs               	     Boolean               Mandatory       Has customs
 Currency               	     String                Mandatory       Currency(Ex:EUR)
-DangerousCargo               Boolean               Mandatory       Is dangerous cargo
 OriginServiceType            ServiceType           Mandatory       Origin service type
 DestinationServiceType       ServiceType	       Mandatory       Destination service type
 OriginUnLocCode       	     String                Mandatory       Origin UnLoc code
@@ -1982,7 +1986,7 @@ The content of ``body.json`` is like,
 			"coords": null
 		},
 		"pickUpDate": "2021-11-18T16:54:30.094Z",
-		"goodsDescription": "string",
+		"goodsDescription": "test",
 		"goodsValue": 100,
 		"insurance": true,
 		"customs": true,
@@ -2007,18 +2011,18 @@ The content of ``body.json`` is like,
 * Air Quote model:
 
 ==========================   ===================   =============   ===============================================
-Name                 	  	 Type                  Constraint      Description
+Name                         Type                  Constraint      Description
 ==========================   ===================   =============   ===============================================
 Origin               	  	 Location              Mandatory       Object containing the origin info.
 Destination               	 Location              Mandatory       Object containing the destination info.
-Cargos               	 	 List<Cargos>      	   Mandatory       List of containers for the shipment.
+Cargos                       List<Cargos>      	   Mandatory       List of containers for the shipment.
 PickUpDate               	 DateTime              Mandatory       Pickup date
 GoodsDescription             String                Mandatory       Goods description
 GoodsValue               	 Long                  Mandatory       Goods value(last 2 digits are decimals)
 Insurance               	 Boolean               Mandatory       Has insurance
 Customs               	  	 Boolean               Mandatory       Has customs
 DangerousCargo               Boolean               Mandatory       True if dangerous cargo is sent
-Arrival airport code		 String   	           Mandatory       Arrival airport ISO code
+Arrival airport code         String   	           Mandatory       Arrival airport ISO code
 Destination airport code	 String				   Mandatory	   Destination airport ISO code
 ==========================   ===================   =============   ===============================================
 

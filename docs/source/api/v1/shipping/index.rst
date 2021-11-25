@@ -54,14 +54,14 @@ The content of ``body.json`` is like,
 =====================   =========   =============    ================================================================
 Name                     Type       Constraint       Description
 =====================   =========   =============    ================================================================
-Id                      Guid        Mandatory        Id of selected the quote
+Id                      Guid        Mandatory        Guid of selected the quote
 Origin                  Address     Mandatory        Object containing the origin info.
 Destination             Address     Mandatory        Object containing the destination info.
 PickupTimeFrom          String      Mandatory        PickUp start time, timeSpan as string (hh:mm or hh:mm:ss) 
 PickupTimeTo            String      Mandatory        PickUp end time, timeSpan as string (hh:mm or hh:mm:ss)
 PickupDescription       String      Optional         Desription for the pickup
 DeliveryDescription     String      Optional         Desription for the delivery
-IncotermCode            String      Optional         Inconterm code, requires a valid code
+IncotermCode            String      Optional         Incoterm code, requires a valid standard code
 =====================   =========   =============    ================================================================
 
 * Address model:
@@ -116,7 +116,7 @@ Pallet Shipping
     .. code-tab:: bash
 
         $ curl -X POST \
-            'https://<env>.freightol.com/v1/shipping/pallets'
+            'https://<env>.freightol.com/v1/shipping/pallets' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
             -d @body.json
@@ -221,7 +221,7 @@ FCL Sea Shipping
     .. code-tab:: bash
 
         $ curl -X POST \
-            'https://<env>.freightol.com/v1/shipping/sea/fcl'
+            'https://<env>.freightol.com/v1/shipping/sea/fcl' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
             -d @body.json
