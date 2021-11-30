@@ -9,3 +9,4 @@ Other endpoints
    aerial/index
    courier/index
    maritime/index
+   pickup-time/index
