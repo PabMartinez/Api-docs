@@ -1284,7 +1284,7 @@ The content of ``body.json`` is like,
 		"insurance": false,
 		"cargos": [
 			{
-				"quantity": 1,
+				"quantity": 2,
 				"weight": 1000,
 				"measurementUnit": "CmKg",
 				"CBM": 10

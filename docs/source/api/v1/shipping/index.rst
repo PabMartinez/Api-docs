@@ -252,23 +252,48 @@ The content of ``body.json`` is like,
         "pickupTimeTo": "20:20",
         "pickupDescription": null,
         "deliveryDescription": null,
-        "incotermCode": "EBW"
+        "incotermCode": "EXW",
+        "containers": [
+			{
+				"sequentialNumber": 0,
+				"cargos": [
+					{
+						"quantity": 2,
+						"weight": 100.0,
+						"cbm": 5,
+						"description": "Motor",
+						"ediType": "204",
+						"hsCode": "8601",
+						"indexContainer": 0
+					},
+					{
+						"quantity": 1,
+						"weight": 500.0,
+						"cbm": 1.5,
+						"description": "Motor",
+						"ediType": "214",
+						"hsCode": "8401",
+						"indexContainer": 1
+					}
+				]
+			}
     }
 
 * Sea FCL Shipping model:
 
-=====================   =========   =============    ================================================================
-Name                     Type       Constraint       Description
-=====================   =========   =============    ================================================================
-Id                      Guid        Mandatory        Id of selected the quote
-Origin                  Address     Mandatory        Object containing the origin info.
-Destination             Address     Mandatory        Object containing the destination info.
-PickupTimeFrom          String      Mandatory        PickUp start time, timeSpan as string (hh:mm or hh:mm:ss) 
-PickupTimeTo            String      Mandatory        PickUp end time, timeSpan as string (hh:mm or hh:mm:ss)
-PickupDescription       String      Optional         Desription for the pickup
-DeliveryDescription     String      Optional         Desription for the delivery
-IncotermCode            String      Mandatory        Inconterm code, requires a valid code
-=====================   =========   =============    ================================================================
+=====================   =================   =============    ================================================================
+Name                     Type                Constraint       Description
+=====================   =================   =============    ================================================================
+Id                      Guid                 Mandatory        Id of selected the quote
+Origin                  Address              Mandatory        Object containing the origin info.
+Destination             Address              Mandatory        Object containing the destination info.
+PickupTimeFrom          String               Mandatory        PickUp start time, timeSpan as string (hh:mm or hh:mm:ss) 
+PickupTimeTo            String               Mandatory        PickUp end time, timeSpan as string (hh:mm or hh:mm:ss)
+PickupDescription       String               Optional         Desription for the pickup
+DeliveryDescription     String               Optional         Desription for the delivery
+IncotermCode            String               Mandatory        Incoterm code, requires a valid code
+Containers              List<Container>      Mandatory        List container-cargos commodity details.
+=====================   =================   =============    ================================================================
 
 * Address model:
 
@@ -282,6 +307,29 @@ Address              String       Mandatory        Address
 PhonePrefix          String       Optional         Phone prefix (without "+")
 Phone                String       Mandatory        Phone
 =================    ==========   =============    =======================================
+
+* Container model:
+
+=================    ==============   =============    ==================================================================================================================
+Name                 Type             Constraint       Description
+=================    ==============   =============    ==================================================================================================================
+SequentialNumber      Integer         Mandatory        Container sequential number, starting at 0. 
+Cargos                List<Cargo>     Mandatory        Cargo packages in FCL container
+=================    ==============   =============    ==================================================================================================================
+
+* Cargo model:
+
+=================    ==========   =============    ==================================================================================================================
+Name                 Type         Constraint       Description
+=================    ==========   =============    ==================================================================================================================
+Quantity              Integer      Mandatory        Cargo quantity
+Weight                Double       Mandatory        Cargo weight
+CBM                   Double       Mandatory        Cargo CBM
+Description           String       Mandatory        Cargo description
+EDIType               String       Mandatory        EDI description
+HSCode                String       Mandatory        HS Code (https://www.tariffnumber.com/). No pre-validation. If code is invalid, booking will never confirm.
+IndexContainer        Integer      Mandatory        Cargo index using Container quantity. It must be lower than quantity and start at 0.
+=================    ==========   =============    ==================================================================================================================
 
 **Example response**:
 
@@ -356,23 +404,36 @@ The content of ``body.json`` is like,
         "pickupTimeTo": "20:20",
         "pickupDescription": null,
         "deliveryDescription": null,
-        "incotermCode": "FOB"
+        "incotermCode": "FOB",
+        "cargos": [
+            {
+                "description": "Motor",
+                "ediType": "204",
+                "hsCode": "8601"
+            },
+            {
+                "description": "Motor",
+                "ediType": "214",
+                "hsCode": "8401"
+            }
+        ]
     }
 
 * Sea LCL Shipping model:
 
-=====================   =========   =============    ================================================================
-Name                     Type       Constraint       Description
-=====================   =========   =============    ================================================================
-Id                      Guid        Mandatory        Id of selected the quote
-Origin                  Address     Mandatory        Object containing the origin info.
-Destination             Address     Mandatory        Object containing the destination info.
-PickupTimeFrom          String      Mandatory        PickUp start time, timeSpan as string (hh:mm or hh:mm:ss) 
-PickupTimeTo            String      Mandatory        PickUp end time, timeSpan as string (hh:mm or hh:mm:ss)
-PickupDescription       String      Optional         Desription for the pickup
-DeliveryDescription     String      Optional         Desription for the delivery
-IncotermCode            String      Mandatory        Inconterm code, requires a valid code
-=====================   =========   =============    ================================================================
+=====================   =================   =============    ================================================================
+Name                     Type                Constraint       Description
+=====================   =================   =============    ================================================================
+Id                      Guid                 Mandatory        Id of selected the quote
+Origin                  Address              Mandatory        Object containing the origin info.
+Destination             Address              Mandatory        Object containing the destination info.
+PickupTimeFrom          String               Mandatory        PickUp start time, timeSpan as string (hh:mm or hh:mm:ss) 
+PickupTimeTo            String               Mandatory        PickUp end time, timeSpan as string (hh:mm or hh:mm:ss)
+PickupDescription       String               Optional         Desription for the pickup
+DeliveryDescription     String               Optional         Desription for the delivery
+IncotermCode            String               Mandatory        Inconterm code, requires a valid code
+Cargos                  List<Cargo>          Mandatory        List cargos commodity details.
+=====================   =================   =============    ================================================================
 
 * Address model:
 
@@ -386,6 +447,16 @@ Address              String       Mandatory        Address
 PhonePrefix          String       Optional         Phone prefix (without "+")
 Phone                String       Mandatory        Phone
 =================    ==========   =============    =======================================
+
+* Cargo model:
+
+=================    ==========   =============    ==================================================================================================================
+Name                 Type         Constraint       Description
+=================    ==========   =============    ==================================================================================================================
+Description           String       Mandatory        Cargo description
+EDIType               String       Mandatory        EDI description
+HSCode                String       Mandatory        HS Code (https://www.tariffnumber.com/). No pre-validation. If code is invalid, booking will never confirm.
+=================    ==========   =============    ==================================================================================================================
 
 **Example response**:
 
@@ -433,7 +504,7 @@ The content of ``body.json`` is like,
 	
 .. sourcecode:: json
     
-	{
+    {
         "id": "dc518d27-0f3d-4bdc-ab4d-3fce1baaee87",
         "origin": {
             "contactPerson": "DO NOT COLLECT",
@@ -456,7 +527,7 @@ The content of ``body.json`` is like,
         "pickupDescription": null,
         "deliveryDescription": null,
         "incotermCode": null
-	}
+    }
 
 * Air Shipping model:
 
