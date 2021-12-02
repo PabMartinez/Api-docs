@@ -8,7 +8,7 @@ Box Rating
 
 **Example request**:
     
-.. http:post:: /v1/rating/boxes
+.. http:post:: /v1/rates/boxes
 
 
 .. tabs::
@@ -16,7 +16,7 @@ Box Rating
     .. code-tab:: bash
 
         $ curl -X POST \
-            'https://<env>.freightol.com/v1/rating/boxes' \
+            'https://<env>.freightol.com/v1/rates/boxes' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
             -d @body.json
@@ -226,16 +226,16 @@ Rates             List<BoxRate>    List containing the rates
 
 * Location model:
   
-=============     ========    =============      =======================================
-Name              Type        Constraint          Description
-=============     ========    =============      =======================================
-PostalCode        String      Mandatory 	      Zip code of the shipment
-Country           String      Mandatory 	      Country ISO2 of the shipment
-City              String      Mandatory 	      City of the shipment
-State             String      Mandatory 	      State of the shipment
-Street            String      Optional 	     	  Street of the shipment
-Coords            Coord       Optional 	      	  Geolocation data
-=============     ========    =============      =======================================
+=============     ========    =======================================
+Name              Type        Description
+=============     ========    =======================================
+PostalCode        String      Zip code of the shipment
+Country           String      Country ISO2 of the shipment
+City              String      City of the shipment
+State             String      State of the shipment
+Street            String      Street of the shipment
+Coords            Coord       Geolocation data
+=============     ========    =======================================
 
 * Box Rate model:
   
@@ -260,7 +260,7 @@ Pallet Rating
 
 **Example request**:
     
-.. http:post:: /v1/rating/pallets
+.. http:post:: /v1/rates/pallets
 
 
 .. tabs::
@@ -268,7 +268,7 @@ Pallet Rating
     .. code-tab:: bash
 
         $ curl -X POST \
-            'https://<env>.freightol.com/v1/rating/pallets'
+            'https://<env>.freightol.com/v1/rates/pallets'
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
             -d @body.json
@@ -537,7 +537,7 @@ FCL Sea Rating
 
 **Example request**:
 
-.. http:post:: /v1/rating/sea/fcl
+.. http:post:: /v1/rates/sea/fcl
 
 
 .. tabs::
@@ -545,7 +545,7 @@ FCL Sea Rating
     .. code-tab:: bash
 
         $ curl -X POST \
-            'https://<env>.freightol.com/v1/rating/sea/fcl' \
+            'https://<env>.freightol.com/v1/rates/sea/fcl' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
             -d @body.json
@@ -1062,25 +1062,25 @@ HFLATRACK40      	40' Flat Rack High Cube
 
 * Location model:
   
-=============     ========    =============      =======================================
- Name              Type        Constraint        Description
-=============     ========    =============      =======================================
- PostalCode        String      Mandatory 	      PostalCode of the shipment
- Country           String      Mandatory 	      Country of the shipment
- City              String      Mandatory 	      City of the shipment
- State             String      Mandatory 	      State of the shipment
- Street            String      Optional 	      Street of the shipment
- Coords            Coord       Optional 	      Geolocation data
-=============     ========    =============      =======================================
+=============     ========    =======================================
+ Name              Type       Description
+=============     ========    =======================================
+ PostalCode        String     PostalCode of the shipment
+ Country           String     Country of the shipment
+ City              String     City of the shipment
+ State             String     State of the shipment
+ Street            String     Street of the shipment
+ Coords            Coord      Geolocation data
+=============     ========    =======================================
 
 * Coord model:
 
-=============     ========     =============    ======================================================
-Name              Type         Constraint       Description
-=============     ========     =============    ======================================================
-Lat               Double       Mandatory     	Location latitude, precision is (3, 6).
-Lng               Double       Mandatory 		Location longitude, precision is (3, 6).
-=============     ========     =============    ======================================================
+=============     ========     ======================================================
+Name              Type         Description
+=============     ========     ======================================================
+Lat               Double       Location latitude, precision is (3, 6).
+Lng               Double       Location longitude, precision is (3, 6).
+=============     ========     ======================================================
 
 * FCL Rate model:
   
@@ -1258,7 +1258,7 @@ LCL Sea Rating
 
 **Example request**:
 
-.. http:post:: /v1/rating/sea/lcl
+.. http:post:: /v1/rates/sea/lcl
 
 
 .. tabs::
@@ -1266,7 +1266,7 @@ LCL Sea Rating
     .. code-tab:: bash
 
         $ curl -X POST \
-            'https://<env>.freightol.com/v1/rating/sea/lcl' \
+            'https://<env>.freightol.com/v1/rates/sea/lcl' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
             -d @body.json
@@ -1752,25 +1752,25 @@ CBM                       Double       Mandatory 	      CBM of the cargo
 
 * Location model:
   
-=============     ========    =============      =======================================
- Name              Type        Constraint        Description
-=============     ========    =============      =======================================
- PostalCode        String      Mandatory 	      PostalCode of the shipment
- Country           String      Mandatory 	      Country of the shipment
- City              String      Mandatory 	      City of the shipment
- State             String      Mandatory 	      State of the shipment
- Street            String      Optional 	      Street of the shipment
- Coords            Coord       Optional 	      Geolocation data
-=============     ========    =============      =======================================
+=============     ========    =======================================
+ Name              Type       Description
+=============     ========    =======================================
+ PostalCode        String     PostalCode of the shipment
+ Country           String     Country of the shipment
+ City              String     City of the shipment
+ State             String     State of the shipment
+ Street            String     Street of the shipment
+ Coords            Coord      Geolocation data
+=============     ========    =======================================
 
 * Coord model:
 
-=============     ========     =============    ======================================================
-Name              Type         Constraint       Description
-=============     ========     =============    ======================================================
-Lat               Double       Mandatory     	Location latitude, precision is (3, 6).
-Lng               Double       Mandatory 		Location longitude, precision is (3, 6).
-=============     ========     =============    ======================================================
+=============     ========     ======================================================
+Name              Type         Description
+=============     ========     ======================================================
+Lat               Double       Location latitude, precision is (3, 6).
+Lng               Double       Location longitude, precision is (3, 6).
+=============     ========     ======================================================
 
 * LCL Rate model:
   
@@ -1949,7 +1949,7 @@ Air Rating
 
 **Example request**:
     
-.. http:post:: /v1/rating/air
+.. http:post:: /v1/rates/air
 
 
 .. tabs::
@@ -1957,7 +1957,7 @@ Air Rating
     .. code-tab:: bash
 
         $ curl -X POST \
-			'https://<env>.freightol.com/v1/rating/air'
+			'https://<env>.freightol.com/v1/rates/air'
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
             -d @body.json
@@ -2280,25 +2280,25 @@ Rates             List<AirRate>    List containing the rates
 
 * Location model:
   
-=============     ========    =============      =======================================
-Name              Type        Constraint         Description
-=============     ========    =============      =======================================
-PostalCode        String      Mandatory 	      PostalCode of the shipment
-Country           String      Mandatory 	      Country of the shipment
-City              String      Mandatory 	      City of the shipment
-State             String      Mandatory 	      State of the shipment
-Street            String      Optional 	      	  Street of the shipment
-coords            Coord       Optional 	      	  Geolocation data
-=============     ========    =============      =======================================
+=============     ========    =======================================
+Name              Type        Description
+=============     ========    =======================================
+PostalCode        String      PostalCode of the shipment
+Country           String      Country of the shipment
+City              String      City of the shipment
+State             String      State of the shipment
+Street            String      Street of the shipment
+coords            Coord       Geolocation data
+=============     ========    =======================================
 
 * Coord model:
 
-=============     ========     =============    ======================================================
-Name              Type         Constraint       Description
-=============     ========     =============    ======================================================
-Lat               Double       Mandatory        Location latitude, precision is (3, 6).
-Lng               Double       Mandatory 	    Location longitude, precision is (3, 6).
-=============     ========     =============    ======================================================
+=============     ========     ======================================================
+Name              Type         Description
+=============     ========     ======================================================
+Lat               Double       Location latitude, precision is (3, 6).
+Lng               Double       Location longitude, precision is (3, 6).
+=============     ========     ======================================================
 
 
 * Air Rate model:

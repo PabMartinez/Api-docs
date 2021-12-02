@@ -81,7 +81,7 @@ Download a given shipment document
 
 **Example request**:
 
-.. http:get:: /v1/documents/shipment/(guid: shipment_id)/download
+.. http:get:: /v1/documents/shipment/(guid: document_id)/download
 
 
 .. tabs::
