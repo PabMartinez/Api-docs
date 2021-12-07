@@ -97,9 +97,9 @@ Name                      Type         Description
 =======================   ==========   ===============================================
 ShipmentId                Guid         Guid of the processed shipment
 ShipmentCode              String       Code of the processed shipment
-TrackingCode              String       Tracking code
-ExternalTrackingUrl       Url          External tracking url
-BookingCode               String       Booking code
+TrackingCode              String?      Tracking code
+ExternalTrackingUrl       String?      External tracking url
+BookingCode               String?      Booking code
 =======================   ==========   ===============================================
    
 
@@ -198,9 +198,9 @@ Name                      Type         Description
 =======================   ==========   ===============================================
 ShipmentId                Guid         Guid of the processed shipment
 ShipmentCode              String       Code of the processed shipment
-TrackingCode              String       Tracking code
-ExternalTrackingUrl       Url          External tracking url
-BookingCode               String       Booking code
+TrackingCode              String?      Tracking code
+ExternalTrackingUrl       String?      External tracking url
+BookingCode               String?      Booking code
 =======================   ==========   ===============================================
     
 
@@ -350,9 +350,9 @@ Name                      Type         Description
 =======================   ==========   ===============================================
 ShipmentId                Guid         Guid of the processed shipment
 ShipmentCode              String       Code of the processed shipment
-TrackingCode              String       Tracking code
-ExternalTrackingUrl       Url          External tracking url
-BookingCode               String       Booking code
+TrackingCode              String?      Tracking code
+ExternalTrackingUrl       String?      External tracking url
+BookingCode               String?      Booking code
 =======================   ==========   ===============================================
  
 LCL Sea Shipping
@@ -477,9 +477,9 @@ Name                      Type         Description
 =======================   ==========   ===============================================
 ShipmentId                Guid         Guid of the processed shipment
 ShipmentCode              String       Code of the processed shipment
-TrackingCode              String       Tracking code
-ExternalTrackingUrl       Url          External tracking url
-BookingCode               String       Booking code
+TrackingCode              String?      Tracking code
+ExternalTrackingUrl       String?      External tracking url
+BookingCode               String?      Booking code
 =======================   ==========   ===============================================
 
 Air Shipping
@@ -577,9 +577,9 @@ Name                      Type         Description
 =======================   ==========   ===============================================
 ShipmentId                Guid         Guid of the processed shipment
 ShipmentCode              String       Code of the processed shipment
-TrackingCode              String       Tracking code
-ExternalTrackingUrl       Url          External tracking url
-BookingCode               String       Booking code
+TrackingCode              String?      Tracking code
+ExternalTrackingUrl       String?      External tracking url
+BookingCode               String?      Booking code
 =======================   ==========   ===============================================
 
 .. autosummary::

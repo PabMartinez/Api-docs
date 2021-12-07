@@ -88,8 +88,8 @@ Currency                      String	              Currency ISO code
 Customs                       Boolean	              Customs
 Insurance                     Boolean	              Insurance
 ShipmentType                  String	              Shipment type
-TrackingStatus                String		          Tracking status
-CustomsStatus                 String	              Customs status
+TrackingStatus                String?		          Tracking status
+CustomsStatus                 String?	              Customs status
 Origin                        ShipmentLocation	      Origin location
 Destination                   ShipmentLocation	      Destination location
 HasInvoice	           	      Boolean	              True if shipment has invoice saved
@@ -101,7 +101,7 @@ HasInvoice	           	      Boolean	              True if shipment has invoice 
     Name                          Type                   Description
 ===========================   ====================   ===============================================
 Country code                   String	              Origin country ISO-2 code
-State	                       String	              Origin state 
+State	                       String?	              Origin state 
 City	           	           String	              Origin city
 PostalCode	                   String	              Origin postalCode
 ===========================   ====================   ===============================================

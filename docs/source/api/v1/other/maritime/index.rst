@@ -49,7 +49,7 @@ Name            Type    Description
 UnLocCode      String   UN/LOCODE 
 Country        String   Country ISO 3166-1 alfa-2 code.
 City           String   City name.
-RkstCode       String   Code used internally in Maersk API
+RkstCode       String?  Code used internally in Maersk API
 =============  =======  ======================================================
 
 .. autosummary::
