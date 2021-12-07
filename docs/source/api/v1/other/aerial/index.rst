@@ -46,17 +46,17 @@ nameCityIata   String    Mandatory   Name of city or IATA airport code.
 
 * Airport model:
 
-=============  =======  ======================================================
-Name            Type    Description
-=============  =======  ======================================================
-Name            String   Name of the airport. 
-City            String   Airport city.
-State           String   Airport state. 
-Country         String   Airport country.
-IataCode        String   Airport IATA code. 
-Iso             String   Country ISO code.
-Geoloc          Model    Airport geolocation.
-=============  =======  ======================================================
+=============  =========  ======================================================
+Name            Type      Description
+=============  =========  ======================================================
+Name            String     Name of the airport. 
+City            String     Airport city.
+State           String     Airport state. 
+Country         String     Airport country.
+IataCode        String     Airport IATA code. 
+Iso             String     Country ISO code.
+Geoloc          Geoloc?    Airport geolocation.
+=============  =========  ======================================================
 
 * Geoloc model:
 

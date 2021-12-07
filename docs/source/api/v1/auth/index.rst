@@ -38,6 +38,14 @@ Secret-API-Key          String        Mandatory     API Secret provided by Freig
         "access_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6I..."
     }
 
+=====================   ========= ================================================================
+Name                     Type      Description
+=====================   ========= ================================================================
+Token type               String    Token type
+Expired in               Integer   Time until expiration 
+Access token             String    Authentication token
+=====================   ========= ================================================================  
+
 
 .. autosummary::
    :toctree: generated

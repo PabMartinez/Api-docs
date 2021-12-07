@@ -66,18 +66,18 @@ Loc            String    Mandatory   Name of city or postal code.
 
 **Example response**:
 
-=============  =======  ======================================================
-Name            Type    Description
-=============  =======  ======================================================
-Latitude        Double   Latitude, precision is (3, 6).
-Longitude       Double   longitude precision is (3, 6).
-Country         String   Country name.
-CountryCode     String   Country ISO 3166-1 alfa-2 code.
-City            String   City name.
-Region          Model    Region name.
-RegionCode      Model    Region ISO code.
-PostalCode      Model    Postal code.
-=============  =======  ======================================================
+=============  =========  ======================================================
+Name            Type      Description
+=============  =========  ======================================================
+Latitude        Double?   Latitude, precision is (3, 6).
+Longitude       Double?   longitude precision is (3, 6).
+Country         String    Country name.
+CountryCode     String    Country ISO 3166-1 alfa-2 code.
+City            String    City name.
+Region          String?   Region name.
+RegionCode      String?   Region ISO code.
+PostalCode      String    Postal code.
+=============  =========  ======================================================
 
 
 Pallet Types
@@ -131,10 +131,10 @@ Retrieves the list of supported pallet types.
 Name                      Type         Description
 =======================   ==========   ===============================================
 Type                        String       Pallet type
-Length                      Double       Pallet length
-Width                       Double       Pallet width
-Height                      Double       Pallet height
-Unit                        String       Unit of measurement (CM/IN)
+Length                      Double?      Pallet length
+Width                       Double?      Pallet width
+Height                      Double?      Pallet height
+Unit                        String?      Unit of measurement (CM/IN)
 =======================   ==========   ===============================================
 
 .. autosummary::

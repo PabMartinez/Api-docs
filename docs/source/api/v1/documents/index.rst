@@ -68,10 +68,10 @@ ShipmentId              Guid        Shipment ID
 DocumentTemplateId      Guid?       Document template ID
 DocumentName            String      Name of the document
 IsRequired              String      True if document is required
-ValidationStatus        String      Validation status
-Observations            String      Observations
-Template                String      Template file in base64 format
-TemplateExtension       String	    Template file extension
+ValidationStatus        String?     Validation status
+Observations            String?     Observations
+Template                String?     Template file in base64 format
+TemplateExtension       String?    Template file extension
 =====================   =========  ================================================================
 
 
@@ -81,7 +81,7 @@ Download a given shipment document
 
 **Example request**:
 
-.. http:get:: /v1/documents/shipment/(guid: shipment_id)/download
+.. http:get:: /v1/documents/shipment/(guid: document_id)/download
 
 
 .. tabs::
@@ -116,8 +116,8 @@ Id                      Guid        Shipment document ID
 ShipmentId              Guid    	Shipment ID
 DocumentName            String      Name of the document
 IsRequired              String      True if document is required
-ValidationStatus        String      Validation status
-Observations            String      Comments relatives to shipment
+ValidationStatus        String?     Validation status
+Observations            String?     Comments relatives to shipment
 File                    String      File content in base64 format.
 Extension               String      File extension
 =====================   =========  ================================================================
@@ -158,11 +158,11 @@ The content of ``body.json`` is like,
 Name                     Type      Constraint      Description
 =====================   =========  =============   ================================================================
 ShipmentId              Guid        Mandatory       Shipment ID
-DocumentTemplateId      Guid        Mandatory       Document template ID
+DocumentTemplateId      Guid?       Mandatory       Document template ID
 DocumentName            String      Mandatory       Document name
 File                    String      Mandatory       File content in base64 format
 Extension               String	    Mandatory       MIME type
-Observations            String      Optional        Observations
+Observations            String?     Optional        Observations
 =====================   =========  =============   ================================================================  
   
 **Example response**:
