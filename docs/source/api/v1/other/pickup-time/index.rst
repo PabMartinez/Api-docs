@@ -1,10 +1,10 @@
 =============================
-Maritime
+PickUp Time
 =============================
 
-Maritime Ports
+PickUp Time
 ----------------
-Receives the name of the city, and returns a list of ports.
+Receives the Id of the shipment, and returns a list valid PickUp times.
 
 **Example request**:
     
