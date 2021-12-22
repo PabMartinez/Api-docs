@@ -5,6 +5,8 @@ Shipping
 Box Shipping
 ----------------
 
+Request for Box shipment, it receives the data of the shipment and returns the shipmentCode, bookingCode and trackingCode.
+
 **Example request**:
     
 .. http:post:: /v1/shipping/boxes
@@ -106,6 +108,8 @@ BookingCode               String?      Booking code
 Pallet Shipping
 ----------------
 
+Request for Pallet shipment, it receives the data of the shipment and returns the shipmentCode, bookingCode and trackingCode.
+
 **Example request**:
     
 .. http:post:: /v1/shipping/pallets
@@ -206,6 +210,8 @@ BookingCode               String?      Booking code
 
 FCL Sea Shipping
 -------------------
+
+Request for Sea FCL shipment, it receives the data of the shipment and returns the shipmentCode, bookingCode and trackingCode.
 
 .. warning::
 
@@ -358,6 +364,8 @@ BookingCode               String?      Booking code
 LCL Sea Shipping
 -------------------------------
 
+Request for Sea LCL shipment, it receives the data of the shipment and returns the shipmentCode, bookingCode and trackingCode.
+
 .. warning::
 
    This endpoint is working in progress.
@@ -484,6 +492,9 @@ BookingCode               String?      Booking code
 
 Air Shipping
 ----------------------------
+
+Request for Air shipment, it receives the data of the shipment and returns the shipmentCode, bookingCode and trackingCode.
+
 
 **Example request**:
     
