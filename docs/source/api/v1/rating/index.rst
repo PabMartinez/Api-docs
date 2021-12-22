@@ -6,9 +6,9 @@ Rating
 Box Rating
 ----------------
 
-Peticion para realizar una peticion de rates para un envio de tipo Box via terrestre.
+Request to retrieve the rates for Box shipment(Terrestrial)
 
-Devuelve un listado con los diferentes rates terrestres de tipo box.
+Returns a list containing the terrestrial rates for Boxes.
 
 **Example request**:
     
@@ -262,9 +262,9 @@ ExtraInfo              List<String>?           List of extra info
 Pallet Rating
 ----------------
 
-Peticion para realizar una peticion de rates para un envio de tipo Pallet via terrestre.
+Request to retrieve the rates for Pallet shipment(Terrestrial)
 
-Devuelve un listado con los diferentes rates terrestres de tipo pallet.
+Returns a list containing the terrestrial rates for Pallets.
 
 **Example request**:
     
@@ -542,9 +542,9 @@ ExtraInfo              List<String>?           List of extra info
 FCL Sea Rating
 ----------------------------
 
-Peticion para realizar una peticion de rates para un envio FCL via maritima.
+Request to retrieve the rates for FCL sea shipment(Maritime)
 
-Devuelve un listado con los diferentes rates maritimos de FCL.
+Returns a list containing the Sea rates for FCL.
 
 **Example request**:
 
@@ -1266,9 +1266,9 @@ Destination        Surcharges generated at Destination
 LCL Sea Rating
 -----------------------------
 
-Peticion para realizar una peticion de rates para un envio LCL via maritima.
+Request to retrieve the rates for LCL sea shipment(Maritime)
 
-Devuelve un listado con los diferentes rates maritimos de LCL.
+Returns a list containing the Sea rates for LCL.
 
 **Example request**:
 
@@ -1961,10 +1961,9 @@ Destination        Surcharges generated at Destination
 Air Rating
 -----------------------
 
-Peticion para realizar una peticion de rates para un envio aereo.
+Request to retrieve the rates for Air shipment(Aerial)
 
-Devuelve un listado con los diferentes rates aereos.
-
+Returns a list containing the Air rates.
 
 **Example request**:
     
