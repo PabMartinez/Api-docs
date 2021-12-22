@@ -6,6 +6,10 @@ Rating
 Box Rating
 ----------------
 
+Peticion para realizar una peticion de rates para un envio de tipo Box via terrestre.
+
+Devuelve un listado con los diferentes rates terrestres de tipo box.
+
 **Example request**:
     
 .. http:post:: /v1/rates/boxes
@@ -257,6 +261,10 @@ ExtraInfo              List<String>?           List of extra info
     
 Pallet Rating
 ----------------
+
+Peticion para realizar una peticion de rates para un envio de tipo Pallet via terrestre.
+
+Devuelve un listado con los diferentes rates terrestres de tipo pallet.
 
 **Example request**:
     
@@ -534,6 +542,9 @@ ExtraInfo              List<String>?           List of extra info
 FCL Sea Rating
 ----------------------------
 
+Peticion para realizar una peticion de rates para un envio FCL via maritima.
+
+Devuelve un listado con los diferentes rates maritimos de FCL.
 
 **Example request**:
 
@@ -1255,6 +1266,9 @@ Destination        Surcharges generated at Destination
 LCL Sea Rating
 -----------------------------
 
+Peticion para realizar una peticion de rates para un envio LCL via maritima.
+
+Devuelve un listado con los diferentes rates maritimos de LCL.
 
 **Example request**:
 
@@ -1740,6 +1754,7 @@ CBM                       Double       Mandatory 	      CBM of the cargo
     
 * LCL Quote model:
 
+
 =============     ===============    ======================================================
  Name               Type             Description
 =============     ===============    ======================================================
@@ -1945,6 +1960,10 @@ Destination        Surcharges generated at Destination
 
 Air Rating
 -----------------------
+
+Peticion para realizar una peticion de rates para un envio aereo.
+
+Devuelve un listado con los diferentes rates aereos.
 
 
 **Example request**:
