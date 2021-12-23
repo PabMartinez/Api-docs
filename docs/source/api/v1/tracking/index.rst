@@ -2,6 +2,7 @@
 Tracking
 =====================
 
+Request to retrieve the tracking info of the shipments matching the filters.
 
 Shipments
 --------------------------

@@ -6,6 +6,10 @@ Rating
 Box Rating
 ----------------
 
+Request to retrieve the rates for Box shipment(Terrestrial)
+
+Returns a list containing the terrestrial rates for Boxes.
+
 **Example request**:
     
 .. http:post:: /v1/rates/boxes
@@ -257,6 +261,10 @@ ExtraInfo              List<String>?           List of extra info
     
 Pallet Rating
 ----------------
+
+Request to retrieve the rates for Pallet shipment(Terrestrial)
+
+Returns a list containing the terrestrial rates for Pallets.
 
 **Example request**:
     
@@ -534,6 +542,9 @@ ExtraInfo              List<String>?           List of extra info
 FCL Sea Rating
 ----------------------------
 
+Request to retrieve the rates for FCL sea shipment(Maritime)
+
+Returns a list containing the Sea rates for FCL.
 
 **Example request**:
 
@@ -1255,6 +1266,9 @@ Destination        Surcharges generated at Destination
 LCL Sea Rating
 -----------------------------
 
+Request to retrieve the rates for LCL sea shipment(Maritime)
+
+Returns a list containing the Sea rates for LCL.
 
 **Example request**:
 
@@ -1740,6 +1754,7 @@ CBM                       Double       Mandatory 	      CBM of the cargo
     
 * LCL Quote model:
 
+
 =============     ===============    ======================================================
  Name               Type             Description
 =============     ===============    ======================================================
@@ -1946,6 +1961,9 @@ Destination        Surcharges generated at Destination
 Air Rating
 -----------------------
 
+Request to retrieve the rates for Air shipment(Aerial)
+
+Returns a list containing the Air rates.
 
 **Example request**:
     
