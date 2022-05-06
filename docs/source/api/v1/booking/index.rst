@@ -92,7 +92,7 @@ Phone                String       Mandatory        Phone
         "bookingCode": "dummy"
     }
 
-* Box Booking model:
+* Box Shipping model:
 
 =======================   ==========   ===============================================
 Name                      Type         Description
@@ -195,7 +195,7 @@ Phone                String       Mandatory        Phone
         "bookingCode": "dummy"
     }
 
-* Pallet Booking model:
+* Pallet Shipping model:
 
 =======================   ==========   ===============================================
 Name                      Type         Description
@@ -349,7 +349,7 @@ IndexContainer        Integer      Mandatory        Cargo index using Container 
         "bookingCode": "dummy"
     }
 
-* Sea FCL Booking model:
+* Sea FCL Shipping model:
 
 =======================   ==========   ===============================================
 Name                      Type         Description
