@@ -8,7 +8,7 @@ API v1
    
    auth/index
    rating/index
-   shipping/index
+   booking/index
    tracking/index
    quotes/index
    documents/index
