@@ -1,8 +1,8 @@
 =====================
-Booking
+Shipping
 =====================
 
-Box Booking
+Box Shipping
 ----------------
 
 Request for Box shipment, it receives the data of the shipment and returns the shipmentCode, bookingCode and trackingCode.
@@ -51,7 +51,7 @@ The content of ``body.json`` is like,
         "incotermCode": null
     }
 
-* Box Booking model:
+* Box Shipping model:
 
 =====================   =========   =============    ================================================================
 Name                     Type       Constraint       Description
@@ -92,7 +92,7 @@ Phone                String       Mandatory        Phone
         "bookingCode": "dummy"
     }
 
-* Box Booking model:
+* Box Shipping model:
 
 =======================   ==========   ===============================================
 Name                      Type         Description
@@ -105,7 +105,7 @@ BookingCode               String?      Booking code
 =======================   ==========   ===============================================
    
 
-Pallet Booking
+Pallet Shipping
 ----------------
 
 Request for Pallet shipment, it receives the data of the shipment and returns the shipmentCode, bookingCode and trackingCode.
@@ -155,7 +155,7 @@ The content of ``body.json`` is like,
         "incotermCode": null
     }
 
-* Pallet Booking model:
+* Pallet Shipping model:
 
 =====================   =========   =============    ================================================================
 Name                     Type       Constraint       Description
@@ -195,7 +195,7 @@ Phone                String       Mandatory        Phone
         "bookingCode": "dummy"
     }
 
-* Pallet Booking model:
+* Pallet Shipping model:
 
 =======================   ==========   ===============================================
 Name                      Type         Description
@@ -208,7 +208,7 @@ BookingCode               String?      Booking code
 =======================   ==========   ===============================================
     
 
-FCL Sea Booking
+FCL Sea Shipping
 -------------------
 
 Request for Sea FCL shipment, it receives the data of the shipment and returns the shipmentCode, bookingCode and trackingCode.
@@ -285,7 +285,7 @@ The content of ``body.json`` is like,
 			}
     }
 
-* Sea FCL Booking model:
+* Sea FCL Shipping model:
 
 =====================   =================   =============    ================================================================
 Name                     Type                Constraint       Description
@@ -349,7 +349,7 @@ IndexContainer        Integer      Mandatory        Cargo index using Container 
         "bookingCode": "dummy"
     }
 
-* Sea FCL Booking model:
+* Sea FCL Shipping model:
 
 =======================   ==========   ===============================================
 Name                      Type         Description
@@ -427,7 +427,7 @@ The content of ``body.json`` is like,
         ]
     }
 
-* Sea LCL Booking model:
+* Sea LCL Shipping model:
 
 =====================   =================   =============    ================================================================
 Name                     Type                Constraint       Description
@@ -478,7 +478,7 @@ HSCode                String       Mandatory        HS Code (https://www.tariffn
         "bookingCode": "dummy"
     }
 
-* Sea LCL Booking model:
+* Sea LCL Shipping model:
 
 =======================   ==========   ===============================================
 Name                      Type         Description
