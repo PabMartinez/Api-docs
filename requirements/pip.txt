@@ -110,7 +110,7 @@ user-agents==2.2.0
 # in our Docker setup. We can upgrade it but we need to add a
 # `create_buckets.sh` to be called on `--init` as we used to do for Azurite
 # https://github.com/jschneier/django-storages/pull/636
-git+https://github.com/jschneier/django-storages@d0f027c98a877f75615cfc42b4d51c038fa41bf6#egg=django-storages[boto3]==1.9.1
+git+https://github.com/jschneier/django-storages.git#egg=django-storages
 
 
 # Required only in development and linting
