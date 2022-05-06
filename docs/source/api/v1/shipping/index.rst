@@ -1,8 +1,8 @@
 =====================
-Shipping
+Booking
 =====================
 
-Box Shipping
+Box Booking
 ----------------
 
 Request for Box shipment, it receives the data of the shipment and returns the shipmentCode, bookingCode and trackingCode.
@@ -51,7 +51,7 @@ The content of ``body.json`` is like,
         "incotermCode": null
     }
 
-* Box Shipping model:
+* Box Booking model:
 
 =====================   =========   =============    ================================================================
 Name                     Type       Constraint       Description
@@ -105,7 +105,7 @@ BookingCode               String?      Booking code
 =======================   ==========   ===============================================
    
 
-Pallet Shipping
+Pallet Booking
 ----------------
 
 Request for Pallet shipment, it receives the data of the shipment and returns the shipmentCode, bookingCode and trackingCode.
@@ -155,7 +155,7 @@ The content of ``body.json`` is like,
         "incotermCode": null
     }
 
-* Pallet Shipping model:
+* Pallet Booking model:
 
 =====================   =========   =============    ================================================================
 Name                     Type       Constraint       Description
@@ -208,7 +208,7 @@ BookingCode               String?      Booking code
 =======================   ==========   ===============================================
     
 
-FCL Sea Shipping
+FCL Sea Booking
 -------------------
 
 Request for Sea FCL shipment, it receives the data of the shipment and returns the shipmentCode, bookingCode and trackingCode.
@@ -285,7 +285,7 @@ The content of ``body.json`` is like,
 			}
     }
 
-* Sea FCL Shipping model:
+* Sea FCL Booking model:
 
 =====================   =================   =============    ================================================================
 Name                     Type                Constraint       Description
@@ -361,7 +361,7 @@ ExternalTrackingUrl       String?      External tracking url
 BookingCode               String?      Booking code
 =======================   ==========   ===============================================
  
-LCL Sea Shipping
+LCL Sea Booking
 -------------------------------
 
 Request for Sea LCL shipment, it receives the data of the shipment and returns the shipmentCode, bookingCode and trackingCode.
@@ -427,7 +427,7 @@ The content of ``body.json`` is like,
         ]
     }
 
-* Sea LCL Shipping model:
+* Sea LCL Booking model:
 
 =====================   =================   =============    ================================================================
 Name                     Type                Constraint       Description
@@ -490,7 +490,7 @@ ExternalTrackingUrl       String?      External tracking url
 BookingCode               String?      Booking code
 =======================   ==========   ===============================================
 
-Air Shipping
+/*Air Booking
 ----------------------------
 
 Request for Air shipment, it receives the data of the shipment and returns the shipmentCode, bookingCode and trackingCode.
@@ -592,6 +592,6 @@ TrackingCode              String?      Tracking code
 ExternalTrackingUrl       String?      External tracking url
 BookingCode               String?      Booking code
 =======================   ==========   ===============================================
-
+*/
 .. autosummary::
    :toctree: generated
