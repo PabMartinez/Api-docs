@@ -1,15 +1,15 @@
 =====================
-Shipping
+Booking
 =====================
 
-Box Shipping
+Box Booking
 ----------------
 
 Request for Box shipment, it receives the data of the shipment and returns the shipmentCode, bookingCode and trackingCode.
 
 **Example request**:
     
-.. http:post:: /v1/shipping/boxes
+.. http:post:: /v1/Booking/boxes
 
 
 .. tabs::
@@ -17,7 +17,7 @@ Request for Box shipment, it receives the data of the shipment and returns the s
     .. code-tab:: bash
 
         $ curl '-X POST' \
-            'https://<env>.freightol.com/v1/shipping/boxes' \
+            'https://<env>.freightol.com/v1/Booking/boxes' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
             -d @body.json
@@ -51,7 +51,7 @@ The content of ``body.json`` is like,
         "incotermCode": null
     }
 
-* Box Shipping model:
+* Box Booking model:
 
 =====================   =========   =============    ================================================================
 Name                     Type       Constraint       Description
@@ -105,14 +105,14 @@ BookingCode               String?      Booking code
 =======================   ==========   ===============================================
    
 
-Pallet Shipping
+Pallet Booking
 ----------------
 
 Request for Pallet shipment, it receives the data of the shipment and returns the shipmentCode, bookingCode and trackingCode.
 
 **Example request**:
     
-.. http:post:: /v1/shipping/pallets
+.. http:post:: /v1/Booking/pallets
 
 
 .. tabs::
@@ -120,7 +120,7 @@ Request for Pallet shipment, it receives the data of the shipment and returns th
     .. code-tab:: bash
 
         $ curl -X POST \
-            'https://<env>.freightol.com/v1/shipping/pallets' \
+            'https://<env>.freightol.com/v1/Booking/pallets' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
             -d @body.json
@@ -155,7 +155,7 @@ The content of ``body.json`` is like,
         "incotermCode": null
     }
 
-* Pallet Shipping model:
+* Pallet Booking model:
 
 =====================   =========   =============    ================================================================
 Name                     Type       Constraint       Description
@@ -208,7 +208,7 @@ BookingCode               String?      Booking code
 =======================   ==========   ===============================================
     
 
-FCL Sea Shipping
+FCL Sea Booking
 -------------------
 
 Request for Sea FCL shipment, it receives the data of the shipment and returns the shipmentCode, bookingCode and trackingCode.
@@ -219,7 +219,7 @@ Request for Sea FCL shipment, it receives the data of the shipment and returns t
 
 **Example request**:
     
-.. http:post:: /v1/shipping/sea/fcl
+.. http:post:: /v1/Booking/sea/fcl
 
 
 .. tabs::
@@ -227,7 +227,7 @@ Request for Sea FCL shipment, it receives the data of the shipment and returns t
     .. code-tab:: bash
 
         $ curl -X POST \
-            'https://<env>.freightol.com/v1/shipping/sea/fcl' \
+            'https://<env>.freightol.com/v1/Booking/sea/fcl' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
             -d @body.json
@@ -285,7 +285,7 @@ The content of ``body.json`` is like,
 			}
     }
 
-* Sea FCL Shipping model:
+* Sea FCL Booking model:
 
 =====================   =================   =============    ================================================================
 Name                     Type                Constraint       Description
@@ -372,7 +372,7 @@ Request for Sea LCL shipment, it receives the data of the shipment and returns t
 
 **Example request**:
     
-.. http:post:: /v1/shipping/sea/lcl
+.. http:post:: /v1/Booking/sea/lcl
 
 
 .. tabs::
@@ -380,7 +380,7 @@ Request for Sea LCL shipment, it receives the data of the shipment and returns t
     .. code-tab:: bash
 
         $ curl -X POST \
-            'https://<env>.freightol.com/v1/shipping/sea/lcl' \
+            'https://<env>.freightol.com/v1/Booking/sea/lcl' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>" \
             -d @body.json
@@ -427,7 +427,7 @@ The content of ``body.json`` is like,
         ]
     }
 
-* Sea LCL Shipping model:
+* Sea LCL Booking model:
 
 =====================   =================   =============    ================================================================
 Name                     Type                Constraint       Description
@@ -478,7 +478,7 @@ HSCode                String       Mandatory        HS Code (https://www.tariffn
         "bookingCode": "dummy"
     }
 
-* Sea LCL Shipping model:
+* Sea LCL Booking model:
 
 =======================   ==========   ===============================================
 Name                      Type         Description
