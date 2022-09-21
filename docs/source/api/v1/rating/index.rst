@@ -621,13 +621,10 @@ GoodsDescription             	String                     Optional          Goods
 GoodsValue                      Long                       Optional          Goods value (last 2 digits are decimals)
 Insurance                       Boolean                    Optional          Has insurance
 Customs                         Boolean                    Optional          Has customs
-Currency                        String                     Optional          Currency (Ex:EUR)
 OriginServiceType               ServiceType                Mandatory         Origin service type
 DestinationServiceType          ServiceType                Mandatory         Destination service type
 OriginUnLocCode                 String                     Mandatory         Origin UnLoc code
-DestinationUnLocCode         	String                     Mandatory         Destination UnLoc code   
-OriginRkstCode                  String                     Optional          Origin Rkst code
-DestinationRkstCode          	String                     Optional          Destination Rkst code
+DestinationUnLocCode         	String                     Mandatory         Destination UnLoc code
 ==========================   ==========================   ===============   ===============================================
 
 * Service type model:
@@ -704,34 +701,8 @@ HFLATRACK40      	40' Flat Rack High Cube
    
 .. sourcecode:: json
 
-	{
-		"quoteId": "cedb8248-ee94-4bfd-ae68-60d05073d460",
-		"origin": {
-			"postalCode": "999077",
-			"country": "HK",
-			"city": "Hong Kong",
-			"state": "Sai Kung",
-			"street": null,
-			"coords": {
-				"lat": null,
-				"lng": null
-			}
-		},
-		"destination": {
-			"postalCode": "08001",
-			"country": "ES",
-			"city": "Barcelona",
-			"state": "Cataluña",
-			"street": null,
-			"coords": {
-				"lat": null,
-				"lng": null
-			}
-		},
-		"pickUpDate": "2021-11-09T00:00:00",
-		"rates": [
-{
-    "quoteId": "5ada2015-7612-4811-9c4f-a60f13536577",
+    {
+    "quoteId": "3a9f1340-7565-45b2-82bd-0cbfb8968481",
     "origin": {
         "postalCode": null,
         "country": "ES",
@@ -739,8 +710,8 @@ HFLATRACK40      	40' Flat Rack High Cube
         "state": null,
         "street": null,
         "coords": {
-            "lat": null,
-            "lng": null
+        "lat": null,
+        "lng": null
         }
     },
     "destination": {
@@ -750,944 +721,944 @@ HFLATRACK40      	40' Flat Rack High Cube
         "state": null,
         "street": null,
         "coords": {
-            "lat": null,
-            "lng": null
+        "lat": null,
+        "lng": null
         }
     },
-    "pickUpDate": "2022-09-25T22:00:00",
+    "pickUpDate": "2022-09-26T00:00:00",
     "rates": [
         {
-            "sealine": "MAEU009A",
-            "scheduleDetails": [
+        "sealine": "MAEU009A",
+        "scheduleDetails": [
+            {
+            "routeDetails": [
                 {
-                    "routeDetails": [
-                        {
-                            "fromLocation": {
-                                "type": "TERMINAL",
-                                "rkstCode": "ESBCNBS",
-                                "unLocCode": "ESBCN",
-                                "city": "Barcelona",
-                                "countryCode": "ES",
-                                "expectedDate": "2022-10-14T01:00:00"
-                            },
-                            "toLocation": {
-                                "type": "TERMINAL",
-                                "rkstCode": "SGSINPS",
-                                "unLocCode": "SGSIN",
-                                "city": "Singapore",
-                                "countryCode": "SG",
-                                "expectedDate": "2022-11-14T16:12:00"
-                            },
-                            "transport": {
-                                "transportMode": "VESSEL",
-                                "name": "MSC LENI",
-                                "code": "9839454"
-                            }
-                        }
-                    ],
-                    "deadlines": [
-                        {
-                            "deadLineKey": "CY",
-                            "type": "Documentation",
-                            "deadLine": "2022-10-11T09:00:00",
-                            "name": "Commercial Cargo Cutoff"
-                        },
-                        {
-                            "deadLineKey": "SINONAMS",
-                            "type": "Documentation",
-                            "deadLine": "2022-10-10T15:00:00",
-                            "name": "Shipping Instructions Deadline"
-                        },
-                        {
-                            "deadLineKey": "VGM",
-                            "type": "Documentation",
-                            "deadLine": "2022-10-12T09:00:00",
-                            "name": "Commercial Verified Gross Mass Deadline"
-                        },
-                        {
-                            "deadLineKey": "LCD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-10-10T11:00:00",
-                            "name": "Loadlist Closure Deadline"
-                        },
-                        {
-                            "deadLineKey": "CSPD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-10-10T15:00:00",
-                            "name": "Coprar to Stowage Planners Deadline"
-                        },
-                        {
-                            "deadLineKey": "FLD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-10-10T15:00:00",
-                            "name": "Final Loadlist Deadline"
-                        }
-                    ]
+                "fromLocation": {
+                    "type": "TERMINAL",
+                    "rkstCode": "ESBCNBS",
+                    "unLocCode": "ESBCN",
+                    "city": "Barcelona",
+                    "countryCode": "ES",
+                    "expectedDate": "2022-10-14T01:00:00"
+                },
+                "toLocation": {
+                    "type": "TERMINAL",
+                    "rkstCode": "SGSINPS",
+                    "unLocCode": "SGSIN",
+                    "city": "Singapore",
+                    "countryCode": "SG",
+                    "expectedDate": "2022-11-14T16:12:00"
+                },
+                "transport": {
+                    "transportMode": "VESSEL",
+                    "name": "MSC LENI",
+                    "code": "9839454"
+                }
+                }
+            ],
+            "deadlines": [
+                {
+                "deadLineKey": "CY",
+                "type": "Documentation",
+                "deadLine": "2022-10-11T09:00:00",
+                "name": "Commercial Cargo Cutoff"
                 },
                 {
-                    "routeDetails": [
-                        {
-                            "fromLocation": {
-                                "type": "TERMINAL",
-                                "rkstCode": "SGSINPS",
-                                "unLocCode": "SGSIN",
-                                "city": "Singapore",
-                                "countryCode": "SG",
-                                "expectedDate": "2022-11-21T19:00:00"
-                            },
-                            "toLocation": {
-                                "type": "TERMINAL",
-                                "rkstCode": "HKHKGMO",
-                                "unLocCode": "HKHKG",
-                                "city": "Hong Kong",
-                                "countryCode": "HK",
-                                "expectedDate": "2022-11-25T08:00:00"
-                            },
-                            "transport": {
-                                "transportMode": "VESSEL",
-                                "name": "MAERSK LIMA",
-                                "code": "9526875"
-                            }
-                        }
-                    ],
-                    "deadlines": [
-                        {
-                            "deadLineKey": "CY",
-                            "type": "Documentation",
-                            "deadLine": "2022-11-18T21:00:00",
-                            "name": "Commercial Cargo Cutoff"
-                        },
-                        {
-                            "deadLineKey": "SINONAMS",
-                            "type": "Documentation",
-                            "deadLine": "2022-11-17T15:00:00",
-                            "name": "Shipping Instructions Deadline"
-                        },
-                        {
-                            "deadLineKey": "VGM",
-                            "type": "Documentation",
-                            "deadLine": "2022-11-19T03:00:00",
-                            "name": "Commercial Verified Gross Mass Deadline"
-                        },
-                        {
-                            "deadLineKey": "LCD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-11-18T04:00:00",
-                            "name": "Loadlist Closure Deadline"
-                        },
-                        {
-                            "deadLineKey": "CSPD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-11-17T23:00:00",
-                            "name": "Coprar to Stowage Planners Deadline"
-                        },
-                        {
-                            "deadLineKey": "FLD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-11-18T15:00:00",
-                            "name": "Final Loadlist Deadline"
-                        },
-                        {
-                            "deadLineKey": "SCDD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-11-17T21:00:00",
-                            "name": "Special Cargo Documentation Deadline"
-                        }
-                    ]
-                }
-            ],
-            "conditions": [
-                {
-                    "chargeType": 0,
-                    "containerSizeType": "20DRY",
-                    "freeTimeStartEvent": "DISCHARGE",
-                    "freeTimeGrantInDays": 5,
-                    "commodity": "GENERAL CARGO",
-                    "price": {
-                        "value": 50000,
-                        "currency": "HKD"
-                    }
+                "deadLineKey": "SINONAMS",
+                "type": "Documentation",
+                "deadLine": "2022-10-10T15:00:00",
+                "name": "Shipping Instructions Deadline"
                 },
                 {
-                    "chargeType": "Demurrage",
-                    "containerSizeType": "20DRY",
-                    "freeTimeStartEvent": "DISCHARGE",
-                    "freeTimeGrantInDays": 7,
-                    "commodity": "GENERAL CARGO",
-                    "price": {
-                        "value": 25000,
-                        "currency": "HKD"
-                    }
-                }
-            ],
-            "penalties": [
+                "deadLineKey": "VGM",
+                "type": "Documentation",
+                "deadLine": "2022-10-12T09:00:00",
+                "name": "Commercial Verified Gross Mass Deadline"
+                },
                 {
-                    "containerSizeType": "20DRY",
-                    "charges": [
-                        {
-                            "penaltyType": 0,
-                            "price": {
-                                "value": 1800,
-                                "currency": "USD"
-                            },
-                            "name": "Amendment Fee"
-                        },
-                        {
-                            "penaltyType": 0,
-                            "price": {
-                                "value": 2500,
-                                "currency": "USD"
-                            },
-                            "name": "Cancellation Fee"
-                        },
-                        {
-                            "penaltyType": 0,
-                            "price": {
-                                "value": 5000,
-                                "currency": "USD"
-                            },
-                            "name": "No Show Fee"
-                        },
-                        {
-                            "penaltyType": 0,
-                            "price": {
-                                "value": -2500,
-                                "currency": "USD"
-                            },
-                            "name": "Compensation Fee"
-                        }
-                    ]
+                "deadLineKey": "LCD",
+                "type": "Marine Services",
+                "deadLine": "2022-10-10T11:00:00",
+                "name": "Loadlist Closure Deadline"
+                },
+                {
+                "deadLineKey": "CSPD",
+                "type": "Marine Services",
+                "deadLine": "2022-10-10T15:00:00",
+                "name": "Coprar to Stowage Planners Deadline"
+                },
+                {
+                "deadLineKey": "FLD",
+                "type": "Marine Services",
+                "deadLine": "2022-10-10T15:00:00",
+                "name": "Final Loadlist Deadline"
                 }
-            ],
-            "surchages": {
-                "surchargesPerFreight": [
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Freight",
-                        "chargeCode": "FRT",
-                        "description": "Basic Ocean Freight",
-                        "value": 40000,
-                        "currency": "USD",
-                        "containerSizeType": "DRY20"
-                    },
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Freight",
-                        "chargeCode": "EFF",
-                        "description": "Environmental Fuel Fee",
-                        "value": 15200,
-                        "currency": "USD",
-                        "containerSizeType": "DRY20"
-                    },
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Freight",
-                        "chargeCode": "asdad",
-                        "description": "asda",
-                        "value": 10000,
-                        "currency": "USD",
-                        "containerSizeType": "DRY20"
-                    }
-                ],
-                "surchargesAtOrigin": [
-                    {
-                        "quantity": 1,
-                        "basis": "PER_DOC",
-                        "type": "Origin",
-                        "chargeCode": "ODF",
-                        "description": "Documentation Fee Origin",
-                        "value": 5000,
-                        "currency": "EUR",
-                        "containerSizeType": null
-                    },
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Origin",
-                        "chargeCode": "PAE",
-                        "description": "Port Additionals / Port Dues Export",
-                        "value": 3500,
-                        "currency": "EUR",
-                        "containerSizeType": "DRY20"
-                    },
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Origin",
-                        "chargeCode": "MHE",
-                        "description": "Merchant Haulage Export",
-                        "value": 3500,
-                        "currency": "EUR",
-                        "containerSizeType": "DRY20"
-                    },
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Origin",
-                        "chargeCode": "VGM",
-                        "description": "Verified Gross Mass Charge",
-                        "value": 1800,
-                        "currency": "EUR",
-                        "containerSizeType": "DRY20"
-                    }
-                ],
-                "surchargesAtDestination": [
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Destination",
-                        "chargeCode": "DHC",
-                        "description": "Terminal Handling Service - Destination",
-                        "value": 220000,
-                        "currency": "HKD",
-                        "containerSizeType": "DRY20"
-                    },
-                    {
-                        "quantity": 1,
-                        "basis": "PER_DOC",
-                        "type": "Destination",
-                        "chargeCode": "DDF",
-                        "description": "Documentation fee - Destination",
-                        "value": 55000,
-                        "currency": "HKD",
-                        "containerSizeType": null
-                    }
-                ]
+            ]
             },
-            "id": "e8660325-2b08-4952-83c7-64bd82f12891",
-            "agency": "Maerks",
-            "service": "Maersk Spot",
-            "pickUpDate": "2022-10-13T22:00:00",
-            "deliveryDate": "2022-11-25T07:00:00",
-            "transitDays": 43,
-            "expirationDate": "2022-09-21T15:19:43.0491926",
-            "extraInfo": null
+            {
+            "routeDetails": [
+                {
+                "fromLocation": {
+                    "type": "TERMINAL",
+                    "rkstCode": "SGSINPS",
+                    "unLocCode": "SGSIN",
+                    "city": "Singapore",
+                    "countryCode": "SG",
+                    "expectedDate": "2022-11-21T19:00:00"
+                },
+                "toLocation": {
+                    "type": "TERMINAL",
+                    "rkstCode": "HKHKGMO",
+                    "unLocCode": "HKHKG",
+                    "city": "Hong Kong",
+                    "countryCode": "HK",
+                    "expectedDate": "2022-11-25T08:00:00"
+                },
+                "transport": {
+                    "transportMode": "VESSEL",
+                    "name": "MAERSK LIMA",
+                    "code": "9526875"
+                }
+                }
+            ],
+            "deadlines": [
+                {
+                "deadLineKey": "CY",
+                "type": "Documentation",
+                "deadLine": "2022-11-18T21:00:00",
+                "name": "Commercial Cargo Cutoff"
+                },
+                {
+                "deadLineKey": "SINONAMS",
+                "type": "Documentation",
+                "deadLine": "2022-11-17T15:00:00",
+                "name": "Shipping Instructions Deadline"
+                },
+                {
+                "deadLineKey": "VGM",
+                "type": "Documentation",
+                "deadLine": "2022-11-19T03:00:00",
+                "name": "Commercial Verified Gross Mass Deadline"
+                },
+                {
+                "deadLineKey": "LCD",
+                "type": "Marine Services",
+                "deadLine": "2022-11-18T04:00:00",
+                "name": "Loadlist Closure Deadline"
+                },
+                {
+                "deadLineKey": "CSPD",
+                "type": "Marine Services",
+                "deadLine": "2022-11-17T23:00:00",
+                "name": "Coprar to Stowage Planners Deadline"
+                },
+                {
+                "deadLineKey": "FLD",
+                "type": "Marine Services",
+                "deadLine": "2022-11-18T15:00:00",
+                "name": "Final Loadlist Deadline"
+                },
+                {
+                "deadLineKey": "SCDD",
+                "type": "Marine Services",
+                "deadLine": "2022-11-17T21:00:00",
+                "name": "Special Cargo Documentation Deadline"
+                }
+            ]
+            }
+        ],
+        "conditions": [
+            {
+            "chargeType": "Demurrage",
+            "containerSizeType": "20DRY",
+            "freeTimeStartEvent": "DISCHARGE",
+            "freeTimeGrantInDays": 5,
+            "commodity": "GENERAL CARGO",
+            "price": {
+                "value": 50000,
+                "currency": "HKD"
+            }
+            },
+            {
+            "chargeType": "Detention",
+            "containerSizeType": "20DRY",
+            "freeTimeStartEvent": "DISCHARGE",
+            "freeTimeGrantInDays": 7,
+            "commodity": "GENERAL CARGO",
+            "price": {
+                "value": 25000,
+                "currency": "HKD"
+            }
+            }
+        ],
+        "penalties": [
+            {
+            "containerSizeType": "20DRY",
+            "charges": [
+                {
+                "penaltyType": "AmmendmentFee",
+                "price": {
+                    "value": 1800,
+                    "currency": "USD"
+                },
+                "name": "Amendment Fee"
+                },
+                {
+                "penaltyType": "AmmendmentFee",
+                "price": {
+                    "value": 2500,
+                    "currency": "USD"
+                },
+                "name": "Cancellation Fee"
+                },
+                {
+                "penaltyType": "AmmendmentFee",
+                "price": {
+                    "value": 5000,
+                    "currency": "USD"
+                },
+                "name": "No Show Fee"
+                },
+                {
+                "penaltyType": "AmmendmentFee",
+                "price": {
+                    "value": -2500,
+                    "currency": "USD"
+                },
+                "name": "Compensation Fee"
+                }
+            ]
+            }
+        ],
+        "surchages": {
+            "surchargesPerFreight": [
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Freight",
+                "chargeCode": "FRT",
+                "description": "Basic Ocean Freight",
+                "value": 40000,
+                "currency": "USD",
+                "containerSizeType": "DRY20"
+            },
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Freight",
+                "chargeCode": "EFF",
+                "description": "Environmental Fuel Fee",
+                "value": 15200,
+                "currency": "USD",
+                "containerSizeType": "DRY20"
+            },
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Freight",
+                "chargeCode": "asdad",
+                "description": "asda",
+                "value": 10000,
+                "currency": "USD",
+                "containerSizeType": "DRY20"
+            }
+            ],
+            "surchargesAtOrigin": [
+            {
+                "quantity": 1,
+                "basis": "PER_DOC",
+                "type": "Origin",
+                "chargeCode": "ODF",
+                "description": "Documentation Fee Origin",
+                "value": 5000,
+                "currency": "EUR",
+                "containerSizeType": null
+            },
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Origin",
+                "chargeCode": "PAE",
+                "description": "Port Additionals / Port Dues Export",
+                "value": 3500,
+                "currency": "EUR",
+                "containerSizeType": "DRY20"
+            },
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Origin",
+                "chargeCode": "MHE",
+                "description": "Merchant Haulage Export",
+                "value": 3500,
+                "currency": "EUR",
+                "containerSizeType": "DRY20"
+            },
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Origin",
+                "chargeCode": "VGM",
+                "description": "Verified Gross Mass Charge",
+                "value": 1800,
+                "currency": "EUR",
+                "containerSizeType": "DRY20"
+            }
+            ],
+            "surchargesAtDestination": [
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Destination",
+                "chargeCode": "DHC",
+                "description": "Terminal Handling Service - Destination",
+                "value": 220000,
+                "currency": "HKD",
+                "containerSizeType": "DRY20"
+            },
+            {
+                "quantity": 1,
+                "basis": "PER_DOC",
+                "type": "Destination",
+                "chargeCode": "DDF",
+                "description": "Documentation fee - Destination",
+                "value": 55000,
+                "currency": "HKD",
+                "containerSizeType": null
+            }
+            ]
+        },
+        "id": "280358e3-912b-4b0e-8765-34714d17ea80",
+        "agency": "Maerks",
+        "service": "Maersk Spot",
+        "pickUpDate": "2022-10-14T00:00:00",
+        "deliveryDate": "2022-11-25T08:00:00",
+        "transitDays": 43,
+        "expirationDate": "2022-09-22T06:39:47.7944899",
+        "extraInfo": null
         },
         {
-            "sealine": "MAEU009A",
-            "scheduleDetails": [
+        "sealine": "MAEU009A",
+        "scheduleDetails": [
+            {
+            "routeDetails": [
                 {
-                    "routeDetails": [
-                        {
-                            "fromLocation": {
-                                "type": "TERMINAL",
-                                "rkstCode": "ESBCNBS",
-                                "unLocCode": "ESBCN",
-                                "city": "Barcelona",
-                                "countryCode": "ES",
-                                "expectedDate": "2022-10-04T08:00:00"
-                            },
-                            "toLocation": {
-                                "type": "TERMINAL",
-                                "rkstCode": "SGSINPS",
-                                "unLocCode": "SGSIN",
-                                "city": "Singapore",
-                                "countryCode": "SG",
-                                "expectedDate": "2022-11-05T13:00:00"
-                            },
-                            "transport": {
-                                "transportMode": "VESSEL",
-                                "name": "MSC MINA",
-                                "code": "9839260"
-                            }
-                        }
-                    ],
-                    "deadlines": [
-                        {
-                            "deadLineKey": "CY",
-                            "type": "Documentation",
-                            "deadLine": "2022-09-30T08:00:00",
-                            "name": "Commercial Cargo Cutoff"
-                        },
-                        {
-                            "deadLineKey": "SINONAMS",
-                            "type": "Documentation",
-                            "deadLine": "2022-09-30T08:00:00",
-                            "name": "Shipping Instructions Deadline"
-                        },
-                        {
-                            "deadLineKey": "VGM",
-                            "type": "Documentation",
-                            "deadLine": "2022-09-30T08:00:00",
-                            "name": "Commercial Verified Gross Mass Deadline"
-                        },
-                        {
-                            "deadLineKey": "LCD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-09-28T17:00:00",
-                            "name": "Loadlist Closure Deadline"
-                        },
-                        {
-                            "deadLineKey": "CSPD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-09-29T08:00:00",
-                            "name": "Coprar to Stowage Planners Deadline"
-                        },
-                        {
-                            "deadLineKey": "FLD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-09-29T08:00:00",
-                            "name": "Final Loadlist Deadline"
-                        }
-                    ]
+                "fromLocation": {
+                    "type": "TERMINAL",
+                    "rkstCode": "ESBCNBS",
+                    "unLocCode": "ESBCN",
+                    "city": "Barcelona",
+                    "countryCode": "ES",
+                    "expectedDate": "2022-10-04T08:00:00"
+                },
+                "toLocation": {
+                    "type": "TERMINAL",
+                    "rkstCode": "SGSINPS",
+                    "unLocCode": "SGSIN",
+                    "city": "Singapore",
+                    "countryCode": "SG",
+                    "expectedDate": "2022-11-05T13:00:00"
+                },
+                "transport": {
+                    "transportMode": "VESSEL",
+                    "name": "MSC MINA",
+                    "code": "9839260"
+                }
+                }
+            ],
+            "deadlines": [
+                {
+                "deadLineKey": "CY",
+                "type": "Documentation",
+                "deadLine": "2022-09-30T02:00:00",
+                "name": "Commercial Cargo Cutoff"
                 },
                 {
-                    "routeDetails": [
-                        {
-                            "fromLocation": {
-                                "type": "TERMINAL",
-                                "rkstCode": "SGSINPS",
-                                "unLocCode": "SGSIN",
-                                "city": "Singapore",
-                                "countryCode": "SG",
-                                "expectedDate": "2022-11-14T19:00:00"
-                            },
-                            "toLocation": {
-                                "type": "TERMINAL",
-                                "rkstCode": "HKHKGMO",
-                                "unLocCode": "HKHKG",
-                                "city": "Hong Kong",
-                                "countryCode": "HK",
-                                "expectedDate": "2022-11-18T08:00:00"
-                            },
-                            "transport": {
-                                "transportMode": "VESSEL",
-                                "name": "ATACAMA",
-                                "code": "9718947"
-                            }
-                        }
-                    ],
-                    "deadlines": [
-                        {
-                            "deadLineKey": "CY",
-                            "type": "Documentation",
-                            "deadLine": "2022-11-11T21:00:00",
-                            "name": "Commercial Cargo Cutoff"
-                        },
-                        {
-                            "deadLineKey": "SINONAMS",
-                            "type": "Documentation",
-                            "deadLine": "2022-11-10T15:00:00",
-                            "name": "Shipping Instructions Deadline"
-                        },
-                        {
-                            "deadLineKey": "VGM",
-                            "type": "Documentation",
-                            "deadLine": "2022-11-12T03:00:00",
-                            "name": "Commercial Verified Gross Mass Deadline"
-                        },
-                        {
-                            "deadLineKey": "LCD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-11-11T04:00:00",
-                            "name": "Loadlist Closure Deadline"
-                        },
-                        {
-                            "deadLineKey": "CSPD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-11-10T23:00:00",
-                            "name": "Coprar to Stowage Planners Deadline"
-                        },
-                        {
-                            "deadLineKey": "FLD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-11-11T15:00:00",
-                            "name": "Final Loadlist Deadline"
-                        },
-                        {
-                            "deadLineKey": "SCDD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-11-10T21:00:00",
-                            "name": "Special Cargo Documentation Deadline"
-                        }
-                    ]
-                }
-            ],
-            "conditions": [
-                {
-                    "chargeType": 0,
-                    "containerSizeType": "20DRY",
-                    "freeTimeStartEvent": "DISCHARGE",
-                    "freeTimeGrantInDays": 5,
-                    "commodity": "GENERAL CARGO",
-                    "price": {
-                        "value": 50000,
-                        "currency": "HKD"
-                    }
+                "deadLineKey": "SINONAMS",
+                "type": "Documentation",
+                "deadLine": "2022-09-29T08:00:00",
+                "name": "Shipping Instructions Deadline"
                 },
                 {
-                    "chargeType": "Demurrage",
-                    "containerSizeType": "20DRY",
-                    "freeTimeStartEvent": "DISCHARGE",
-                    "freeTimeGrantInDays": 7,
-                    "commodity": "GENERAL CARGO",
-                    "price": {
-                        "value": 25000,
-                        "currency": "HKD"
-                    }
-                }
-            ],
-            "penalties": [
+                "deadLineKey": "VGM",
+                "type": "Documentation",
+                "deadLine": "2022-10-01T02:00:00",
+                "name": "Commercial Verified Gross Mass Deadline"
+                },
                 {
-                    "containerSizeType": "20DRY",
-                    "charges": [
-                        {
-                            "penaltyType": 0,
-                            "price": {
-                                "value": 1800,
-                                "currency": "USD"
-                            },
-                            "name": "Amendment Fee"
-                        },
-                        {
-                            "penaltyType": 0,
-                            "price": {
-                                "value": 2500,
-                                "currency": "USD"
-                            },
-                            "name": "Cancellation Fee"
-                        },
-                        {
-                            "penaltyType": 0,
-                            "price": {
-                                "value": 5000,
-                                "currency": "USD"
-                            },
-                            "name": "No Show Fee"
-                        },
-                        {
-                            "penaltyType": 0,
-                            "price": {
-                                "value": -2500,
-                                "currency": "USD"
-                            },
-                            "name": "Compensation Fee"
-                        }
-                    ]
+                "deadLineKey": "LCD",
+                "type": "Marine Services",
+                "deadLine": "2022-09-29T08:00:00",
+                "name": "Loadlist Closure Deadline"
+                },
+                {
+                "deadLineKey": "CSPD",
+                "type": "Marine Services",
+                "deadLine": "2022-09-29T08:00:00",
+                "name": "Coprar to Stowage Planners Deadline"
+                },
+                {
+                "deadLineKey": "FLD",
+                "type": "Marine Services",
+                "deadLine": "2022-09-29T08:00:00",
+                "name": "Final Loadlist Deadline"
                 }
-            ],
-            "surchages": {
-                "surchargesPerFreight": [
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Freight",
-                        "chargeCode": "FRT",
-                        "description": "Basic Ocean Freight",
-                        "value": 41500,
-                        "currency": "USD",
-                        "containerSizeType": "DRY20"
-                    },
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Freight",
-                        "chargeCode": "EFF",
-                        "description": "Environmental Fuel Fee",
-                        "value": 15200,
-                        "currency": "USD",
-                        "containerSizeType": "DRY20"
-                    },
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Freight",
-                        "chargeCode": "asdad",
-                        "description": "asda",
-                        "value": 10000,
-                        "currency": "USD",
-                        "containerSizeType": "DRY20"
-                    }
-                ],
-                "surchargesAtOrigin": [
-                    {
-                        "quantity": 1,
-                        "basis": "PER_DOC",
-                        "type": "Origin",
-                        "chargeCode": "ODF",
-                        "description": "Documentation Fee Origin",
-                        "value": 5000,
-                        "currency": "EUR",
-                        "containerSizeType": null
-                    },
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Origin",
-                        "chargeCode": "PAE",
-                        "description": "Port Additionals / Port Dues Export",
-                        "value": 3500,
-                        "currency": "EUR",
-                        "containerSizeType": "DRY20"
-                    },
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Origin",
-                        "chargeCode": "MHE",
-                        "description": "Merchant Haulage Export",
-                        "value": 3500,
-                        "currency": "EUR",
-                        "containerSizeType": "DRY20"
-                    },
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Origin",
-                        "chargeCode": "VGM",
-                        "description": "Verified Gross Mass Charge",
-                        "value": 1800,
-                        "currency": "EUR",
-                        "containerSizeType": "DRY20"
-                    }
-                ],
-                "surchargesAtDestination": [
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Destination",
-                        "chargeCode": "DHC",
-                        "description": "Terminal Handling Service - Destination",
-                        "value": 220000,
-                        "currency": "HKD",
-                        "containerSizeType": "DRY20"
-                    },
-                    {
-                        "quantity": 1,
-                        "basis": "PER_DOC",
-                        "type": "Destination",
-                        "chargeCode": "DDF",
-                        "description": "Documentation fee - Destination",
-                        "value": 55000,
-                        "currency": "HKD",
-                        "containerSizeType": null
-                    }
-                ]
+            ]
             },
-            "id": "839b3281-d27a-4001-8d39-a990d73c7a96",
-            "agency": "Maerks",
-            "service": "Maersk Spot",
-            "pickUpDate": "2022-10-03T22:00:00",
-            "deliveryDate": "2022-11-18T07:00:00",
-            "transitDays": 46,
-            "expirationDate": "2022-09-21T15:19:43.6768755",
-            "extraInfo": null
+            {
+            "routeDetails": [
+                {
+                "fromLocation": {
+                    "type": "TERMINAL",
+                    "rkstCode": "SGSINPS",
+                    "unLocCode": "SGSIN",
+                    "city": "Singapore",
+                    "countryCode": "SG",
+                    "expectedDate": "2022-11-14T19:00:00"
+                },
+                "toLocation": {
+                    "type": "TERMINAL",
+                    "rkstCode": "HKHKGMO",
+                    "unLocCode": "HKHKG",
+                    "city": "Hong Kong",
+                    "countryCode": "HK",
+                    "expectedDate": "2022-11-18T08:00:00"
+                },
+                "transport": {
+                    "transportMode": "VESSEL",
+                    "name": "ATACAMA",
+                    "code": "9718947"
+                }
+                }
+            ],
+            "deadlines": [
+                {
+                "deadLineKey": "CY",
+                "type": "Documentation",
+                "deadLine": "2022-11-11T21:00:00",
+                "name": "Commercial Cargo Cutoff"
+                },
+                {
+                "deadLineKey": "SINONAMS",
+                "type": "Documentation",
+                "deadLine": "2022-11-10T15:00:00",
+                "name": "Shipping Instructions Deadline"
+                },
+                {
+                "deadLineKey": "VGM",
+                "type": "Documentation",
+                "deadLine": "2022-11-12T03:00:00",
+                "name": "Commercial Verified Gross Mass Deadline"
+                },
+                {
+                "deadLineKey": "LCD",
+                "type": "Marine Services",
+                "deadLine": "2022-11-11T04:00:00",
+                "name": "Loadlist Closure Deadline"
+                },
+                {
+                "deadLineKey": "CSPD",
+                "type": "Marine Services",
+                "deadLine": "2022-11-10T23:00:00",
+                "name": "Coprar to Stowage Planners Deadline"
+                },
+                {
+                "deadLineKey": "FLD",
+                "type": "Marine Services",
+                "deadLine": "2022-11-11T15:00:00",
+                "name": "Final Loadlist Deadline"
+                },
+                {
+                "deadLineKey": "SCDD",
+                "type": "Marine Services",
+                "deadLine": "2022-11-10T21:00:00",
+                "name": "Special Cargo Documentation Deadline"
+                }
+            ]
+            }
+        ],
+        "conditions": [
+            {
+            "chargeType": "Demurrage",
+            "containerSizeType": "20DRY",
+            "freeTimeStartEvent": "DISCHARGE",
+            "freeTimeGrantInDays": 5,
+            "commodity": "GENERAL CARGO",
+            "price": {
+                "value": 50000,
+                "currency": "HKD"
+            }
+            },
+            {
+            "chargeType": "Detention",
+            "containerSizeType": "20DRY",
+            "freeTimeStartEvent": "DISCHARGE",
+            "freeTimeGrantInDays": 7,
+            "commodity": "GENERAL CARGO",
+            "price": {
+                "value": 25000,
+                "currency": "HKD"
+            }
+            }
+        ],
+        "penalties": [
+            {
+            "containerSizeType": "20DRY",
+            "charges": [
+                {
+                "penaltyType": "AmmendmentFee",
+                "price": {
+                    "value": 1800,
+                    "currency": "USD"
+                },
+                "name": "Amendment Fee"
+                },
+                {
+                "penaltyType": "AmmendmentFee",
+                "price": {
+                    "value": 2500,
+                    "currency": "USD"
+                },
+                "name": "Cancellation Fee"
+                },
+                {
+                "penaltyType": "AmmendmentFee",
+                "price": {
+                    "value": 5000,
+                    "currency": "USD"
+                },
+                "name": "No Show Fee"
+                },
+                {
+                "penaltyType": "AmmendmentFee",
+                "price": {
+                    "value": -2500,
+                    "currency": "USD"
+                },
+                "name": "Compensation Fee"
+                }
+            ]
+            }
+        ],
+        "surchages": {
+            "surchargesPerFreight": [
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Freight",
+                "chargeCode": "FRT",
+                "description": "Basic Ocean Freight",
+                "value": 42000,
+                "currency": "USD",
+                "containerSizeType": "DRY20"
+            },
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Freight",
+                "chargeCode": "EFF",
+                "description": "Environmental Fuel Fee",
+                "value": 15200,
+                "currency": "USD",
+                "containerSizeType": "DRY20"
+            },
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Freight",
+                "chargeCode": "asdad",
+                "description": "asda",
+                "value": 10000,
+                "currency": "USD",
+                "containerSizeType": "DRY20"
+            }
+            ],
+            "surchargesAtOrigin": [
+            {
+                "quantity": 1,
+                "basis": "PER_DOC",
+                "type": "Origin",
+                "chargeCode": "ODF",
+                "description": "Documentation Fee Origin",
+                "value": 5000,
+                "currency": "EUR",
+                "containerSizeType": null
+            },
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Origin",
+                "chargeCode": "PAE",
+                "description": "Port Additionals / Port Dues Export",
+                "value": 3500,
+                "currency": "EUR",
+                "containerSizeType": "DRY20"
+            },
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Origin",
+                "chargeCode": "MHE",
+                "description": "Merchant Haulage Export",
+                "value": 3500,
+                "currency": "EUR",
+                "containerSizeType": "DRY20"
+            },
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Origin",
+                "chargeCode": "VGM",
+                "description": "Verified Gross Mass Charge",
+                "value": 1800,
+                "currency": "EUR",
+                "containerSizeType": "DRY20"
+            }
+            ],
+            "surchargesAtDestination": [
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Destination",
+                "chargeCode": "DHC",
+                "description": "Terminal Handling Service - Destination",
+                "value": 220000,
+                "currency": "HKD",
+                "containerSizeType": "DRY20"
+            },
+            {
+                "quantity": 1,
+                "basis": "PER_DOC",
+                "type": "Destination",
+                "chargeCode": "DDF",
+                "description": "Documentation fee - Destination",
+                "value": 55000,
+                "currency": "HKD",
+                "containerSizeType": null
+            }
+            ]
+        },
+        "id": "2727a2d6-ca16-4c03-9c9d-ebedcc06dc90",
+        "agency": "Maerks",
+        "service": "Maersk Spot",
+        "pickUpDate": "2022-10-04T00:00:00",
+        "deliveryDate": "2022-11-18T08:00:00",
+        "transitDays": 46,
+        "expirationDate": "2022-09-22T06:39:47.7739461",
+        "extraInfo": null
         },
         {
-            "sealine": "MAEU009A",
-            "scheduleDetails": [
+        "sealine": "MAEU009A",
+        "scheduleDetails": [
+            {
+            "routeDetails": [
                 {
-                    "routeDetails": [
-                        {
-                            "fromLocation": {
-                                "type": "TERMINAL",
-                                "rkstCode": "ESBCNBS",
-                                "unLocCode": "ESBCN",
-                                "city": "Barcelona",
-                                "countryCode": "ES",
-                                "expectedDate": "2022-09-29T03:00:00"
-                            },
-                            "toLocation": {
-                                "type": "TERMINAL",
-                                "rkstCode": "SGSINPS",
-                                "unLocCode": "SGSIN",
-                                "city": "Singapore",
-                                "countryCode": "SG",
-                                "expectedDate": "2022-10-29T06:00:00"
-                            },
-                            "transport": {
-                                "transportMode": "VESSEL",
-                                "name": "MSC SAMAR",
-                                "code": "9839442"
-                            }
-                        }
-                    ],
-                    "deadlines": [
-                        {
-                            "deadLineKey": "CY",
-                            "type": "Documentation",
-                            "deadLine": "2022-09-23T11:00:00",
-                            "name": "Commercial Cargo Cutoff"
-                        },
-                        {
-                            "deadLineKey": "SINONAMS",
-                            "type": "Documentation",
-                            "deadLine": "2022-09-23T11:00:00",
-                            "name": "Shipping Instructions Deadline"
-                        },
-                        {
-                            "deadLineKey": "VGM",
-                            "type": "Documentation",
-                            "deadLine": "2022-09-23T11:00:00",
-                            "name": "Commercial Verified Gross Mass Deadline"
-                        },
-                        {
-                            "deadLineKey": "LCD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-09-22T12:00:00",
-                            "name": "Loadlist Closure Deadline"
-                        },
-                        {
-                            "deadLineKey": "CSPD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-09-22T15:00:00",
-                            "name": "Coprar to Stowage Planners Deadline"
-                        },
-                        {
-                            "deadLineKey": "FLD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-09-22T15:00:00",
-                            "name": "Final Loadlist Deadline"
-                        }
-                    ]
+                "fromLocation": {
+                    "type": "TERMINAL",
+                    "rkstCode": "ESBCNBS",
+                    "unLocCode": "ESBCN",
+                    "city": "Barcelona",
+                    "countryCode": "ES",
+                    "expectedDate": "2022-09-29T03:00:00"
+                },
+                "toLocation": {
+                    "type": "TERMINAL",
+                    "rkstCode": "SGSINPS",
+                    "unLocCode": "SGSIN",
+                    "city": "Singapore",
+                    "countryCode": "SG",
+                    "expectedDate": "2022-10-29T06:00:00"
+                },
+                "transport": {
+                    "transportMode": "VESSEL",
+                    "name": "MSC SAMAR",
+                    "code": "9839442"
+                }
+                }
+            ],
+            "deadlines": [
+                {
+                "deadLineKey": "CY",
+                "type": "Documentation",
+                "deadLine": "2022-09-23T11:00:00",
+                "name": "Commercial Cargo Cutoff"
                 },
                 {
-                    "routeDetails": [
-                        {
-                            "fromLocation": {
-                                "type": "TERMINAL",
-                                "rkstCode": "SGSINPS",
-                                "unLocCode": "SGSIN",
-                                "city": "Singapore",
-                                "countryCode": "SG",
-                                "expectedDate": "2022-11-07T19:00:00"
-                            },
-                            "toLocation": {
-                                "type": "TERMINAL",
-                                "rkstCode": "HKHKGMO",
-                                "unLocCode": "HKHKG",
-                                "city": "Hong Kong",
-                                "countryCode": "HK",
-                                "expectedDate": "2022-11-11T08:00:00"
-                            },
-                            "transport": {
-                                "transportMode": "VESSEL",
-                                "name": "MAERSK LANCO",
-                                "code": "9527049"
-                            }
-                        }
-                    ],
-                    "deadlines": [
-                        {
-                            "deadLineKey": "CY",
-                            "type": "Documentation",
-                            "deadLine": "2022-11-04T21:00:00",
-                            "name": "Commercial Cargo Cutoff"
-                        },
-                        {
-                            "deadLineKey": "SINONAMS",
-                            "type": "Documentation",
-                            "deadLine": "2022-11-03T15:00:00",
-                            "name": "Shipping Instructions Deadline"
-                        },
-                        {
-                            "deadLineKey": "VGM",
-                            "type": "Documentation",
-                            "deadLine": "2022-11-05T03:00:00",
-                            "name": "Commercial Verified Gross Mass Deadline"
-                        },
-                        {
-                            "deadLineKey": "LCD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-11-04T04:00:00",
-                            "name": "Loadlist Closure Deadline"
-                        },
-                        {
-                            "deadLineKey": "CSPD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-11-03T23:00:00",
-                            "name": "Coprar to Stowage Planners Deadline"
-                        },
-                        {
-                            "deadLineKey": "FLD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-11-04T15:00:00",
-                            "name": "Final Loadlist Deadline"
-                        },
-                        {
-                            "deadLineKey": "SCDD",
-                            "type": "Marine Services",
-                            "deadLine": "2022-11-03T21:00:00",
-                            "name": "Special Cargo Documentation Deadline"
-                        }
-                    ]
-                }
-            ],
-            "conditions": [
-                {
-                    "chargeType": 0,
-                    "containerSizeType": "20DRY",
-                    "freeTimeStartEvent": "DISCHARGE",
-                    "freeTimeGrantInDays": 5,
-                    "commodity": "GENERAL CARGO",
-                    "price": {
-                        "value": 50000,
-                        "currency": "HKD"
-                    }
+                "deadLineKey": "SINONAMS",
+                "type": "Documentation",
+                "deadLine": "2022-09-23T11:00:00",
+                "name": "Shipping Instructions Deadline"
                 },
                 {
-                    "chargeType": "Demurrage",
-                    "containerSizeType": "20DRY",
-                    "freeTimeStartEvent": "DISCHARGE",
-                    "freeTimeGrantInDays": 7,
-                    "commodity": "GENERAL CARGO",
-                    "price": {
-                        "value": 25000,
-                        "currency": "HKD"
-                    }
-                }
-            ],
-            "penalties": [
+                "deadLineKey": "VGM",
+                "type": "Documentation",
+                "deadLine": "2022-09-23T11:00:00",
+                "name": "Commercial Verified Gross Mass Deadline"
+                },
                 {
-                    "containerSizeType": "20DRY",
-                    "charges": [
-                        {
-                            "penaltyType": 0,
-                            "price": {
-                                "value": 1800,
-                                "currency": "USD"
-                            },
-                            "name": "Amendment Fee"
-                        },
-                        {
-                            "penaltyType": 0,
-                            "price": {
-                                "value": 2500,
-                                "currency": "USD"
-                            },
-                            "name": "Cancellation Fee"
-                        },
-                        {
-                            "penaltyType": 0,
-                            "price": {
-                                "value": 5000,
-                                "currency": "USD"
-                            },
-                            "name": "No Show Fee"
-                        },
-                        {
-                            "penaltyType": 0,
-                            "price": {
-                                "value": -2500,
-                                "currency": "USD"
-                            },
-                            "name": "Compensation Fee"
-                        }
-                    ]
+                "deadLineKey": "LCD",
+                "type": "Marine Services",
+                "deadLine": "2022-09-22T12:00:00",
+                "name": "Loadlist Closure Deadline"
+                },
+                {
+                "deadLineKey": "CSPD",
+                "type": "Marine Services",
+                "deadLine": "2022-09-22T15:00:00",
+                "name": "Coprar to Stowage Planners Deadline"
+                },
+                {
+                "deadLineKey": "FLD",
+                "type": "Marine Services",
+                "deadLine": "2022-09-22T15:00:00",
+                "name": "Final Loadlist Deadline"
                 }
-            ],
-            "surchages": {
-                "surchargesPerFreight": [
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Freight",
-                        "chargeCode": "FRT",
-                        "description": "Basic Ocean Freight",
-                        "value": 42000,
-                        "currency": "USD",
-                        "containerSizeType": "DRY20"
-                    },
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Freight",
-                        "chargeCode": "EFF",
-                        "description": "Environmental Fuel Fee",
-                        "value": 20300,
-                        "currency": "USD",
-                        "containerSizeType": "DRY20"
-                    },
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Freight",
-                        "chargeCode": "asdad",
-                        "description": "asda",
-                        "value": 10000,
-                        "currency": "USD",
-                        "containerSizeType": "DRY20"
-                    }
-                ],
-                "surchargesAtOrigin": [
-                    {
-                        "quantity": 1,
-                        "basis": "PER_DOC",
-                        "type": "Origin",
-                        "chargeCode": "ODF",
-                        "description": "Documentation Fee Origin",
-                        "value": 5000,
-                        "currency": "EUR",
-                        "containerSizeType": null
-                    },
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Origin",
-                        "chargeCode": "PAE",
-                        "description": "Port Additionals / Port Dues Export",
-                        "value": 3500,
-                        "currency": "EUR",
-                        "containerSizeType": "DRY20"
-                    },
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Origin",
-                        "chargeCode": "MHE",
-                        "description": "Merchant Haulage Export",
-                        "value": 3500,
-                        "currency": "EUR",
-                        "containerSizeType": "DRY20"
-                    },
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Origin",
-                        "chargeCode": "VGM",
-                        "description": "Verified Gross Mass Charge",
-                        "value": 1800,
-                        "currency": "EUR",
-                        "containerSizeType": "DRY20"
-                    }
-                ],
-                "surchargesAtDestination": [
-                    {
-                        "quantity": 1,
-                        "basis": "PER_CONTAINER",
-                        "type": "Destination",
-                        "chargeCode": "DHC",
-                        "description": "Terminal Handling Service - Destination",
-                        "value": 220000,
-                        "currency": "HKD",
-                        "containerSizeType": "DRY20"
-                    },
-                    {
-                        "quantity": 1,
-                        "basis": "PER_DOC",
-                        "type": "Destination",
-                        "chargeCode": "DDF",
-                        "description": "Documentation fee - Destination",
-                        "value": 55000,
-                        "currency": "HKD",
-                        "containerSizeType": null
-                    }
-                ]
+            ]
             },
-            "id": "99840ee9-4f05-4623-a63b-b1cee882e93f",
-            "agency": "Maerks",
-            "service": "Maersk Spot",
-            "pickUpDate": "2022-09-28T22:00:00",
-            "deliveryDate": "2022-11-11T07:00:00",
-            "transitDays": 44,
-            "expirationDate": "2022-09-21T15:19:43.6813725",
-            "extraInfo": null
+            {
+            "routeDetails": [
+                {
+                "fromLocation": {
+                    "type": "TERMINAL",
+                    "rkstCode": "SGSINPS",
+                    "unLocCode": "SGSIN",
+                    "city": "Singapore",
+                    "countryCode": "SG",
+                    "expectedDate": "2022-11-07T19:00:00"
+                },
+                "toLocation": {
+                    "type": "TERMINAL",
+                    "rkstCode": "HKHKGMO",
+                    "unLocCode": "HKHKG",
+                    "city": "Hong Kong",
+                    "countryCode": "HK",
+                    "expectedDate": "2022-11-11T08:00:00"
+                },
+                "transport": {
+                    "transportMode": "VESSEL",
+                    "name": "MAERSK LANCO",
+                    "code": "9527049"
+                }
+                }
+            ],
+            "deadlines": [
+                {
+                "deadLineKey": "CY",
+                "type": "Documentation",
+                "deadLine": "2022-11-04T21:00:00",
+                "name": "Commercial Cargo Cutoff"
+                },
+                {
+                "deadLineKey": "SINONAMS",
+                "type": "Documentation",
+                "deadLine": "2022-11-03T15:00:00",
+                "name": "Shipping Instructions Deadline"
+                },
+                {
+                "deadLineKey": "VGM",
+                "type": "Documentation",
+                "deadLine": "2022-11-05T03:00:00",
+                "name": "Commercial Verified Gross Mass Deadline"
+                },
+                {
+                "deadLineKey": "LCD",
+                "type": "Marine Services",
+                "deadLine": "2022-11-04T04:00:00",
+                "name": "Loadlist Closure Deadline"
+                },
+                {
+                "deadLineKey": "CSPD",
+                "type": "Marine Services",
+                "deadLine": "2022-11-03T23:00:00",
+                "name": "Coprar to Stowage Planners Deadline"
+                },
+                {
+                "deadLineKey": "FLD",
+                "type": "Marine Services",
+                "deadLine": "2022-11-04T15:00:00",
+                "name": "Final Loadlist Deadline"
+                },
+                {
+                "deadLineKey": "SCDD",
+                "type": "Marine Services",
+                "deadLine": "2022-11-03T21:00:00",
+                "name": "Special Cargo Documentation Deadline"
+                }
+            ]
+            }
+        ],
+        "conditions": [
+            {
+            "chargeType": "Demurrage",
+            "containerSizeType": "20DRY",
+            "freeTimeStartEvent": "DISCHARGE",
+            "freeTimeGrantInDays": 5,
+            "commodity": "GENERAL CARGO",
+            "price": {
+                "value": 50000,
+                "currency": "HKD"
+            }
+            },
+            {
+            "chargeType": "Detention",
+            "containerSizeType": "20DRY",
+            "freeTimeStartEvent": "DISCHARGE",
+            "freeTimeGrantInDays": 7,
+            "commodity": "GENERAL CARGO",
+            "price": {
+                "value": 25000,
+                "currency": "HKD"
+            }
+            }
+        ],
+        "penalties": [
+            {
+            "containerSizeType": "20DRY",
+            "charges": [
+                {
+                "penaltyType": "AmmendmentFee",
+                "price": {
+                    "value": 1800,
+                    "currency": "USD"
+                },
+                "name": "Amendment Fee"
+                },
+                {
+                "penaltyType": "AmmendmentFee",
+                "price": {
+                    "value": 2500,
+                    "currency": "USD"
+                },
+                "name": "Cancellation Fee"
+                },
+                {
+                "penaltyType": "AmmendmentFee",
+                "price": {
+                    "value": 5000,
+                    "currency": "USD"
+                },
+                "name": "No Show Fee"
+                },
+                {
+                "penaltyType": "AmmendmentFee",
+                "price": {
+                    "value": -2500,
+                    "currency": "USD"
+                },
+                "name": "Compensation Fee"
+                }
+            ]
+            }
+        ],
+        "surchages": {
+            "surchargesPerFreight": [
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Freight",
+                "chargeCode": "FRT",
+                "description": "Basic Ocean Freight",
+                "value": 42000,
+                "currency": "USD",
+                "containerSizeType": "DRY20"
+            },
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Freight",
+                "chargeCode": "EFF",
+                "description": "Environmental Fuel Fee",
+                "value": 20300,
+                "currency": "USD",
+                "containerSizeType": "DRY20"
+            },
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Freight",
+                "chargeCode": "asdad",
+                "description": "asda",
+                "value": 10000,
+                "currency": "USD",
+                "containerSizeType": "DRY20"
+            }
+            ],
+            "surchargesAtOrigin": [
+            {
+                "quantity": 1,
+                "basis": "PER_DOC",
+                "type": "Origin",
+                "chargeCode": "ODF",
+                "description": "Documentation Fee Origin",
+                "value": 5000,
+                "currency": "EUR",
+                "containerSizeType": null
+            },
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Origin",
+                "chargeCode": "PAE",
+                "description": "Port Additionals / Port Dues Export",
+                "value": 3500,
+                "currency": "EUR",
+                "containerSizeType": "DRY20"
+            },
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Origin",
+                "chargeCode": "MHE",
+                "description": "Merchant Haulage Export",
+                "value": 3500,
+                "currency": "EUR",
+                "containerSizeType": "DRY20"
+            },
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Origin",
+                "chargeCode": "VGM",
+                "description": "Verified Gross Mass Charge",
+                "value": 1800,
+                "currency": "EUR",
+                "containerSizeType": "DRY20"
+            }
+            ],
+            "surchargesAtDestination": [
+            {
+                "quantity": 1,
+                "basis": "PER_CONTAINER",
+                "type": "Destination",
+                "chargeCode": "DHC",
+                "description": "Terminal Handling Service - Destination",
+                "value": 220000,
+                "currency": "HKD",
+                "containerSizeType": "DRY20"
+            },
+            {
+                "quantity": 1,
+                "basis": "PER_DOC",
+                "type": "Destination",
+                "chargeCode": "DDF",
+                "description": "Documentation fee - Destination",
+                "value": 55000,
+                "currency": "HKD",
+                "containerSizeType": null
+            }
+            ]
+        },
+        "id": "4d3b814d-cf82-4570-8c30-67dcb00f94af",
+        "agency": "Maerks",
+        "service": "Maersk Spot",
+        "pickUpDate": "2022-09-29T00:00:00",
+        "deliveryDate": "2022-11-11T08:00:00",
+        "transitDays": 44,
+        "expirationDate": "2022-09-22T06:39:47.5290864",
+        "extraInfo": null
         }
     ]
-}
+    }
    
 * FCL Quote model:
 
