@@ -281,8 +281,10 @@ The content of ``body.json`` is like,
 						"hsCode": "8401",
 						"indexContainer": 1
 					}
-				]
+					]
 			}
+		      ],
+	"isActiveTracking": true
     }
 
 * Sea FCL Booking model:
@@ -299,6 +301,7 @@ PickupDescription       String               Optional         Desription for the
 DeliveryDescription     String               Optional         Desription for the delivery
 IncotermCode            String               Mandatory        Incoterm code, requires a valid code
 Containers              List<Container>      Mandatory        List container-cargos commodity details.
+IsActiveTracking	bool		     Optional	      Whether shipment tracking is enabled or not.
 =====================   =================   =============    ================================================================
 
 * Address model:
@@ -424,7 +427,8 @@ The content of ``body.json`` is like,
                 "ediType": "214",
                 "hsCode": "8401"
             }
-        ]
+        ],
+	"isActiveTracking": true
     }
 
 * Sea LCL Booking model:
@@ -441,6 +445,7 @@ PickupDescription       String               Optional         Desription for the
 DeliveryDescription     String               Optional         Desription for the delivery
 IncotermCode            String               Mandatory        Inconterm code, requires a valid code
 Cargos                  List<Cargo>          Mandatory        List cargos commodity details.
+IsActiveTracking	bool		     Optional	      Whether shipment tracking is enabled or not.
 =====================   =================   =============    ================================================================
 
 * Address model:
