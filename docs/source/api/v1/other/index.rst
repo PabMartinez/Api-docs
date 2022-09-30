@@ -10,3 +10,4 @@ Other endpoints
    courier/index
    maritime/index
    pickup-time/index
+   enable-tracking/index
