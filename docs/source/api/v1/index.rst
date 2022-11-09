@@ -11,6 +11,7 @@ API v1
    booking/index
    tracking/index
    quotes/index
+   tariff/index
    documents/index
    other/index
 

@@ -16,21 +16,20 @@ TariffReport
     .. code-tab:: bash
 
         $ curl -X 'POST' \
-            'https://localhost:5011/v1/tariff/getall' \
+            'https://localhost:5011/v1/tariff' \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer <token>"
 
 **Example request Http**:
 
 .. sourcecode:: json
-
-    {        
-        "ContractNumber": "CL131839T",
-        "Name": null,
-        "Status": null,
-        "FromDate": "2021-06-13T00:00:00",
-        "ToDate": null,
-        "DelegationId": null,
+    {
+        "name": null,
+        "contractNumber": "CL131839T",
+        "delegationId": null,
+        "fromDate": "2024-09-01T00:00:00.000Z",
+        "toDate": "2024-09-02T00:00:00.000Z",
+        "status": null
     }
 
 The query params are like,
@@ -326,7 +325,7 @@ ToDate                   DateTime      Optional          Finishing date
 ===========================   ====================   ===============================================
   POL                           String	               Origin Port
   POLServiceType                String?	               Origin service type
-  POD           	              String	               Destination Port
+  POD           	            String	               Destination Port
   PODServiceType                String	               Destination service type
   StartDate                     DateTime               Starting date
   EndDate                       DateTime               Finishing date
